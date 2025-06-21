@@ -13,6 +13,9 @@ export function Header({ title = 'Sage' }: { title?: string }) {
             {title}
           </Link>
         </div>
+        <nav className="flex space-x-6 ml-auto">
+          <Link to="/teacher-dashboard" className="text-gray-700 hover:text-blue-700 hover:no-underline">Teacher Dashboard</Link>
+        </nav>
       </div>
     </header>
   );
