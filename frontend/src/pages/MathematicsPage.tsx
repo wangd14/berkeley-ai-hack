@@ -19,73 +19,28 @@ const iconMap: any = {
   BarChartIcon,
 };
 
-export function MathematicsPage() {
-  // Find the Mathematics course
-  const mathCourse = coursesData.courses
-    ? coursesData.courses.find((course: any) => course.name === 'Mathematics')
+function getCourseSections(courseName: string) {
+  const course = coursesData.courses
+    ? coursesData.courses.find((c: any) => c.name === courseName)
     : null;
-  // Use subcourses from JSON, fallback to hardcoded if missing
-  const courseSections = mathCourse && mathCourse.subcourses
-    ? mathCourse.subcourses.map((section: any, idx: number) => ({
-        id: idx,
-        title: section.title || section.name,
-        topics: section.topics || [],
-        duration: section.duration || '',
-        completed: section.completed || false,
-        locked: section.locked || false,
-        description: section.description || '',
-        icon: iconMap[section.icon] || FunctionSquareIcon,
-      }))
-    : [
-        {
-          id: 0,
-          title: 'Introduction to Algebra',
-          topics: [
-            'Variables & Constants',
-            'Mathematical Expressions',
-            'Order of Operations',
-          ],
-          duration: '2 hours',
-          completed: true,
-          description:
-            'Learn the fundamental building blocks of algebra and how to work with mathematical expressions.',
-          icon: FunctionSquareIcon,
-        },
-        {
-          id: 1,
-          title: 'Linear Equations',
-          topics: ['Solving Simple Equations', 'Word Problems', 'Graphing Lines'],
-          duration: '3 hours',
-          completed: true,
-          description:
-            'Master the art of solving linear equations and representing them graphically.',
-          icon: GitBranchIcon,
-        },
-        {
-          id: 2,
-          title: 'Polynomials',
-          topics: ['Adding & Subtracting', 'Multiplication', 'Factoring'],
-          duration: '4 hours',
-          completed: false,
-          description:
-            'Explore polynomial operations and techniques for factoring complex expressions.',
-          icon: CircleEqualIcon,
-        },
-        {
-          id: 3,
-          title: 'Quadratic Equations',
-          topics: ['Standard Form', 'Solving Methods', 'Applications'],
-          duration: '5 hours',
-          completed: false,
-          locked: true,
-          description:
-            'Dive deep into quadratic equations and their real-world applications.',
-          icon: BarChartIcon,
-        },
-      ];
+  if (!course || !course.subcourses) return [];
+  return course.subcourses.map((section: any, idx: number) => ({
+    id: idx,
+    title: section.title || section.name,
+    topics: section.topics || [],
+    duration: section.duration || '',
+    completed: section.completed || false,
+    locked: section.locked || false,
+    description: section.description || '',
+    icon: iconMap[section.icon] || FunctionSquareIcon,
+  }));
+}
+
+export function MathematicsPage() {
+  const courseSections = getCourseSections('Mathematics');
   const [selectedSection, setSelectedSection] = useState(0);
   const [isLearningMode, setIsLearningMode] = useState(false);
-  const currentSection = courseSections[selectedSection];
+  const currentSection = courseSections[selectedSection] || {};
   if (isLearningMode) {
     // Placeholder for learning mode
     return (
@@ -95,7 +50,7 @@ export function MathematicsPage() {
           <h2 className="text-2xl font-bold mb-2">{currentSection.title}</h2>
           <p className="mb-4">{currentSection.description}</p>
           <div className="space-y-2">
-            {currentSection.topics.map((topic: string, i: number) => (
+            {currentSection.topics && currentSection.topics.map((topic: string, i: number) => (
               <div key={i} className="flex items-center space-x-2">
                 <BrainIcon className="w-5 h-5 text-blue-500" />
                 <span>{topic}</span>
@@ -120,10 +75,8 @@ export function MathematicsPage() {
             {courseSections.map((section: any, idx: number) => (
               <button
                 key={section.id}
-                onClick={() =>
-                  !section.locked && setSelectedSection(idx)
-                }
-                className={`w-full text-left p-4 rounded-xl transition-all ${selectedSection === idx ? 'bg-white shadow-lg border-2 border-blue-200' : 'bg-white shadow-sm hover:shadow-md border border-gray-100'} ${section.locked ? 'opacity-50 cursor-not-allowed' : 'cursor-pointer'}`}
+                onClick={() => setSelectedSection(idx)}
+                className={`w-full text-left p-4 rounded-xl transition-all ${selectedSection === idx ? 'bg-white shadow-lg border-2 border-blue-200' : 'bg-white shadow-sm hover:shadow-md border border-gray-100'} cursor-pointer`}
               >
                 <div className="flex items-center justify-between">
                   <div className="flex items-center space-x-3">
@@ -141,13 +94,7 @@ export function MathematicsPage() {
                       </p>
                     </div>
                   </div>
-                  <div>
-                    {section.locked ? (
-                      <LockIcon className="w-5 h-5 text-gray-400" />
-                    ) : section.completed ? (
-                      <CheckCircleIcon className="w-5 h-5 text-green-500" />
-                    ) : null}
-                  </div>
+                  {/* Removed completed and locked icons */}
                 </div>
               </button>
             ))}

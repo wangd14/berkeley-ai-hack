@@ -72,22 +72,53 @@
       "aiTip": "Let's explore the wonders of science together!",
       "subcourses": [
         {
-          "name": "Biology",
-          "description": "Learn about Planet Earth.",
-          "image": "https://images.unsplash.com/photo-1581091870620-2f8b1c5d3e4f?w=400&h=300&fit=crop",
-          "lessons": 10
+          "name": "Introduction to Science",
+          "description": "Discover the basics of scientific thinking and the scientific method.",
+          "duration": "1.5 hours",
+          "completed": true,
+          "topics": [
+            "What is Science?",
+            "Scientific Method",
+            "Observation & Experimentation"
+          ],
+          "icon": "FunctionSquareIcon"
         },
         {
-          "name": "Chemistry",
-          "description": "Explore how atoms make up molecules, and the world around us.",
-          "image": "https://images.unsplash.com/photo-1581091870620-2f8b1c5d3e4f?w=400&h=300&fit=crop",
-          "lessons": 10
+          "name": "Biology Fundamentals",
+          "description": "Explore living organisms, cells, and ecosystems.",
+          "duration": "2 hours",
+          "completed": false,
+          "topics": [
+            "Cells & Organisms",
+            "Ecosystems",
+            "Genetics"
+          ],
+          "icon": "GitBranchIcon"
         },
         {
-          "name": "Physics",
-          "description": "Learn about the laws of motion, energy, and the nature of matter.",
-          "image": "https://images.unsplash.com/photo-1581091870620-2f8b1c5d3e4f?w=400&h=300&fit=crop",
-          "lessons": 15
+          "name": "Chemistry Basics",
+          "description": "Learn about atoms, molecules, and chemical reactions.",
+          "duration": "2 hours",
+          "completed": false,
+          "topics": [
+            "Atoms & Molecules",
+            "Periodic Table",
+            "Chemical Reactions"
+          ],
+          "icon": "CircleEqualIcon"
+        },
+        {
+          "name": "Physics Principles",
+          "description": "Understand motion, forces, and energy.",
+          "duration": "2.5 hours",
+          "completed": false,
+          "locked": true,
+          "topics": [
+            "Motion & Forces",
+            "Energy",
+            "Simple Machines"
+          ],
+          "icon": "BarChartIcon"
         }
       ]
     },
