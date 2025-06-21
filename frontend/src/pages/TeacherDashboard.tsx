@@ -1,7 +1,6 @@
 import { useEffect, useState } from 'react'
 import { Header } from '../components/Header'
 import {
-  BookOpenIcon,
   UsersIcon,
   TrendingUpIcon,
   AlertCircleIcon,
@@ -18,19 +17,19 @@ import {
   ResponsiveContainer,
   LineChart,
   Line,
-  PieChart,
-  Pie,
-  Cell,
+  RadarChart,
+  PolarGrid,
+  PolarAngleAxis,
+  PolarRadiusAxis,
+  Radar,
 } from 'recharts'
 
 export function TeacherDashboard() {
   const [dashboard, setDashboard] = useState<any>(null);
-  const COLORS = ['#10B981', '#6366F1', '#EF4444'];
-
   useEffect(() => {
     fetch('/api/teacher-dashboard')
       .then(res => res.json())
-      .then(data => setDashboard(data));
+      .then(data => {setDashboard(data); console.log(data);});
   }, []);
 
   if (!dashboard) {
@@ -41,6 +40,13 @@ export function TeacherDashboard() {
       </div>
     );
   }
+
+  // Use only real data from the API, no mock data
+  const topicDifficulty = dashboard.topic_difficulty;
+  const engagementHeatmap = dashboard.engagement_heatmap;
+  const activityTimeline = dashboard.activity_timeline;
+  const studentRadar = dashboard.student_radar;
+  const studentProfiles = dashboard.student_profiles;
 
   return (
     <div className="w-full min-h-screen bg-gradient-to-br from-blue-50 to-purple-50">
@@ -74,7 +80,7 @@ export function TeacherDashboard() {
                 <div className="text-3xl font-bold text-purple-600">{dashboard.active_subjects}</div>
                 <div className="text-gray-600 mt-1">Active Subjects</div>
               </div>
-              <BookOpenIcon className="w-8 h-8 text-purple-500 opacity-75" />
+              <BrainIcon className="w-8 h-8 text-purple-500 opacity-75" />
             </div>
           </div>
           <div className="bg-white rounded-xl p-6 shadow-sm border border-gray-100">
@@ -87,30 +93,30 @@ export function TeacherDashboard() {
             </div>
           </div>
         </div>
-        <div className="grid grid-cols-1 lg:grid-cols-3 gap-8 mb-8">
-          {/* Subject Performance Chart */}
-          <div className="lg:col-span-2 bg-white rounded-2xl shadow-lg p-6">
-            <h2 className="text-xl font-bold text-gray-900 mb-4">
-              Subject Performance
-            </h2>
-            <div className="h-80">
+        {/* Topic Difficulty Bar Chart */}
+        <div className="bg-white rounded-2xl shadow-lg p-6 mb-8">
+          <h2 className="text-xl font-bold text-gray-900 mb-4">Topic Difficulty</h2>
+          <div className="h-80">
+            {topicDifficulty && topicDifficulty.length > 0 ? (
               <ResponsiveContainer width="100%" height="100%">
-                <BarChart data={dashboard.subject_performance}>
+                <BarChart layout="vertical" data={topicDifficulty}>
                   <CartesianGrid strokeDasharray="3 3" />
-                  <XAxis dataKey="subject" />
-                  <YAxis />
+                  <XAxis type="number" domain={[0, 100]} />
+                  <YAxis dataKey="topic" type="category" />
                   <Tooltip />
-                  <Bar dataKey="average" fill="#6366F1" radius={[4, 4, 0, 0]} />
+                  <Bar dataKey="correctness" fill="#6366F1" radius={[4, 4, 0, 0]} />
                 </BarChart>
               </ResponsiveContainer>
-            </div>
+            ) : (
+              <div className="text-gray-400 text-center pt-20">No topic difficulty data available.</div>
+            )}
           </div>
-          {/* Assignment Status */}
-          <div className="bg-white rounded-2xl shadow-lg p-6">
-            <h2 className="text-xl font-bold text-gray-900 mb-4">
-              Assignment Status
-            </h2>
-            <div className="h-80">
+        </div>
+        {/* Engagement Heatmap */}
+        <div className="bg-white rounded-2xl shadow-lg p-6 mb-8">
+          <h2 className="text-xl font-bold text-gray-900 mb-4">Engagement Heatmap</h2>
+          <div className="h-80">
+            {engagementHeatmap && engagementHeatmap.length > 0 ? (
               <ResponsiveContainer width="100%" height="100%">
                 <PieChart>
                   <Pie
@@ -128,83 +134,80 @@ export function TeacherDashboard() {
                     ))}
                   </Pie>
                   <Tooltip />
-                </PieChart>
+                  <Bar dataKey="Mon" stackId="a" fill="#6366F1" />
+                  <Bar dataKey="Tue" stackId="a" fill="#10B981" />
+                  <Bar dataKey="Wed" stackId="a" fill="#F59E42" />
+                  <Bar dataKey="Thu" stackId="a" fill="#EF4444" />
+                  <Bar dataKey="Fri" stackId="a" fill="#A855F7" />
+                </BarChart>
               </ResponsiveContainer>
-            </div>
-            <div className="flex justify-center space-x-4 mt-4">
-              {dashboard.assignment_status.map((status: any, index: number) => (
-                <div key={status.name} className="flex items-center">
-                  <div
-                    className="w-3 h-3 rounded-full mr-2"
-                    style={{ backgroundColor: COLORS[index] }}
-                  ></div>
-                  <span className="text-sm text-gray-600">
-                    {status.name} ({status.value}%)
-                  </span>
-                </div>
-              ))}
-            </div>
+            ) : (
+              <div className="text-gray-400 text-center pt-20">No engagement data available.</div>
+            )}
           </div>
         </div>
-        <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
-          {/* Weekly Progress */}
-          <div className="lg:col-span-2 bg-white rounded-2xl shadow-lg p-6">
-            <h2 className="text-xl font-bold text-gray-900 mb-4">
-              Weekly Progress
-            </h2>
-            <div className="h-64">
+        {/* Activity Timeline */}
+        <div className="bg-white rounded-2xl shadow-lg p-6 mb-8">
+          <h2 className="text-xl font-bold text-gray-900 mb-4">Activity Timeline</h2>
+          <div className="h-64">
+            {activityTimeline && activityTimeline.length > 0 ? (
               <ResponsiveContainer width="100%" height="100%">
-                <LineChart data={dashboard.weekly_progress}>
+                <LineChart data={activityTimeline}>
                   <CartesianGrid strokeDasharray="3 3" />
                   <XAxis dataKey="day" />
                   <YAxis />
                   <Tooltip />
-                  <Line
-                    type="monotone"
-                    dataKey="completed"
-                    stroke="#6366F1"
-                    strokeWidth={2}
-                  />
+                  <Line type="monotone" dataKey="interactions" stroke="#6366F1" strokeWidth={2} />
                 </LineChart>
               </ResponsiveContainer>
-            </div>
+            ) : (
+              <div className="text-gray-400 text-center pt-20">No activity timeline data available.</div>
+            )}
           </div>
-          {/* Recent Activity */}
-          <div className="bg-white rounded-2xl shadow-lg p-6">
-            <h2 className="text-xl font-bold text-gray-900 mb-4">
-              Recent Activity
-            </h2>
-            <div className="space-y-4">
-              {dashboard.recent_activity.map((activity: any, index: number) => (
-                <div
-                  key={index}
-                  className="flex items-start space-x-3 p-3 hover:bg-gray-50 rounded-lg transition-colors"
-                >
-                  <div className="bg-blue-100 p-2 rounded-full">
-                    <BrainIcon className="w-4 h-4 text-blue-600" />
+        </div>
+        {/* Per-Student Progress Radar Chart */}
+        <div className="bg-white rounded-2xl shadow-lg p-6 mb-8">
+          <h2 className="text-xl font-bold text-gray-900 mb-4">Per-Student Progress (Radar)</h2>
+          <div className="h-96">
+            {studentRadar && studentRadar.length > 0 ? (
+              <ResponsiveContainer width="100%" height="100%">
+                <RadarChart data={studentRadar}>
+                  <PolarGrid />
+                  <PolarAngleAxis dataKey="subject" />
+                  <PolarRadiusAxis angle={30} domain={[0, 100]} />
+                  <Radar name="Student" dataKey="Student" stroke="#6366F1" fill="#6366F1" fillOpacity={0.6} />
+                  <Radar name="ClassAvg" dataKey="ClassAvg" stroke="#10B981" fill="#10B981" fillOpacity={0.3} />
+                  <Tooltip />
+                </RadarChart>
+              </ResponsiveContainer>
+            ) : (
+              <div className="text-gray-400 text-center pt-20">No radar data available.</div>
+            )}
+          </div>
+        </div>
+        {/* Student Profile Cards */}
+        <div className="mb-8">
+          <h2 className="text-xl font-bold text-gray-900 mb-4">Student Profiles</h2>
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+            {studentProfiles && studentProfiles.length > 0 ? (
+              studentProfiles.map((profile: any, idx: number) => (
+                <div key={idx} className={`bg-white rounded-xl p-6 shadow-sm border border-gray-100 ${profile.atRisk ? 'border-red-400' : ''}`}>
+                  <div className="flex items-center justify-between mb-2">
+                    <div className="text-lg font-semibold text-blue-700">{profile.name}</div>
+                    {profile.atRisk && (
+                      <AlertCircleIcon className="w-5 h-5 text-red-500">
+                        <title>At Risk</title>
+                      </AlertCircleIcon>
+                    )}
                   </div>
-                  <div className="flex-1">
-                    <p className="text-sm font-medium text-gray-900">
-                      {activity.student}
-                    </p>
-                    <p className="text-sm text-gray-600">{activity.action}</p>
-                    <div className="flex items-center mt-1 space-x-2">
-                      <span className="text-xs text-gray-500 flex items-center">
-                        <ClockIcon className="w-3 h-3 mr-1" />
-                        {activity.time}
-                      </span>
-                      {activity.score !== '-' && (
-                        <span
-                          className={`text-xs font-medium ${activity.score === 'Pending' ? 'text-yellow-600' : 'text-green-600'}`}
-                        >
-                          {activity.score}
-                        </span>
-                      )}
-                    </div>
-                  </div>
+                  <div className="text-gray-600 mb-2">Mastery: <span className="font-bold text-green-600">{profile.mastery}%</span></div>
+                  <div className="text-gray-500 text-sm mb-2">Recent: {profile.recent}</div>
+                  {profile.atRisk && <div className="text-xs text-red-600 font-semibold">Needs Attention</div>}
                 </div>
-              ))}
-            </div>
+              ))
+            ) : (
+              <div className="text-gray-400 text-center pt-20 w-full">No student profiles available.</div>
+            )}
           </div>
         </div>
       </div>
