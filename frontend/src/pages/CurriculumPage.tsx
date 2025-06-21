@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import { BrainIcon, MessageCircleIcon, PlayIcon, CheckCircleIcon } from 'lucide-react';
+import { BrainIcon, MessageCircleIcon, PlayIcon } from 'lucide-react';
 import { Link } from 'react-router-dom';
 import coursesData from '../../data/courses.json'
 import { Header } from '../components/Header';
@@ -94,10 +94,6 @@ export function CurriculumPage() {
                       <span>Start Learning</span>
                     </button>
                   )}
-                  <div className="flex items-center space-x-1 text-green-600">
-                    <CheckCircleIcon className="w-5 h-5" />
-                    <span className="text-sm font-medium">Ready</span>
-                  </div>
                 </div>
               </div>
             </div>
