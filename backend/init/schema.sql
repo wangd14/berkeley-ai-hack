@@ -6,14 +6,28 @@ CREATE TABLE IF NOT EXISTS user (
     created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
 );
 
--- Analytics table for tracking student interactions
-CREATE TABLE IF NOT EXISTS analytics (
-    id INTEGER PRIMARY KEY AUTOINCREMENT,
-    user_id INTEGER NOT NULL,
-    action TEXT NOT NULL, -- e.g., 'viewed', 'completed', 'asked_ai', etc.
-    content_type TEXT NOT NULL, -- e.g., 'lesson', 'quiz', 'ai', etc.
-    content_id TEXT, -- id of the content interacted with
-    metadata TEXT, -- optional JSON for extra data
-    timestamp TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
-    FOREIGN KEY(user_id) REFERENCES user(id)
+-- Student-AI interaction log for detailed analytics
+CREATE TABLE IF NOT EXISTS student_interactions (
+    interaction_id INTEGER PRIMARY KEY AUTOINCREMENT,
+    session_id TEXT,
+    student_id INTEGER NOT NULL,
+    timestamp DATETIME DEFAULT CURRENT_TIMESTAMP,
+    lesson_id TEXT,
+    topic_id TEXT,
+    question_id TEXT,
+    question_type TEXT, -- e.g., 'socratic', 'exercise', 'explanation_request'
+    student_input TEXT,
+    ai_response TEXT,
+    hint_requested BOOLEAN,
+    hint_level INTEGER, -- e.g., 1=mild, 3=direct
+    response_correctness TEXT, -- 'correct', 'incorrect', 'partial', 'skipped', 'not_applicable'
+    attempts_on_question INTEGER,
+    time_to_respond_seconds INTEGER,
+    FOREIGN KEY(student_id) REFERENCES user(id)
 );
+
+-- Indexes for analytics performance
+CREATE INDEX IF NOT EXISTS idx_student_interactions_student_id ON student_interactions(student_id);
+CREATE INDEX IF NOT EXISTS idx_student_interactions_lesson_id ON student_interactions(lesson_id);
+CREATE INDEX IF NOT EXISTS idx_student_interactions_topic_id ON student_interactions(topic_id);
+CREATE INDEX IF NOT EXISTS idx_student_interactions_timestamp ON student_interactions(timestamp);
