@@ -1,30 +1,15 @@
 import React, { useState } from 'react';
-import { BookOpenIcon, BrainIcon, MessageCircleIcon, StarIcon, PlayIcon, CheckCircleIcon } from 'lucide-react';
+import { BrainIcon, MessageCircleIcon, PlayIcon, CheckCircleIcon } from 'lucide-react';
 import { Link } from 'react-router-dom';
 import coursesData from '../../data/courses.json'
+import { Header } from '../components/Header';
 
 export function CurriculumPage() {
   const [activeChat, setActiveChat] = useState(false);
   const subjects = coursesData.courses;
   return <div className="w-full min-h-screen bg-gradient-to-br from-blue-50 to-purple-50">
       {/* Header */}
-      <header className="bg-white shadow-sm border-b border-blue-100">
-        <div className="max-w-7xl mx-auto px-4 h-14 flex items-center">
-          {/* Logo and Sage name */}
-          <div className="flex items-center space-x-2">
-            <div className="bg-gradient-to-r from-blue-500 to-purple-600 p-2 rounded-lg">
-              <BookOpenIcon className="w-6 h-6 text-white" />
-            </div>
-            <span className="text-xl font-bold text-gray-900 tracking-tight">Sage</span>
-          </div>
-          {/* (Optional) Add navigation links here */}
-          {/* <nav className="ml-8 flex space-x-6">
-            <a href="#" className="text-gray-700 hover:text-blue-600 font-medium">Curriculum</a>
-            <a href="#" className="text-gray-700 hover:text-blue-600 font-medium">Progress</a>
-            <a href="#" className="text-gray-700 hover:text-blue-600 font-medium">Community</a>
-          </nav> */}
-        </div>
-      </header>
+      <Header />
       {/* AI Tutor Introduction */}
       <div className="max-w-7xl mx-auto px-4 py-8">
         <div className="bg-gradient-to-r from-purple-500 to-blue-600 rounded-2xl p-6 text-white mb-8">
