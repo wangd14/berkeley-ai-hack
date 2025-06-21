@@ -18,11 +18,21 @@ const iconMap: any = {
 };
 
 function getCourseSections(courseName: string) {
+  console.log('Looking for course:', courseName);
+  console.log('Available courses:', coursesData.courses?.map((c: any) => c.name));
+  
   const course = coursesData.courses
     ? coursesData.courses.find((c: any) => c.name === courseName)
     : null;
-  if (!course || !course.subcourses) return [];
-  return course.subcourses.map((section: any, idx: number) => ({
+  
+  console.log('Found course:', course);
+  
+  if (!course || !course.subcourses) {
+    console.log('No course or subcourses found');
+    return [];
+  }
+  
+  const sections = course.subcourses.map((section: any, idx: number) => ({
     id: idx,
     title: section.title || section.name,
     topics: section.topics || [],
@@ -32,13 +42,39 @@ function getCourseSections(courseName: string) {
     description: section.description || '',
     icon: iconMap[section.icon] || FunctionSquareIcon,
   }));
+  
+  console.log('Processed sections:', sections);
+  return sections;
 }
 
-export function MathematicsPage() {
-  const courseSections = getCourseSections('Mathematics');
+export function TechnologyPage() {
+  const courseSections = getCourseSections('Technology');
   const [selectedSection, setSelectedSection] = useState(0);
   const [isLearningMode, setIsLearningMode] = useState(false);
   const currentSection = courseSections[selectedSection] || {};
+  
+  // Debug logging
+  console.log('Technology course sections:', courseSections);
+  console.log('Current section:', currentSection);
+  
+  // If no course sections found, show a message
+  if (courseSections.length === 0) {
+    return (
+      <div className="w-full min-h-screen bg-gradient-to-br from-blue-50 to-purple-50">
+        <Header />
+        <div className="max-w-7xl mx-auto px-4 py-8">
+          <div className="mb-8">
+            <h1 className="text-3xl font-bold text-gray-900">Technology Course</h1>
+            <p className="text-gray-600 mt-1">Master digital literacy and coding fundamentals</p>
+          </div>
+          <div className="bg-white rounded-2xl shadow-lg p-8 text-center">
+            <h2 className="text-2xl font-bold text-gray-900 mb-4">Course Content Loading...</h2>
+            <p className="text-gray-600">Please wait while we load the course content.</p>
+          </div>
+        </div>
+      </div>
+    );
+  }
   if (isLearningMode) {
     // Placeholder for learning mode
     return (
@@ -64,8 +100,8 @@ export function MathematicsPage() {
       <Header />
       <div className="max-w-7xl mx-auto px-4 py-8">
         <div className="mb-8">
-          <h1 className="text-3xl font-bold text-gray-900">Mathematics Course</h1>
-          <p className="text-gray-600 mt-1">Master algebraic concepts step by step</p>
+          <h1 className="text-3xl font-bold text-gray-900">Technology Course</h1>
+          <p className="text-gray-600 mt-1">Master digital literacy and coding fundamentals</p>
         </div>
         <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
           {/* Course Sections Navigation */}

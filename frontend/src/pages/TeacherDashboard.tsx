@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react'
+import { useEffect, useState } from 'react'
 import { Header } from '../components/Header'
 import {
   BookOpenIcon,
@@ -7,7 +7,6 @@ import {
   AlertCircleIcon,
   BrainIcon,
   ClockIcon,
-  CheckCircleIcon,
 } from 'lucide-react'
 import {
   BarChart,
@@ -121,7 +120,7 @@ export function TeacherDashboard() {
                     paddingAngle={5}
                     dataKey="value"
                   >
-                    {dashboard.assignment_status.map((entry: any, index: number) => (
+                    {dashboard.assignment_status.map((_entry: any, index: number) => (
                       <Cell
                         key={`cell-${index}`}
                         fill={COLORS[index % COLORS.length]}

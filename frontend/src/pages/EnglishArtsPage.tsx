@@ -34,8 +34,8 @@ function getCourseSections(courseName: string) {
   }));
 }
 
-export function MathematicsPage() {
-  const courseSections = getCourseSections('Mathematics');
+export function EnglishArtsPage() {
+  const courseSections = getCourseSections('English Language Arts');
   const [selectedSection, setSelectedSection] = useState(0);
   const [isLearningMode, setIsLearningMode] = useState(false);
   const currentSection = courseSections[selectedSection] || {};
@@ -64,8 +64,8 @@ export function MathematicsPage() {
       <Header />
       <div className="max-w-7xl mx-auto px-4 py-8">
         <div className="mb-8">
-          <h1 className="text-3xl font-bold text-gray-900">Mathematics Course</h1>
-          <p className="text-gray-600 mt-1">Master algebraic concepts step by step</p>
+          <h1 className="text-3xl font-bold text-gray-900">English Language Arts Course</h1>
+          <p className="text-gray-600 mt-1">Master reading, writing, and literature analysis</p>
         </div>
         <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
           {/* Course Sections Navigation */}
