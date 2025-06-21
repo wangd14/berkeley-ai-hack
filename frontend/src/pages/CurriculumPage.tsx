@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { BookOpenIcon, BrainIcon, MessageCircleIcon, StarIcon, PlayIcon, CheckCircleIcon } from 'lucide-react';
+import { Link } from 'react-router-dom';
 export function CurriculumPage() {
   const [activeChat, setActiveChat] = useState(false);
   const subjects = [{
@@ -41,29 +42,21 @@ export function CurriculumPage() {
   }];
   return <div className="w-full min-h-screen bg-gradient-to-br from-blue-50 to-purple-50">
       {/* Header */}
-      <header className="bg-white shadow-sm border-b-2 border-blue-100">
-        <div className="max-w-7xl mx-auto px-4 py-6">
-          <div className="flex items-center justify-between">
-            <div className="flex items-center space-x-4">
-              <div className="bg-gradient-to-r from-blue-500 to-purple-600 p-3 rounded-xl">
-                <BookOpenIcon className="w-8 h-8 text-white" />
-              </div>
-              <div>
-                <h1 className="text-3xl font-bold text-gray-900">
-                  7th Grade Curriculum
-                </h1>
-                <p className="text-gray-600 mt-1">
-                  Your journey to academic excellence starts here!
-                </p>
-              </div>
+      <header className="bg-white shadow-sm border-b border-blue-100">
+        <div className="max-w-7xl mx-auto px-4 h-14 flex items-center">
+          {/* Logo and Sage name */}
+          <div className="flex items-center space-x-2">
+            <div className="bg-gradient-to-r from-blue-500 to-purple-600 p-2 rounded-lg">
+              <BookOpenIcon className="w-6 h-6 text-white" />
             </div>
-            <div className="flex items-center space-x-4">
-              <div className="bg-green-100 px-4 py-2 rounded-full flex items-center space-x-2">
-                <StarIcon className="w-5 h-5 text-green-600" />
-                <span className="text-green-800 font-semibold">Level 7</span>
-              </div>
-            </div>
+            <span className="text-xl font-bold text-gray-900 tracking-tight">Sage</span>
           </div>
+          {/* (Optional) Add navigation links here */}
+          {/* <nav className="ml-8 flex space-x-6">
+            <a href="#" className="text-gray-700 hover:text-blue-600 font-medium">Curriculum</a>
+            <a href="#" className="text-gray-700 hover:text-blue-600 font-medium">Progress</a>
+            <a href="#" className="text-gray-700 hover:text-blue-600 font-medium">Community</a>
+          </nav> */}
         </div>
       </header>
       {/* AI Tutor Introduction */}
@@ -109,7 +102,8 @@ export function CurriculumPage() {
         </div>
         {/* Subject Cards */}
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-          {subjects.map((subject, index) => <div key={index} className="bg-white rounded-2xl shadow-lg hover:shadow-xl transition-shadow duration-300 overflow-hidden">
+          {subjects.map((subject, index) => (
+            <div key={index} className="bg-white rounded-2xl shadow-lg hover:shadow-xl transition-shadow duration-300 overflow-hidden">
               <div className="relative">
                 <img src={subject.image} alt={subject.name} className="w-full h-48 object-cover" />
                 <div className="absolute top-4 right-4 bg-white bg-opacity-90 px-3 py-1 rounded-full">
@@ -133,17 +127,25 @@ export function CurriculumPage() {
                   </div>
                 </div>
                 <div className="flex items-center justify-between">
-                  <button className="bg-gradient-to-r from-blue-500 to-purple-600 text-white px-6 py-2 rounded-full font-semibold hover:from-blue-600 hover:to-purple-700 transition-colors flex items-center space-x-2">
-                    <PlayIcon className="w-4 h-4" />
-                    <span>Start Learning</span>
-                  </button>
+                  {subject.name === 'Mathematics' ? (
+                    <Link to="/mathematics" className="bg-gradient-to-r from-blue-500 to-purple-600 text-white px-6 py-2 rounded-full font-semibold hover:from-blue-600 hover:to-purple-700 transition-colors flex items-center space-x-2">
+                      <PlayIcon className="w-4 h-4" />
+                      <span>Start Learning</span>
+                    </Link>
+                  ) : (
+                    <button className="bg-gradient-to-r from-blue-500 to-purple-600 text-white px-6 py-2 rounded-full font-semibold hover:from-blue-600 hover:to-purple-700 transition-colors flex items-center space-x-2">
+                      <PlayIcon className="w-4 h-4" />
+                      <span>Start Learning</span>
+                    </button>
+                  )}
                   <div className="flex items-center space-x-1 text-green-600">
                     <CheckCircleIcon className="w-5 h-5" />
                     <span className="text-sm font-medium">Ready</span>
                   </div>
                 </div>
               </div>
-            </div>)}
+            </div>
+          ))}
         </div>
         {/* AI Chat Popup */}
         {activeChat && <div className="fixed bottom-6 right-6 bg-white rounded-2xl shadow-2xl border border-gray-200 w-80 h-96 flex flex-col">
