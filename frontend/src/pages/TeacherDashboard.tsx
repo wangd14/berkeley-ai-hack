@@ -1,11 +1,10 @@
-import React, { useEffect, useState } from 'react'
+import { useEffect, useState } from 'react'
 import { Header } from '../components/Header'
 import {
   UsersIcon,
   TrendingUpIcon,
   AlertCircleIcon,
   BrainIcon,
-  ClockIcon,
 } from 'lucide-react'
 import {
   BarChart,
