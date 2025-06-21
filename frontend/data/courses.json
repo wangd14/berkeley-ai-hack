@@ -34,11 +34,7 @@
           "description": "Learn the fundamentals of algebra including variables, equations, and functions.",
           "image": "https://images.unsplash.com/photo-1581091870620-2f8b1c5d3e4f?w=400&h=300&fit=crop",
           "lessons": 15,
-          "topics": [
-            "Linear Equations",
-            "Inequalities",
-            "Polynomials"
-          ]
+          "topics": ["Linear Equations", "Inequalities", "Polynomials"]
         },
         {
           "name": "Geometry",
@@ -88,11 +84,7 @@
           "description": "Explore living organisms, cells, and ecosystems.",
           "duration": "2 hours",
           "completed": false,
-          "topics": [
-            "Cells & Organisms",
-            "Ecosystems",
-            "Genetics"
-          ],
+          "topics": ["Cells & Organisms", "Ecosystems", "Genetics"],
           "icon": "GitBranchIcon"
         },
         {
@@ -113,14 +105,24 @@
           "duration": "2.5 hours",
           "completed": false,
           "locked": true,
-          "topics": [
-            "Motion & Forces",
-            "Energy",
-            "Simple Machines"
-          ],
+          "topics": ["Motion & Forces", "Energy", "Simple Machines"],
           "icon": "BarChartIcon"
         }
       ]
+    },
+    {
+      "name": "English Language Arts",
+      "description": "Reading, Writing, and Literature Analysis",
+      "image": "https://images.unsplash.com/photo-1481627834876-b7833e8f5570?w=400&h=300&fit=crop",
+      "lessons": 52,
+      "aiTip": "I'll help you become a confident writer and reader!"
+    },
+    {
+      "name": "Technology",
+      "description": "Digital Literacy and Coding Basics",
+      "image": "https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?w=400&h=300&fit=crop",
+      "lessons": 25,
+      "aiTip": "Code your way to the future with fun projects!"
     }
   ]
 }
