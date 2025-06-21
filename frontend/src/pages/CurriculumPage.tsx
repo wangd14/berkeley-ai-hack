@@ -1,45 +1,11 @@
 import React, { useState } from 'react';
 import { BookOpenIcon, BrainIcon, MessageCircleIcon, StarIcon, PlayIcon, CheckCircleIcon } from 'lucide-react';
 import { Link } from 'react-router-dom';
+import coursesData from '../../data/courses.json'
+
 export function CurriculumPage() {
   const [activeChat, setActiveChat] = useState(false);
-  const subjects = [{
-    name: 'Mathematics',
-    description: 'Algebra, Geometry, and Problem Solving',
-    image: 'https://images.unsplash.com/photo-1635070041078-e363dbe005cb?w=400&h=300&fit=crop',
-    lessons: 45,
-    aiTip: "I'll help you master equations step by step!"
-  }, {
-    name: 'Science',
-    description: 'Biology, Chemistry, and Physics Fundamentals',
-    image: 'https://images.unsplash.com/photo-1582719471384-894fbb16e074?w=400&h=300&fit=crop',
-    lessons: 38,
-    aiTip: "Let's explore the wonders of science together!"
-  }, {
-    name: 'English Language Arts',
-    description: 'Reading, Writing, and Literature Analysis',
-    image: 'https://images.unsplash.com/photo-1481627834876-b7833e8f5570?w=400&h=300&fit=crop',
-    lessons: 52,
-    aiTip: "I'll help you become a confident writer and reader!"
-  }, {
-    name: 'Social Studies',
-    description: 'World History and Geography',
-    image: 'https://images.unsplash.com/photo-1578662996442-48f60103fc96?w=400&h=300&fit=crop',
-    lessons: 35,
-    aiTip: 'Discover fascinating stories from around the world!'
-  }, {
-    name: 'Art & Creativity',
-    description: 'Visual Arts and Creative Expression',
-    image: 'https://images.unsplash.com/photo-1513475382585-d06e58bcb0e0?w=400&h=300&fit=crop',
-    lessons: 28,
-    aiTip: 'Let your creativity shine with guided projects!'
-  }, {
-    name: 'Technology',
-    description: 'Digital Literacy and Coding Basics',
-    image: 'https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?w=400&h=300&fit=crop',
-    lessons: 25,
-    aiTip: 'Code your way to the future with fun projects!'
-  }];
+  const subjects = coursesData.courses;
   return <div className="w-full min-h-screen bg-gradient-to-br from-blue-50 to-purple-50">
       {/* Header */}
       <header className="bg-white shadow-sm border-b border-blue-100">
