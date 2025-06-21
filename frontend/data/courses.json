@@ -24,12 +24,15 @@
           "description": "Learn the fundamentals of algebra including variables, equations, and functions.",
           "image": "https://images.unsplash.com/photo-1581091870620-2f8b1c5d3e4f?w=400&h=300&fit=crop",
           "lessons": 15
-        },{
+        },
+        {
           "name": "Geometry",
           "description": "Explore shapes, sizes, and the properties of space.",
           "image": "https://images.unsplash.com/photo-1506748686214-e9df14d4d9d0?w=400&h=300&fit=crop",
           "lessons": 15
-        },{ "name": "Statistics",
+        },
+        {
+          "name": "Statistics",
           "description": "Understand data analysis, probability, and statistical concepts.",
           "image": "https://images.unsplash.com/photo-1581091870620-2f8b1c5d3e4f?w=400&h=300&fit=crop",
           "lessons": 15
@@ -41,7 +44,27 @@
       "description": "Biology, Chemistry, and Physics Fundamentals",
       "image": "https://images.unsplash.com/photo-1582719471384-894fbb16e074?w=400&h=300&fit=crop",
       "lessons": 38,
-      "aiTip": "Let's explore the wonders of science together!"
+      "aiTip": "Let's explore the wonders of science together!",
+      "subcourses": [
+        {
+          "name": "Biology",
+          "description": "Learn about Planet Earth.",
+          "image": "https://images.unsplash.com/photo-1581091870620-2f8b1c5d3e4f?w=400&h=300&fit=crop",
+          "lessons": 10
+        },
+        {
+          "name": "Chemistry",
+          "description": "Explore how atoms make up molecules, and the world around us.",
+          "image": "https://images.unsplash.com/photo-1581091870620-2f8b1c5d3e4f?w=400&h=300&fit=crop",
+          "lessons": 10
+        },
+        {
+          "name": "Physics",
+          "description": "Learn about the laws of motion, energy, and the nature of matter.",
+          "image": "https://images.unsplash.com/photo-1581091870620-2f8b1c5d3e4f?w=400&h=300&fit=crop",
+          "lessons": 15
+        }
+      ]
     },
     {
       "name": "English Language Arts",

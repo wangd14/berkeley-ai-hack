@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import { useState } from 'react';
 import { BrainIcon, MessageCircleIcon, PlayIcon, CheckCircleIcon } from 'lucide-react';
 import { Link } from 'react-router-dom';
 import coursesData from '../../data/courses.json'
@@ -80,6 +80,11 @@ export function CurriculumPage() {
                 <div className="flex items-center justify-between">
                   {subject.name === 'Mathematics' ? (
                     <Link to="/mathematics" className="bg-gradient-to-r from-blue-500 to-purple-600 text-white px-6 py-2 rounded-full font-semibold hover:from-blue-600 hover:to-purple-700 transition-colors flex items-center space-x-2">
+                      <PlayIcon className="w-4 h-4" />
+                      <span>Start Learning</span>
+                    </Link>
+                  ) : subject.name === 'Science' ? (
+                    <Link to="/science" className="bg-gradient-to-r from-blue-500 to-purple-600 text-white px-6 py-2 rounded-full font-semibold hover:from-blue-600 hover:to-purple-700 transition-colors flex items-center space-x-2">
                       <PlayIcon className="w-4 h-4" />
                       <span>Start Learning</span>
                     </Link>
