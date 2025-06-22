@@ -1,6 +1,8 @@
 import React, { useState, useEffect } from 'react';
 import { BookOpenIcon, CheckCircleIcon, XCircleIcon } from 'lucide-react';
+import { useLanguage } from '../../context/LanguageContext';
 import coursesData from '../../../data/courses.json';
+import coursesDataShona from '../../../data/courses_shona.json';
 
 interface Course {
   name: string;
@@ -30,6 +32,9 @@ interface PracticeQuestion {
 }
 
 const PythonPage: React.FC = () => {
+  const { language } = useLanguage();
+  const data = language === 'Shona' ? coursesDataShona : coursesData;
+
   const [currentLesson, setCurrentLesson] = useState(0);
   const [currentQuestion, setCurrentQuestion] = useState(0);
   const [userAnswer, setUserAnswer] = useState('');
@@ -38,8 +43,8 @@ const PythonPage: React.FC = () => {
   const [completedLessons, setCompletedLessons] = useState<number[]>([0]);
 
   // Find Python course data
-  const technologyCourse = coursesData.courses.find((course: Course) => course.name === 'Technology');
-  const pythonCourse = technologyCourse?.subcourses?.find((sub: Subcourse) => sub.name === 'Introduction to Python');
+  const technologyCourse = data.courses.find((course: Course) => course.name === (language === 'Shona' ? 'Tekinoroji' : 'Technology'));
+  const pythonCourse = technologyCourse?.subcourses?.find((sub: Subcourse) => sub.name === (language === 'Shona' ? 'Nhanganyaya kuPython' : 'Introduction to Python'));
   const lessonPlan = pythonCourse?.lessonPlan || [];
 
   const currentLessonData = lessonPlan[currentLesson];
@@ -252,4 +257,4 @@ const PythonPage: React.FC = () => {
   );
 };
 
-export default PythonPage; 
+export default PythonPage;

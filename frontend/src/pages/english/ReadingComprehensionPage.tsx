@@ -2,20 +2,28 @@ import { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { Header } from '../../components/Header';
 import { BookOpenIcon, CheckCircleIcon, LockIcon, ArrowLeftIcon } from 'lucide-react';
+import { useLanguage } from '../../context/LanguageContext';
 import coursesData from '../../../data/courses.json';
+import coursesDataShona from '../../../data/courses_shona.json';
+
+function getLessonPlan(language: string) {
+  const data = language === 'Shona' ? coursesDataShona : coursesData;
+  const englishCourse = data.courses.find((c: any) => c.name === (language === 'Shona' ? 'Mitauro neUnyanzvi hweChirungu' : 'English Language Arts'));
+  if (!englishCourse || !englishCourse.subcourses) return [];
+  const readingCourse = englishCourse.subcourses.find((sub: any) => sub.name === (language === 'Shona' ? 'Kunzwisisa Kuverenga' : 'Reading Comprehension'));
+  if (!readingCourse || !readingCourse.lessonPlan) return [];
+  return readingCourse.lessonPlan;
+}
 
 export function ReadingComprehensionPage() {
   const navigate = useNavigate();
+  const { language } = useLanguage();
+  const lessonPlan: any[] = getLessonPlan(language);
   const [selectedLesson, setSelectedLesson] = useState(0);
   const [currentQuestion, setCurrentQuestion] = useState(0);
   const [userAnswer, setUserAnswer] = useState('');
   const [isCorrect, setIsCorrect] = useState<boolean | null>(null);
   const [showFeedback, setShowFeedback] = useState(false);
-
-  // Get the Reading Comprehension course data
-  const englishCourse = coursesData.courses.find((course: any) => course.name === 'English Language Arts');
-  const readingCourse = englishCourse?.subcourses.find((sub: any) => sub.name === 'Reading Comprehension');
-  const lessonPlan = readingCourse?.lessonPlan || [];
 
   const currentLesson = lessonPlan[selectedLesson];
   const practiceQuestions = currentLesson?.practiceQuestions || [];
@@ -235,4 +243,4 @@ export function ReadingComprehensionPage() {
       </div>
     </div>
   );
-} 
+}

@@ -58,9 +58,7 @@ export function Header({ title = 'Sage' }: { title?: string }) {
             className="border rounded-md p-1 text-gray-700"
           >
             <option value="English">English</option>
-            <option value="Spanish">Español</option>
-            <option value="French">Français</option>
-            <option value="German">Deutsch</option>
+            <option value="Shona">Shona</option>
           </select>
           {isAuthenticated && (
             <button onClick={handleSignOut} className="ml-4 px-3 py-1 bg-red-600 text-white rounded-md hover:bg-red-700">

@@ -1,44 +1,48 @@
 import { useState } from 'react';
 import { BrainIcon, MessageCircleIcon, PlayIcon } from 'lucide-react';
 import { Link } from 'react-router-dom';
-import coursesData from '../../data/courses.json'
+import { useLanguage } from '../context/LanguageContext';
+import coursesData from '../../data/courses.json';
+import coursesDataShona from '../../data/courses_shona.json';
 import { Header } from '../components/Header';
 
 export function CurriculumPage() {
   const [activeChat, setActiveChat] = useState(false);
-  const subjects = coursesData.courses;
+  const { language } = useLanguage();
+  const data = language === 'Shona' ? coursesDataShona : coursesData;
+  const subjects = data.courses;
   return <div className="w-full min-h-screen bg-gradient-to-br from-blue-50 to-purple-50">
       {/* Header */}
       <Header />
       {/* AI Tutor Introduction */}
       <div className="max-w-7xl mx-auto px-4 py-8">
         <div className="bg-gradient-to-r from-purple-500 to-blue-600 rounded-2xl p-6 text-white mb-8 text-3xl">
-          Welcome to your Learning Hub
+          {language === 'Shona' ? 'Kugamuchirwa kuDzidzo Yako' : 'Welcome to your Learning Hub'}
         </div>
         {/* Quick Stats */}
         <div className="grid grid-cols-1 md:grid-cols-4 gap-6 mb-8">
           <div className="bg-white rounded-xl p-6 shadow-sm border border-gray-100">
-            <div className="text-3xl font-bold text-blue-600">{coursesData.courses.length}</div>
-            <div className="text-gray-600 mt-1">Core Subjects</div>
+            <div className="text-3xl font-bold text-blue-600">{data.courses.length}</div>
+            <div className="text-gray-600 mt-1">{language === 'Shona' ? 'Zvidzidzo Zvikuru' : 'Core Subjects'}</div>
           </div>
           <div className="bg-white rounded-xl p-6 shadow-sm border border-gray-100">
             <div className="text-3xl font-bold text-green-600">{
-              coursesData.courses.reduce((total: number, course: any) => {
+              data.courses.reduce((total: number, course: any) => {
                 if (Array.isArray(course.subcourses)) {
                   return total + course.subcourses.length;
                 }
                 return total;
               }, 0)
             }</div>
-            <div className="text-gray-600 mt-1">Total Lessons</div>
+            <div className="text-gray-600 mt-1">{language === 'Shona' ? 'Zvidzidzo Zvese' : 'Total Lessons'}</div>
           </div>
           <div className="bg-white rounded-xl p-6 shadow-sm border border-gray-100">
             <div className="text-3xl font-bold text-purple-600">24/7</div>
-            <div className="text-gray-600 mt-1">Offline AI Tutor</div>
+            <div className="text-gray-600 mt-1">{language === 'Shona' ? 'AI Mudzidzisi Asina Internet' : 'Offline AI Tutor'}</div>
           </div>
           <div className="bg-white rounded-xl p-6 shadow-sm border border-gray-100">
-            <div className="text-3xl font-bold text-orange-600">Step by Step</div>
-            <div className="text-gray-600 mt-1">Questions and Hints</div>
+            <div className="text-3xl font-bold text-orange-600">{language === 'Shona' ? 'Nhanho neNhanho' : 'Step by Step'}</div>
+            <div className="text-gray-600 mt-1">{language === 'Shona' ? 'Mibvunzo neMazano' : 'Questions and Hints'}</div>
           </div>
         </div>
         {/* Subject Cards */}
@@ -49,7 +53,7 @@ export function CurriculumPage() {
                 <img src={subject.image} alt={subject.name} className="w-full h-48 object-cover" />
                 <div className="absolute top-4 right-4 bg-white bg-opacity-90 px-3 py-1 rounded-full">
                   <span className="text-sm font-semibold text-gray-700">
-                    {Array.isArray(subject.subcourses) ? subject.subcourses.length : 0} lessons
+                    {Array.isArray(subject.subcourses) ? subject.subcourses.length : 0} {language === 'Shona' ? 'zvidzidzo' : 'lessons'}
                   </span>
                 </div>
               </div>
@@ -68,30 +72,30 @@ export function CurriculumPage() {
                   </div>
                 </div>
                 <div className="flex items-center justify-between">
-                  {subject.name === 'Mathematics' ? (
+                  {subject.name === (language === 'Shona' ? 'Masvomhu' : 'Mathematics') ? (
                     <Link to="/mathematics" className="bg-gradient-to-r from-blue-500 to-purple-600 text-white px-6 py-2 rounded-full font-semibold hover:from-blue-600 hover:to-purple-700 transition-colors flex items-center space-x-2">
                       <PlayIcon className="w-4 h-4" />
-                      <span>Start Learning</span>
+                      <span>{language === 'Shona' ? 'Tanga Kudzidza' : 'Start Learning'}</span>
                     </Link>
-                  ) : subject.name === 'Science' ? (
+                  ) : subject.name === (language === 'Shona' ? 'Sainzi' : 'Science') ? (
                     <Link to="/science" className="bg-gradient-to-r from-blue-500 to-purple-600 text-white px-6 py-2 rounded-full font-semibold hover:from-blue-600 hover:to-purple-700 transition-colors flex items-center space-x-2">
                       <PlayIcon className="w-4 h-4" />
-                      <span>Start Learning</span>
+                      <span>{language === 'Shona' ? 'Tanga Kudzidza' : 'Start Learning'}</span>
                     </Link>
-                  ) : subject.name === 'English Language Arts' ? (
+                  ) : subject.name === (language === 'Shona' ? 'Mitauro neUnyanzvi hweChirungu' : 'English Language Arts') ? (
                     <Link to="/english-arts" className="bg-gradient-to-r from-blue-500 to-purple-600 text-white px-6 py-2 rounded-full font-semibold hover:from-blue-600 hover:to-purple-700 transition-colors flex items-center space-x-2">
                       <PlayIcon className="w-4 h-4" />
-                      <span>Start Learning</span>
+                      <span>{language === 'Shona' ? 'Tanga Kudzidza' : 'Start Learning'}</span>
                     </Link>
-                  ) : subject.name === 'Technology' ? (
+                  ) : subject.name === (language === 'Shona' ? 'Tekinoroji' : 'Technology') ? (
                     <Link to="/technology" className="bg-gradient-to-r from-blue-500 to-purple-600 text-white px-6 py-2 rounded-full font-semibold hover:from-blue-600 hover:to-purple-700 transition-colors flex items-center space-x-2">
                       <PlayIcon className="w-4 h-4" />
-                      <span>Start Learning</span>
+                      <span>{language === 'Shona' ? 'Tanga Kudzidza' : 'Start Learning'}</span>
                     </Link>
                   ) : (
                     <button className="bg-gradient-to-r from-blue-500 to-purple-600 text-white px-6 py-2 rounded-full font-semibold hover:from-blue-600 hover:to-purple-700 transition-colors flex items-center space-x-2">
                       <PlayIcon className="w-4 h-4" />
-                      <span>Start Learning</span>
+                      <span>{language === 'Shona' ? 'Tanga Kudzidza' : 'Start Learning'}</span>
                     </button>
                   )}
                 </div>

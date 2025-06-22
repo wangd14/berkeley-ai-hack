@@ -2,9 +2,21 @@ import { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { Header } from '../../components/Header';
 import { BookOpenIcon, CheckCircleIcon, LockIcon, ArrowLeftIcon } from 'lucide-react';
+import { useLanguage } from '../../context/LanguageContext';
 import coursesData from '../../../data/courses.json';
+import coursesDataShona from '../../../data/courses_shona.json';
+
+function getLessonPlan(language: string) {
+  const data = language === 'Shona' ? coursesDataShona : coursesData;
+  const englishCourse = data.courses.find((c: any) => c.name === (language === 'Shona' ? 'Mitauro neUnyanzvi hweChirungu' : 'English Language Arts'));
+  if (!englishCourse || !englishCourse.subcourses) return [];
+  const narrativesCourse = englishCourse.subcourses.find((sub: any) => sub.name === (language === 'Shona' ? 'Writing personal narratives' : 'Writing personal narratives'));
+  if (!narrativesCourse || !narrativesCourse.lessonPlan) return [];
+  return narrativesCourse.lessonPlan;
+}
 
 export function PersonalNarrativesPage() {
+  const { language } = useLanguage();
   const navigate = useNavigate();
   const [selectedLesson, setSelectedLesson] = useState(0);
   const [currentQuestion, setCurrentQuestion] = useState(0);
@@ -13,9 +25,7 @@ export function PersonalNarrativesPage() {
   const [showFeedback, setShowFeedback] = useState(false);
 
   // Get the Personal Narratives course data
-  const englishCourse = coursesData.courses.find((course: any) => course.name === 'English Language Arts');
-  const narrativesCourse = englishCourse?.subcourses.find((sub: any) => sub.name === 'Writing personal narratives');
-  const lessonPlan = narrativesCourse?.lessonPlan || [];
+  const lessonPlan: any[] = getLessonPlan(language);
 
   const currentLesson = lessonPlan[selectedLesson];
   const practiceQuestions = currentLesson?.practiceQuestions || [];
@@ -235,4 +245,4 @@ export function PersonalNarrativesPage() {
       </div>
     </div>
   );
-} 
+}

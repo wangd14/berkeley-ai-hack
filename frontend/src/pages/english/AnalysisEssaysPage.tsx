@@ -2,10 +2,14 @@ import { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { Header } from '../../components/Header';
 import { BookOpenIcon, CheckCircleIcon, LockIcon, ArrowLeftIcon } from 'lucide-react';
+import { useLanguage } from '../../context/LanguageContext';
 import coursesData from '../../../data/courses.json';
+import coursesDataShona from '../../../data/courses_shona.json';
 
 export function AnalysisEssaysPage() {
   const navigate = useNavigate();
+  const { language } = useLanguage();
+  const data = language === 'Shona' ? coursesDataShona : coursesData;
   const [selectedLesson, setSelectedLesson] = useState(0);
   const [currentQuestion, setCurrentQuestion] = useState(0);
   const [userAnswer, setUserAnswer] = useState('');
@@ -13,8 +17,8 @@ export function AnalysisEssaysPage() {
   const [showFeedback, setShowFeedback] = useState(false);
 
   // Get the Analysis Essays course data
-  const englishCourse = coursesData.courses.find((course: any) => course.name === 'English Language Arts');
-  const essaysCourse = englishCourse?.subcourses.find((sub: any) => sub.name === 'Writing analysis essays');
+  const englishCourse = data.courses.find((course: any) => course.name === (language === 'Shona' ? 'Mitauro neUnyanzvi hweChirungu' : 'English Language Arts'));
+  const essaysCourse = englishCourse?.subcourses.find((sub: any) => sub.name === (language === 'Shona' ? 'Writing analysis essays' : 'Writing analysis essays'));
   const lessonPlan = essaysCourse?.lessonPlan || [];
 
   const currentLesson = lessonPlan[selectedLesson];
@@ -235,4 +239,4 @@ export function AnalysisEssaysPage() {
       </div>
     </div>
   );
-} 
+}

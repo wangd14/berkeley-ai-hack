@@ -1,0 +1,810 @@
+{
+  "courses": [
+    {
+      "name": "Masvomhu",
+      "description": "Algebra, Geometry, uye Kugadzirisa Matambudziko",
+      "image": "https://images.unsplash.com/photo-1635070041078-e363dbe005cb?w=400&h=300&fit=crop",
+      "lessons": 45,
+      "aiTip": "Ndichakubatsira kudzidza masvomhu nhanho nenhanho!",
+      "subcourses": [
+        {
+          "name": "Masvomhu Ekutanga",
+          "description": "Nhanganyaya yekuverenga kwakapusa uye dzidziso yenhamba.",
+          "image": "https://images.unsplash.com/photo-1581091870620-2f8b1c5d3e4f?w=400&h=300&fit=crop",
+          "lessons": 10,
+          "topics": [
+            "Nhanganyaya kuNhamba",
+            "Mabasa Akakosha",
+            "Zvikamu uye Zvakawanda"
+          ],
+          "lessonPlan": [
+            {
+              "id": 0,
+              "title": "Nhanganyaya kuNhamba",
+              "topics": [
+                "Nhamba Dzose",
+                "Kukosha kweNzvimbo",
+                "Mutsetse weNhamba"
+              ],
+              "duration": "awa 1",
+              "completed": true,
+              "description": "Dzidza nezve nhamba dzose, kukosha kwenzvimbo, uye kushandisa mutsetse wenhamba.",
+              "practiceQuestions": [
+                { "question": "Chii chinonzi kukosha kwenzvimbo ye 5 mu 352?", "answer": "50" },
+                { "question": "Ndeipi nhamba inotevera 19?", "answer": "20" },
+                { "question": "Ko 0 inonzi nhamba yose here? (hongu kana kwete)", "answer": "hongu" }
+              ],
+              "contentParagraphs": [
+                "Nhamba dzose idzo dzisina zvikamu kana madimikira, kutanga pa 0 uye kuwedzera ne 1 nguva dzese (0, 1, 2, 3, ...).",
+                "Kukosha kwenzvimbo kunoratidza kukosha kwechiratidzo mune nhamba zvichienderana nenzvimbo yacho. Semuenzaniso, mu 352, 5 iri panzvimbo yetens, saka inomirira 50.",
+                "Mutsetse wenhamba inzira yekuona nhamba dzakarongeka. Inobatsira kunzwisisa kuverenga, kuenzanisa, uye pfungwa yekuti chii chakakura kana chidiki."
+              ]
+            },
+            {
+              "id": 1,
+              "title": "Mabasa Akakosha",
+              "topics": [
+                "Kuverenga & Kubvisa",
+                "Kuwedzera",
+                "Kupatsanura"
+              ],
+              "duration": "maawa 1.5",
+              "completed": false,
+              "description": "Dzidza mabasa mana akakosha: kuverenga, kubvisa, kuwedzera, uye kupatsanura.",
+              "practiceQuestions": [
+                { "question": "Chii chinonzi 7 + 6?", "answer": "13" },
+                { "question": "Bvisa: 15 - 9", "answer": "6" },
+                { "question": "Wedza: 4 × 3", "answer": "12" }
+              ],
+              "contentParagraphs": [
+                "Kuverenga kunoreva kuunganidza nhamba kuti uwane huwandu. Kubvisa kunoreva kubvisa kubva panhamba.",
+                "Kuwedzera kuverenga kunodzokororwa. Semuenzaniso, 4 × 3 zvinoreva 4 kuwedzerwa katatu (4 + 4 + 4 = 12).",
+                "Kupatsanura kunoreva kupatsanura nhamba kuita zvikamu zvakaenzana. Semuenzaniso, 12 ÷ 3 zvinoreva kupatsanura 12 kuita mapoka matatu e4."
+              ]
+            },
+            {
+              "id": 2,
+              "title": "Zvikamu uye Zvakawanda",
+              "topics": [
+                "Kuwana Zvikamu",
+                "Zvakawanda",
+                "Nhamba Dzakachena"
+              ],
+              "duration": "awa 1",
+              "completed": false,
+              "description": "Nzwisisa maitiro ekutsvaga zvikamu, zvakawanda, uye kuziva nhamba dzakachena.",
+              "practiceQuestions": [
+                { "question": "Ndezvipi zvikamu zve 12? (nyora nezvikamu)", "answer": "1,2,3,4,6,12" },
+                { "question": "Ko 7 inonzi nhamba yakachena here? (hongu kana kwete)", "answer": "hongu" },
+                { "question": "Ndeipi nhamba yakawanda ye 5 inotevera 10?", "answer": "15" }
+              ],
+              "contentParagraphs": [
+                "Chikamu inhamba inopatsanura imwe nhamba pasina chasara. Semuenzaniso, 3 chikamu che 12 nekuti 12 ÷ 3 = 4.",
+                "Zvakawanda zvinobuda pakuwedzera nhamba ne integer. Semuenzaniso, zvakawanda zve 5 ndi 5, 10, 15, 20, ...",
+                "Nhamba dzakachena ndedzo dzinopfuura 1 dzine zvikamu zviviri chete: 1 uye iyo pachayo."
+              ]
+            },
+            {
+              "id": 3,
+              "title": "Zvikamu & Madimikira",
+              "topics": [
+                "Kunzwisisa Zvikamu",
+                "Zvikamu Zvakafanana",
+                "Madimikira"
+              ],
+              "duration": "maawa 1.5",
+              "completed": false,
+              "description": "Dzidza nezvezvikamu, zvikamu zvakafanana, uye kuti madimikira anobatana sei nezvikamu.",
+              "practiceQuestions": [
+                { "question": "Chii chinonzi 1/2 semadimikira?", "answer": "0.5" },
+                { "question": "Ko 2/4 ne 1/2 zvakafanana here? (hongu kana kwete)", "answer": "hongu" },
+                { "question": "Chii chinonzi 0.75 sechikamu?", "answer": "3/4" }
+              ],
+              "contentParagraphs": [
+                "Chikamu chinomiririra chikamu chechimwe chinhu. Nhamba iri pamusoro inonzi numerator, iri pasi denominator.",
+                "Zvikamu zvakafanana ndizvo zvinomiririra kukosha kumwe chete, sekuti 1/2 ne 2/4.",
+                "Madimikira inzira yekuratidza zvikamu zvechimwe chinhu, uchishandisa decimal point. Semuenzaniso, 0.5 yakafanana ne 1/2."
+              ]
+            }
+          ]
+        },
+        {
+          "name": "Masvomhu Epamusoro",
+          "description": "Kudzidza kwepamusoro kwekuverenga, algebra, uye geometry.",
+          "image": "https://images.unsplash.com/photo-1581091870620-2f8b1c5d3e4f?w=400&h=300&fit=crop",
+          "lessons": 15,
+          "topics": [
+            "Algebra",
+            "Geometry",
+            "Trigonometry"
+          ],
+          "lessonPlan": [
+            {
+              "id": 0,
+              "title": "Algebra",
+              "topics": [
+                "Maitiro eAlgebra",
+                "Kugadzirisa Zvikanganiso",
+                "Maitiro eQuadratic"
+              ],
+              "duration": "awa 2",
+              "completed": false,
+              "description": "Dzidza nezve algebra, kusanganisira maitiro ealgebra, kugadzirisa zvikanganiso, uye maitiro eqadratic.",
+              "practiceQuestions": [
+                { "question": "Chii chinonzi x kana 2x + 3 = 7?", "answer": "2" },
+                { "question": "Gadzirisa 3x - 5 = 16.", "answer": "7" },
+                { "question": "Chii chinonzi x mu x^2 - 5x + 6 = 0?", "answer": "1 kana 6" }
+              ],
+              "contentParagraphs": [
+                "Algebra ibazi remasvomhu rinobata nemaitiro ekushandura, kugadzirisa, uye kuongorora zvirevo nemaitiro anosanganisira nhamba, tsananguro, uye masvomhu.",
+                "Maitiro eAlgebra anosanganisira kuwedzera, kubvisa, kukwidziridza, uye kudzikisa. Aya ndiwo maitiro akakosha ekugadzirisa zvikanganiso.",
+                "Kugadzirisa Zvikanganiso ibasa rekutsvaga uye kugadzirisa zvikanganiso mumaitiro kana zvirevo. Izvi zvinogona kusanganisira kugadzirisa x kana imwe variable.",
+                "Maitiro eQuadratic ianotungamira ekugadzirisa maitiro eqadratic, ayo ane chimiro che ax^2 + bx + c = 0. Nzira dzakajairika dzekugadzirisa dzinosanganisira factoring, kuwedzera kwekushandisa, uye kushandisa fomula yequadratic."
+              ]
+            },
+            {
+              "id": 1,
+              "title": "Geometry",
+              "topics": [
+                "Maitiro eGeometry",
+                "Kuyera uye Kuenzanisa",
+                "Maitiro ePythagorean"
+              ],
+              "duration": "awa 2",
+              "completed": false,
+              "description": "Dzidza nezve geometry, kusanganisira maitiro egeometry, kuyera uye kuenzanisa, uye maitiro ePythagorean.",
+              "practiceQuestions": [
+                { "question": "Chii chinonzi hypotenuse mu triangle ine mativi 3, 4, uye 5?", "answer": "5" },
+                { "question": "Kuyera kwechikamu chepamusoro chechikero chechikero chakaenzana ne 10cm, uye chichiri 2cm, chichava nehurefu hwakadii?", "answer": "8cm" },
+                { "question": "Kana angle imwe ye triangle iri 90 degrees uye imwe iri 45 degrees, angle yechitatu ichave yakadii?", "answer": "45 degrees" }
+              ],
+              "contentParagraphs": [
+                "Geometry ibazi remasvomhu rinobata nezviyero, maumbirwo, uye maitiro ezvinhu zviri muupenyu chaihwo. Inosanganisira kuongorora, kuyera, uye kugadzira zvinhu zvine maumbirwo akasiyana-siyana.",
+                "Maitiro eGeometry anosanganisira kutarisa, kuyera, kuenzanisa, uye kugadzira. Aya ndiwo maitiro akakosha ekuongorora uye kugadzira zvinhu zvine maumbirwo.",
+                "Kuyera uye Kuenzanisa ibasa rekuyera uye kuenzanisa saizi, chimiro, uye nzvimbo yezvinhu. Izvi zvinogona kusanganisira kuyera urefu, upamhi, uye kureba.",
+                "Maitiro ePythagorean ianotungamira ekushandisa mutemo waPythagoras, uyo unoti hypotenuse yechikero chechikero chakaenzana ne square root yechiyero chechikero chechikero. Izvi zvinogona kubatsira pakuyera uye kuenzanisa maumbirwo akasiyana-siyana."
+              ]
+            },
+            {
+              "id": 2,
+              "title": "Trigonometry",
+              "topics": [
+                "Maitiro eTrigonometry",
+                "Sine, Cosine, uye Tangent",
+                "Trigonometric Ratios"
+              ],
+              "duration": "awa 2",
+              "completed": false,
+              "description": "Dzidza nezve trigonometry, kusanganisira maitiro etrigonometry, sine, cosine, uye tangent, uye trigonometric ratios.",
+              "practiceQuestions": [
+                { "question": "Chii chinonzi sine theta kana theta iri 30 degrees?", "answer": "0.5" },
+                { "question": "Chii chinonzi cosine theta kana theta iri 60 degrees?", "answer": "0.5" },
+                { "question": "Chii chinonzi tangent theta kana theta iri 45 degrees?", "answer": "1" }
+              ],
+              "contentParagraphs": [
+                "Trigonometry ibazi remasvomhu rinobata nezvikamu uye maitiro emazinga ezvikamu. Inosanganisira kuongorora, kuyera, uye kugadzira maumbirwo akasiyana-siyana.",
+                "Maitiro eTrigonometry anosanganisira kutarisa, kuyera, kuenzanisa, uye kugadzira. Aya ndiwo maitiro akakosha ekuongorora uye kugadzira maumbirwo akasiyana-siyana.",
+                "Sine, Cosine, uye Tangent ndiwo maitiro matatu akakosha eTrigonometry. Aya maitiro anobatsira pakuyera uye kuenzanisa maumbirwo akasiyana-siyana.",
+                "Trigonometric Ratios ibasa rekuyera uye kuenzanisa maumbirwo akasiyana-siyana. Izvi zvinogona kubatsira pakuyera uye kuenzanisa maumbirwo akasiyana-siyana."
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Sainzi",
+      "description": "Biology, Chemistry, uye Physics Dzidziso Dzakakosha",
+      "image": "https://images.unsplash.com/photo-1582719471384-894fbb16e074?w=400&h=300&fit=crop",
+      "lessons": 38,
+      "aiTip": "Ngatitsvagei zvinoshamisa zve sainzi pamwe chete!",
+      "subcourses": [
+        {
+          "name": "Nhanganyaya kuSainzi",
+          "description": "Tsvaga zvinyorwa zvekufunga kwesainzi uye nzira yesainzi.",
+          "duration": "maawa 1.5",
+          "completed": true,
+          "topics": [
+            "Chii chinonzi Sainzi?",
+            "Nzira yeSainzi",
+            "Kuona & Kuedza"
+          ],
+          "icon": "FunctionSquareIcon",
+          "lessonPlan": [
+            {
+              "id": 0,
+              "title": "Chii chinonzi Sainzi?",
+              "topics": [
+                "Tsanangudzo yeSainzi",
+                "Mhando dzeSainzi",
+                "Kufunga kweSainzi"
+              ],
+              "duration": "maminitsi 30",
+              "completed": true,
+              "description": "Dzidza kuti sainzi chii uye kuti inotibatsira sei kunzwisisa nyika yakatikomberedza.",
+              "practiceQuestions": [
+                { "question": "Chinangwa chikuru chesainzi chii?", "answer": "kunzwisisa nyika yechisikigo" },
+                { "question": "Ndeipi sainzi inodzidza zvirimwa nezvipenyu?", "answer": "biology" },
+                { "question": "Ndeipi sainzi inodzidza zvinhu uye simba?", "answer": "physics" }
+              ],
+              "contentParagraphs": [
+                "Sainzi inzira yakarongeka yekudzidza nezvenyika yechisikigo kuburikidza nekuona uye kuedza. Inotibatsira kunzwisisa kuti zvinhu zvinoshanda sei uye kuti nei zvichiitika nenzira iyoyo.",
+                "Pane mhando dzakasiyana dze sainzi, kusanganisira biology (kudzidza zvirimwa nezvipenyu), chemistry (kudzidza zvinhu uye kushanduka kwazvo), uye physics (kudzidza simba nemasimba).",
+                "Kufunga kwe sainzi kunosanganisira kubvunza mibvunzo, kuona, kugadzira fungidziro, uye kuedza pfungwa kuburikidza nemiedzo."
+              ]
+            },
+            {
+              "id": 1,
+              "title": "Nzira yeSainzi",
+              "topics": [
+                "Matanho eNzira yeSainzi",
+                "Kugadzira Fungidziro",
+                "Kuyedza uye Kuongorora"
+              ],
+              "duration": "maminitsi 45",
+              "completed": false,
+              "description": "Dzidza nzira yesainzi, hwaro hwekutsvaga kwe sainzi yose.",
+              "practiceQuestions": [
+                { "question": "Ndeipi nhanho yekutanga yenzira yesainzi?", "answer": "bvunza mubvunzo" },
+                { "question": "Chii chinonzi fungidziro?", "answer": "pfungwa yakadzidziswa" },
+                { "question": "Vesainzi vanoitasei mushure mekuedza fungidziro yavo?", "answer": "kuongorora zvabuda" }
+              ],
+              "contentParagraphs": [
+                "Nzira yesainzi inzira yakarongeka yekugadzirisa matambudziko uye kupindura mibvunzo. Ine matanho akakosha anoteverwa nevasainzi kuti basa ravo rive rechokwadi uye rinodzokororwa.",
+                "Nhanho yekutanga ndeyekubvunza mubvunzo pamusoro pechimwe chaunoona. Wobva watsvaga zviripo, wogadzira fungidziro, inova pfungwa yakadzidziswa pamusoro pezvichaitika.",
+                "Tevedzera nekugadzira uye kuita miedzo yekuyedza fungidziro. Pakupedzisira, ongorora zvabuda, dhonza mhedziso, uye goverana zvawawana nevamwe."
+              ]
+            },
+            {
+              "id": 2,
+              "title": "Kuona & Kuedza",
+              "topics": [
+                "Kuita Kuona",
+                "Kugadzira Miedzo",
+                "Kuunganidza Dhata"
+              ],
+              "duration": "maminitsi 45",
+              "completed": false,
+              "description": "Dzidza kuita kuona kwakanyatsonaka uye kugadzira miedzo inoshanda.",
+              "practiceQuestions": [
+                { "question": "Ndeipi mhando mbiri dzekuona?", "answer": "qualitative uye quantitative" },
+                { "question": "Chii chinonzi variable muedzo?", "answer": "chinhu chinogona kuchinja" },
+                { "question": "Sei zvakakosha kudzora variables muedzo?", "answer": "kuti kuedzwa kuve kwakarurama" }
+              ],
+              "contentParagraphs": [
+                "Kuona ndiko hwaro hwekutsvaga kwesainzi. Pane mhando mbiri: qualitative (tsananguro nemazwi) uye quantitative (kuverenga nemanhamba).",
+                "Miedzo inoitwa kuti ipindure mibvunzo yakatarwa. Inosanganisira kuchinja chinhu chimwe chete uchisiya zvimwe zvakangofanana kuti uone mutsauko wacho.",
+                "Kuunganidza dhata kwakakosha mumiedzo. Vasainzi vanofanira kunyora zvavanoona nemazvo, vachishandisa matafura, magirafu, kana machati kuronga zvawanikwa."
+              ]
+            }
+          ]
+        },
+        {
+          "name": "Biology Fundamentals",
+          "description": "Nzwisisa misimboti ye biology, kusanganisira masero, mapuroteni, uye DNA.",
+          "duration": "maawa 2",
+          "completed": false,
+          "topics": [
+            "Masero",
+            "Mapuroteni",
+            "DNA"
+          ],
+          "icon": "BiologyIcon",
+          "lessonPlan": [
+            {
+              "id": 0,
+              "title": "Masero",
+              "topics": [
+                "Chii chinonzi masero?",
+                "Mhando dze masero",
+                "Masero uye Hupenyu"
+              ],
+              "duration": "maminitsi 30",
+              "completed": false,
+              "description": "Dzidza nezvemaitiro nemaitiro emasero, iyo inova hwaro hweupenyu.",
+              "practiceQuestions": [
+                { "question": "Masero anoumbwa nezvipi?", "answer": "mapuroteni, lipids, carbohydrates, nucleic acids" },
+                { "question": "Ndeipi cell organelle inotungamira basa remasero?", "answer": "nucleus" },
+                { "question": "Chii chinonzi cell membrane?", "answer": "chivharo chinotenderedza cell" }
+              ],
+              "contentParagraphs": [
+                "Masero ndiwo madiki anoumba zvinhu zvipenyu. Ivo navo vanotora uye vanoshandura simba, vachigadzira mapuroteni, uye vachichengetedza ruzivo rwepasi rose.",
+                "Pane mhando dzakasiyana dzemasero, kusanganisira masero epanyama, masero ezvirimwa, uye masero ekubatanidza. Imwe neimwe ine basa rayo uye inobatsira kune yakazara biology yechirimwa kana mhuka.",
+                "Masero ane zvikamu zvakakosha, senge nucleus (inotungamira masero), cytoplasm (nzvimbo yemaitiro), uye cell membrane (inodzivirira uye inotonga kupinda nekubuda kwezvinhu)."
+              ]
+            },
+            {
+              "id": 1,
+              "title": "Mapuroteni",
+              "topics": [
+                "Chii chinonzi mapuroteni?",
+                "Maitiro ekugadzira mapuroteni",
+                "Mapuroteni nemaitiro avo"
+              ],
+              "duration": "maminitsi 45",
+              "completed": false,
+              "description": "Dzidza nezvemaitiro nemaitiro emapuroteni, ayo ane basa rakakosha muupenyu.",
+              "practiceQuestions": [
+                { "question": "Mapuroteni anoumbwa nezvipi?", "answer": "amino acids" },
+                { "question": "Ndeipi nzira inotungamira mukugadzirwa kwemapuroteni?", "answer": "protein synthesis" },
+                { "question": "Chii chinonzi enzyme?", "answer": "mapuroteni anokurumidza maitiro" }
+              ],
+              "contentParagraphs": [
+                "Mapuroteni ndiwo masimba anovaka muviri anodiwa pakukura, kugadzirisa, uye kuchengetedza hupenyu. Ivo vanobatsira mukugadzira masero, mapfupa, mhasuru, uye mamwe marudzi emapuroteni.",
+                "Mapuroteni anoumbwa nezvikamu zvidiki zvinonzi amino acids. Aya maamino acids anobatanidzwa pamwechete kuita chain, iyo inozoshandurwa kuita protein fold.",
+                "Maitiro ekugadzira mapuroteni anosanganisira kutora ruzivo kubva kuDNA, kugadzira messenger RNA (mRNA), uye kushandisa ribosomes kugadzira mapuroteni kubva kumapuroteni."
+              ]
+            },
+            {
+              "id": 2,
+              "title": "DNA",
+              "topics": [
+                "Chii chinonzi DNA?",
+                "DNA Structure",
+                "DNA uye Genetics"
+              ],
+              "duration": "maminitsi 45",
+              "completed": false,
+              "description": "Dzidza nezve DNA, iyo inotakura ruzivo rwepasi rose uye ine basa mukudzora maitiro emasero.",
+              "practiceQuestions": [
+                { "question": "DNA inoumbwa nezvipi?", "answer": "nucleotides" },
+                { "question": "Ndeipi basa reDNA mu cell?", "answer": "kuchengetedza uye kutakura ruzivo" },
+                { "question": "Chii chinonzi gene?", "answer": "chikamu cheDNA chinotungamira chimiro kana basa remuviri" }
+              ],
+              "contentParagraphs": [
+                "DNA (deoxyribonucleic acid) ndiyo inotakura ruzivo rwepasi rose mumasero. Iyo ine chimiro chedouble helix, ine mapundu maviri akabatana nemabond akasimba.",
+                "DNA ine zvikamu zviviri: purines (adenine uye guanine) uye pyrimidines (cytosine uye thymine). Aya mapundu anobatana pamwechete kuita DNA strand.",
+                "Basa reDNA mukati me cell nderekuchengetedza uye kutakura ruzivo rwepasi rose. Iine mirairo inodiwa pakugadzira mapuroteni uye kutungamira maitiro emasero."
+              ]
+            }
+          ]
+        },
+        {
+          "name": "Chemistry Basics",
+          "description": "Nzwisisa misimboti ye chemistry, kusanganisira maatomu, mapuroteni, uye maitiro ekushandura.",
+          "duration": "maawa 2",
+          "completed": false,
+          "topics": [
+            "Maatomu",
+            "Mapuroteni",
+            "Maitiro Ekushandura"
+          ],
+          "icon": "ChemistryIcon",
+          "lessonPlan": [
+            {
+              "id": 0,
+              "title": "Maatomu",
+              "topics": [
+                "Chii chinonzi maatomu?",
+                "Maitiro emaatomu",
+                "Maatomu uye Zvinhu"
+              ],
+              "duration": "maminitsi 30",
+              "completed": false,
+              "description": "Dzidza nezvemaitiro nemaitiro emaatomu, ayo ari hwaro hwezvinhu zvose.",
+              "practiceQuestions": [
+                { "question": "Maatomu anoumbwa nezvipi?", "answer": "protons, neutrons, electrons" },
+                { "question": "Ndeipi atomic number ye carbon?", "answer": "6" },
+                { "question": "Chii chinonzi atomic mass?", "answer": "huviri hwepamusoro hweatomu" }
+              ],
+              "contentParagraphs": [
+                "Maatomu ndiwo madiki anoumba zvinhu zvose. Ivo vane nucleus ine protons uye neutrons, uye electrons dzakatenderedza nucleus.",
+                "Maitiro emaatomu anosanganisira kuwedzera, kubvisa, uye kugadzirisa. Aya ndiwo maitiro akakosha ekugadzira uye kushandura zvinhu.",
+                "Maatomu ane atomic number, inoratidza huwandu hweprotons mu nucleus, uye atomic mass, inoratidza huwandu hwese hwepamusoro muatomu."
+              ]
+            },
+            {
+              "id": 1,
+              "title": "Mapuroteni",
+              "topics": [
+                "Chii chinonzi mapuroteni?",
+                "Maitiro ekugadzira mapuroteni",
+                "Mapuroteni nemaitiro avo"
+              ],
+              "duration": "maminitsi 45",
+              "completed": false,
+              "description": "Dzidza nezvemaitiro nemaitiro emapuroteni, ayo ane basa rakakosha muupenyu.",
+              "practiceQuestions": [
+                { "question": "Mapuroteni anoumbwa nezvipi?", "answer": "amino acids" },
+                { "question": "Ndeipi nzira inotungamira mukugadzirwa kwemapuroteni?", "answer": "protein synthesis" },
+                { "question": "Chii chinonzi enzyme?", "answer": "mapuroteni anokurumidza maitiro" }
+              ],
+              "contentParagraphs": [
+                "Mapuroteni ndiwo masimba anovaka muviri anodiwa pakukura, kugadzirisa, uye kuchengetedza hupenyu. Ivo vanobatsira mukugadzira masero, mapfupa, mhasuru, uye mamwe marudzi emapuroteni.",
+                "Mapuroteni anoumbwa nezvikamu zvidiki zvinonzi amino acids. Aya maamino acids anobatanidzwa pamwechete kuita chain, iyo inozoshandurwa kuita protein fold.",
+                "Maitiro ekugadzira mapuroteni anosanganisira kutora ruzivo kubva kuDNA, kugadzira messenger RNA (mRNA), uye kushandisa ribosomes kugadzira mapuroteni kubva kumapuroteni."
+              ]
+            },
+            {
+              "id": 2,
+              "title": "Maitiro Ekushandura",
+              "topics": [
+                "Chii chinonzi chemical reaction?",
+                "Maitiro ekushandura zvinhu",
+                "Kuchengetedza uye Kushandura"
+              ],
+              "duration": "maminitsi 45",
+              "completed": false,
+              "description": "Dzidza nezvemaitiro ekushandura zvinhu uye kuti sei kuchinja kwezvinhu kuchikosha.",
+              "practiceQuestions": [
+                { "question": "Chii chinonzi chemical reaction?", "answer": "process inochinja chimiro chezvinhu" },
+                { "question": "Ndeipi chemical reaction inoitika pakupisa mafuta?", "answer": "combustion" },
+                { "question": "Chii chinonzi catalyst?", "answer": "chinhu chinokurumidza chemical reaction" }
+              ],
+              "contentParagraphs": [
+                "Maitiro ekushandura zvinhu anoratidza kuti zvinhu zvinogona kuchinjwa sei kubva kune chimiro kusvika kune chimwe pasina kuchinja huwandu hwazvo.",
+                "Pane mhando dzakasiyana dze chemical reactions, kusanganisira synthesis (kuunganidza), decomposition (kupatsanura), uye replacement (kutsiva).",
+                "Kuchengetedza uye Kushandura ibasa rekuchengetedza uye kushandura zvinhu mumaitiro. Izvi zvinogona kusanganisira kugadzirisa, kupisa, kana kuwedzera zvinhu."
+              ]
+            }
+          ]
+        },
+        {
+          "name": "Physics Principles",
+          "description": "Nzwisisa misimboti ye physics, kusanganisira simba, mitemo yeNewton, uye maitiro ekufamba.",
+          "duration": "maawa 2",
+          "completed": false,
+          "topics": [
+            "Simba",
+            "Mitemo yeNewton",
+            "Maitiro Ekufamba"
+          ],
+          "icon": "PhysicsIcon",
+          "lessonPlan": [
+            {
+              "id": 0,
+              "title": "Simba",
+              "topics": [
+                "Chii chinonzi simba?",
+                "Mhando dze simba",
+                "Simba uye Basa"
+              ],
+              "duration": "maminitsi 30",
+              "completed": false,
+              "description": "Dzidza nezvesimba, rudzi rwesimba, uye kuti simba rinoshanda sei.",
+              "practiceQuestions": [
+                { "question": "Simba rinoumbwa nezvipi?", "answer": "mass uye acceleration" },
+                { "question": "Ndeipi unit yesimba?", "answer": "Newton" },
+                { "question": "Chii chinonzi work mu physics?", "answer": "simba rakashandiswa pakuita basa" }
+              ],
+              "contentParagraphs": [
+                "Simba ibasa rinokonzera kuti chinhu chichinje kana kufamba. Iine hukama hwakasimba nemaitiro ekufamba kwezvinhu.",
+                "Mhando dze simba dzinosanganisira kinetic (simba rekufamba), potential (simba rinogona), thermal, chemical, uye nuclear energy.",
+                "Simba rinowanzoyerwa muNewtons (N), uye basa rinoyerwa mumamita (m) kana masendimita (cm)."
+              ]
+            },
+            {
+              "id": 1,
+              "title": "Mitemo yeNewton",
+              "topics": [
+                "Maitiro eNewton",
+                "Kusagadzikana uye Kuenzanisa",
+                "Simba reGravity"
+              ],
+              "duration": "maminitsi 45",
+              "completed": false,
+              "description": "Dzidza nezvemitemo yaNewton, iyo inotungamira maitiro ezvinhu muupenyu hwezuva nezuva.",
+              "practiceQuestions": [
+                { "question": "Ndeipi mutemo wekutanga waNewton?", "answer": "chinhu chicharamba chichifamba kana chisina kusundidzirwa" },
+                { "question": "Chii chinonzi inertia?", "answer": "kuda kwechinhu kuramba kuchinja" },
+                { "question": "Simba reGravity rinokanganisa sei zvinhu?", "answer": "rinokwevera zvinhu pasi" }
+              ],
+              "contentParagraphs": [
+                "Mitemo yeNewton inotsanangura maitiro ezvinhu kana simba rinoshanda pazvinenge zvichikonzera kuchinja.",
+                "Mutemo wekutanga unoti chinhu chicharamba chichifamba kana chisina kusundidzirwa. Izvi zvinoreva kuti zvinhu hazvichinji kufamba kana kumira pasina chikonzero.",
+                "Inertia ndiyo chikonzero nei zvinhu zvichiramba zviri munzira imwechete kana zvichifamba. Izvi zvinoratidza kuti zvinhu zvinoda simba kuti zvichinje kufamba kwazvo.",
+                "Simba reGravity rinokwevera zvinhu pasi, richikonzera kuti zvinhu zvese zvipinze pasi pevhu kana pane chimwe chinhu."
+              ]
+            },
+            {
+              "id": 2,
+              "title": "Maitiro Ekufamba",
+              "topics": [
+                "Chii chinonzi motion?",
+                "Maitiro ekufamba",
+                "Kufamba uye Simba"
+              ],
+              "duration": "maminitsi 45",
+              "completed": false,
+              "description": "Dzidza nezvemaitiro ekufamba kwezvinhu uye kuti simba rinokanganisa sei kufamba.",
+              "practiceQuestions": [
+                { "question": "Chii chinonzi speed mu physics?", "answer": "kuwanda kwekufamba panguva" },
+                { "question": "Ndeipi formula ye acceleration?", "answer": "a = (v_f - v_i) / t" },
+                { "question": "Chii chinonzi momentum?", "answer": "mufambiro wezvinhu, unowanikwa nekubatanidza mass uye velocity" }
+              ],
+              "contentParagraphs": [
+                "Kufamba ibasa rekuchinja nzvimbo. Izvi zvinogona kusanganisira kufamba kwevanhu, zvinhu, kana masimba.",
+                "Speed inoyerwa mumamita paawa (m/s) kana masendimita paawa (cm/s). Inoratidza kuwanda kwekufamba panguva.",
+                "Acceleration inoratidza kuchinja kwe speed panguva. Inoyerwa mumamita paawa squared (m/s^2).",
+                "Momentum ibasa rinoratidza mufambiro wezvinhu. Inowanikwa nekubatanidza mass uye velocity. Izvi zvinoratidza kuti zvinhu zvakakura kana kufamba nekukurumidza zvine momentum yakawanda."
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Mitauro neUnyanzvi hweChirungu",
+      "description": "Kuverenga, Kunyorwa, uye Kuongorora Zvinyorwa",
+      "image": "https://images.unsplash.com/photo-1481627834876-b7833e8f5570?w=400&h=300&fit=crop",
+      "lessons": 52,
+      "aiTip": "Ndichakubatsira kuva munyori uye muverengi ane chivimbo!",
+      "subcourses": [
+        {
+          "name": "Kunzwisisa Kuverenga",
+          "description": "Dzidza kuverenga zvinyorwa zvakasiyana uye kupindura mibvunzo yekunzwisisa kuverenga.",
+          "duration": "maminitsi 30",
+          "completed": true,
+          "topics": [
+            "Maitiro ekufunga zvakadzama?",
+            "Kupfupikisa zvinyorwa uye kuita mhedziso",
+            "Zviratidzo zve mamiriro ezvinhu"
+          ],
+          "icon": "FunctionSquareIcon",
+          "lessonPlan": [
+            {
+              "id": 0,
+              "title": "Maitiro ekuverenga ane hungwaru",
+              "topics": [
+                "Kuverenga Uchifunga",
+                "Kubvunza Zvinyorwa",
+                "Kufembera"
+              ],
+              "duration": "awa 1",
+              "completed": true,
+              "description": "Gadzira nzira dzekuverenga uchifunga uye kufunga zvakadzama paunoverenga zvinyorwa.",
+              "practiceQuestions": [
+                { "question": "Chii chaunofanira kuita usati waverenga chinyorwa kuti unzwisise zviri nani?", "answer": "kuongorora" },
+                { "question": "Ndeipi mibvunzo inobatsira kuti uve mukati mechinyorwa paunoverenga?", "answer": "nei" },
+                { "question": "Ndeipi nzira yekuverenga inosanganisira kufembera chichaitika?", "answer": "kufembera" }
+              ],
+              "contentParagraphs": [
+                "Kuverenga uchifunga zvinoreva kupinda muchinyorwa kwete kungoverenga mazwi. Izvi zvinosanganisira kubvunza mibvunzo, kuita kubatana, uye kufunga nezvauchiverenga.",
+                "Kubvunza zvinyorwa kunobatsira kugara wakatarisa uye kunzwisisa zvakadzama. Bvunza mibvunzo yekuti 'nei' pamusoro pezviito zvevatambi, zvisarudzo zvemunyori, uye kufambira mberi kwezviitiko.",
+                "Kufembera paunoverenga kunobatsira kugara wakatarisa uye kuyedza kunzwisisa. Gara uchizvibvunza kuti chii chaunofunga kuti chichaitika uye nei."
+              ]
+            },
+            {
+              "id": 1,
+              "title": "Kupfupikisa uye Kuongorora",
+              "topics": [
+                "Nzira dzekupfupikisa",
+                "Kunyora Tsananguro",
+                "Kuongorora kweChinyorwa"
+              ],
+              "duration": "awa 1",
+              "completed": true,
+              "description": "Dzidza maitiro ekupfupikisa zvinyorwa uye kunyora tsananguro dzakajeka.",
+              "practiceQuestions": [
+                { "question": "Chii chinonzi kupfupikisa?", "answer": "kuderedza chinyorwa kuita pfupi pasina kurasikirwa nechinangwa chayo" },
+                { "question": "Ndeipi nzira yakanaka yekunyora tsananguro?", "answer": "shandisa mazwi akajeka uye pfupi, uye udzivise kudhinda zvakawandisa" },
+                { "question": "Sei kuongorora kwechinyorwa kwakakosha?", "answer": "kuti uone kana chinyorwa chichikodzera uye chichitevedzera mitemo yeunyanzvi" }
+              ],
+              "contentParagraphs": [
+                "Kupfupikisa kunosanganisira kutora pfungwa huru dzechinyorwa uye kuzviisa mumazwi mashoma. Izvi zvinobatsira kuwedzera kunzwisisa uye kurangarira.",
+                "Kunyora tsananguro kunosanganisira kugadzira chirevo chidiki chinotsanangura chinyorwa. Izvi zvinoda kunzwisisa kwakadzama kwechinyorwa.",
+                "Kuongorora kwechinyorwa kunosanganisira kutarisa uye kuongorora chinyorwa kuti uone kana chichikodzera uye chichitevedzera mitemo yeunyanzvi."
+              ]
+            },
+            {
+              "id": 2,
+              "title": "Kunyora neKugadzirisa",
+              "topics": [
+                "Maitiro ekunyora",
+                "Kugadzirisa uye Kuongorora",
+                "Kunyora kweChinyorwa"
+              ],
+              "duration": "maawa 2",
+              "completed": true,
+              "description": "Dzidza maitiro ekunyora zvinyorwa zvine musoro uye kugadzirisa zvinyorwa zvako.",
+              "practiceQuestions": [
+                { "question": "Chii chinonzi outline mukunyora?", "answer": "chirongwa kana chirevo chezvinhu zvichaiswa muchinyorwa" },
+                { "question": "Sei kugadzirisa kuchikosha mukunyora?", "answer": "kuti uvandudze uye uwedzere kunaka kwechinyorwa" },
+                { "question": "Ndeipi nzira yakanaka yekunyora chinyorwa?", "answer": "tanga nepfungwa huru, wobva wawedzera tsananguro uye mienzaniso" }
+              ],
+              "contentParagraphs": [
+                "Kunyora kunosanganisira kugadzira uye kuisa pamwechete mazwi, mitsara, nemagwaro kuti ugadzire chinyorwa.",
+                "Kugadzirisa kunosanganisira kutarisa uye kugadzirisa chinyorwa kuti uone kana chichikodzera uye chichitevedzera mitemo yeunyanzvi.",
+                "Nzira yakanaka yekunyora chinyorwa inosanganisira kutanga nepfungwa huru, wobva wawedzera tsananguro, mienzaniso, uye humbowo hwekutsigira pfungwa dzako."
+              ]
+            }
+          ]
+        },
+        {
+          "name": "Kunyora Kwepamusoro",
+          "description": "Kudzidza kwepamusoro kwekunyora, kusanganisira maitiro ekunyora, kugadzirisa, uye kuongorora.",
+          "image": "https://images.unsplash.com/photo-1581091870620-2f8b1c5d3e4f?w=400&h=300&fit=crop",
+          "lessons": 15,
+          "topics": [
+            "Kunyora Kwepamusoro",
+            "Kugadzirisa",
+            "Kuongorora"
+          ],
+          "lessonPlan": [
+            {
+              "id": 0,
+              "title": "Kunyora Kwepamusoro",
+              "topics": [
+                "Maitiro ekunyora",
+                "Kugadzirisa uye Kuongorora",
+                "Kunyora kweChinyorwa"
+              ],
+              "duration": "maawa 2",
+              "completed": false,
+              "description": "Dzidza maitiro ekunyora zvinyorwa zvine musoro uye kugadzirisa zvinyorwa zvako.",
+              "practiceQuestions": [
+                { "question": "Chii chinonzi outline mukunyora?", "answer": "chirongwa kana chirevo chezvinhu zvichaiswa muchinyorwa" },
+                { "question": "Sei kugadzirisa kuchikosha mukunyora?", "answer": "kuti uvandudze uye uwedzere kunaka kwechinyorwa" },
+                { "question": "Ndeipi nzira yakanaka yekunyora chinyorwa?", "answer": "tanga nepfungwa huru, wobva wawedzera tsananguro uye mienzaniso" }
+              ],
+              "contentParagraphs": [
+                "Kunyora kunosanganisira kugadzira uye kuisa pamwechete mazwi, mitsara, nemagwaro kuti ugadzire chinyorwa.",
+                "Kugadzirisa kunosanganisira kutarisa uye kugadzirisa chinyorwa kuti uone kana chichikodzera uye chichitevedzera mitemo yeunyanzvi.",
+                "Nzira yakanaka yekunyora chinyorwa inosanganisira kutanga nepfungwa huru, wobva wawedzera tsananguro, mienzaniso, uye humbowo hwekutsigira pfungwa dzako."
+              ]
+            },
+            {
+              "id": 1,
+              "title": "Kugadzirisa",
+              "topics": [
+                "Kugadzirisa Zvakanyorwa",
+                "Kugadzirisa uye Kuongorora",
+                "Kugadzirisa kweChinyorwa"
+              ],
+              "duration": "maawa 2",
+              "completed": false,
+              "description": "Dzidza maitiro ekugadzirisa zvinyorwa uye kuongorora kuti zvigadziriswe.",
+              "practiceQuestions": [
+                { "question": "Chii chinonzi proofreading?", "answer": "kuverenga uye kugadzirisa chinyorwa kuti uone zvikanganiso" },
+                { "question": "Ndeipi nzira yakanaka yekugadzirisa chinyorwa?", "answer": "verenga zvakare, tarisa grammar uye spelling, uye uone kuti zvese zviri pachena" },
+                { "question": "Sei kuongorora kuchikosha mukugadzirisa?", "answer": "kuti uve nechokwadi chekuti chinyorwa chako hachina zvikanganiso uye chiri nyore kunzwisisa" }
+              ],
+              "contentParagraphs": [
+                "Kugadzirisa kunosanganisira kutarisa uye kugadzirisa chinyorwa kuti uone kana chichikodzera uye chichitevedzera mitemo yeunyanzvi.",
+                "Nzira yakanaka yekugadzirisa chinyorwa inosanganisira kuverenga zvakare, kutarisa grammar uye spelling, uye kuona kuti zvese zviri pachena uye zviri nyore kunzwisisa.",
+                "Kuongorora kwechinyorwa kunosanganisira kutarisa uye kuongorora chinyorwa kuti uone kana chichikodzera uye chichitevedzera mitemo yeunyanzvi."
+              ]
+            },
+            {
+              "id": 2,
+              "title": "Kuongorora",
+              "topics": [
+                "Nzira dzekuongorora",
+                "Kuongorora kweChinyorwa",
+                "Kuongorora uye Kugadzirisa"
+              ],
+              "duration": "maawa 2",
+              "completed": false,
+              "description": "Dzidza maitiro ekudzokorora uye kugadzirisa zvinyorwa zvako.",
+              "practiceQuestions": [
+                { "question": "Chii chinonzi feedback?", "answer": "mhinduro kana mazano pamusoro pezvawakanyora" },
+                { "question": "Sei kuongorora kwechinyorwa kwakakosha?", "answer": "kuti uone kana chinyorwa chichikodzera uye chichitevedzera mitemo yeunyanzvi" },
+                { "question": "Ndeipi nzira yakanaka yekudzokorora chinyorwa?", "answer": "tora nguva, verenga nemazvo, uye uone kuti zvese zviri pachena" }
+              ],
+              "contentParagraphs": [
+                "Kuongorora kunosanganisira kutarisa uye kuongorora chinyorwa kuti uone kana chichikodzera uye chichitevedzera mitemo yeunyanzvi.",
+                "Nzira yakanaka yekudzokorora chinyorwa inosanganisira kutora nguva, kuverenga nemazvo, uye kuona kuti zvese zviri pachena uye zviri nyore kunzwisisa.",
+                "Feedback ibasa rinokosha mukuvandudza kunyora kwako. Inokubatsira kuona nzvimbo dzekuvandudza uye kusimudzira unyanzvi hwako hwekunyora."
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Tekinoroji",
+      "description": "Kuziva Zvemagetsi uye Nheyo dzeKukodha",
+      "image": "https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?w=400&h=300&fit=crop",
+      "lessons": 25,
+      "aiTip": "Kodha nzira yako kuenda mberi nerufaro rwezvirongwa!",
+      "subcourses": [
+        {
+          "name": "Nhanganyaya kuC++",
+          "description": "Dzidza nheyo dze mutauro weC++ pakuronga.",
+          "duration": "maawa 4",
+          "completed": true,
+          "topics": [
+            "Zvinhu uye Mhando dzeDhata",
+            "Maitiro Ekutonga",
+            "Mabasa uye Makirasi",
+            "Object-Oriented Programming"
+          ],
+          "icon": "FunctionSquareIcon",
+          "lessonPlan": [
+            {
+              "id": 0,
+              "title": "Zvinhu uye Mhando dzeDhata",
+              "topics": [
+                "Mhando dzeDhata Dzakakosha",
+                "Kuzivisa Zvinhu",
+                "Zvisingachinji"
+              ],
+              "duration": "awa 1",
+              "completed": true,
+              "description": "Dzidza nezve mhando dze dhata muC++, kuzivisa zvinhu, uye kushanda nezvisingachinji.",
+              "practiceQuestions": [
+                { "question": "Ndeipi mhando yedhata yaungashandisa kuchengetedza nhamba yakazara muC++?", "answer": "int" },
+                { "question": "Unonyora sei chinhu chinonzi 'age' chine kukosha 25?", "answer": "int age = 25;" },
+                { "question": "Ndeipi keyword inoshandiswa kuzivisa chinhu chisina kuchinja muC++?", "answer": "const" }
+              ],
+              "contentParagraphs": [
+                "C++ mutauro une mhando dzakasimba, zvinoreva kuti chinhu chimwe nechimwe chinofanira kuva nemhando yacho. Mhando dzakajairika dzinosanganisira int (nhamba yakazara), double (nhamba dzine madimikira), char (chiratidzo chimwe), uye string (mazwi).",
+                "Kuzivisa chinhu muC++ kunotevera: data_type zita = kukosha;. Semuenzaniso, 'int age = 25;' inozivisa chinhu chinonzi age chine kukosha 25.",
+                "Zvisingachinji zvinhu zvisingachinji mushure mekuziviswa. Shandisa 'const' kuzivisa, semuenzaniso 'const int MAX_SIZE = 100;'."
+              ]
+            },
+            {
+              "id": 1,
+              "title": "Maitiro Ekutonga",
+              "topics": [
+                "Maitiro eConditional",
+                "Maitiro eLoop",
+                "Maitiro eSwitch"
+              ],
+              "duration": "maawa 1.5",
+              "completed": true,
+              "description": "Dzidza maitiro ekutonga muC++, kusanganisira maitiro econditional, maitiro eloop, uye maitiro eswitch.",
+              "practiceQuestions": [
+                { "question": "Chii chinonzi if statement muC++?", "answer": "conditional statement" },
+                { "question": "Ndeipi syntax ye for loop muC++?", "answer": "for(initialization; condition; increment) { }" },
+                { "question": "Chii chinonzi switch statement?", "answer": "control statement inochinja pakati pemaitiro akasiyana" }
+              ],
+              "contentParagraphs": [
+                "Maitiro ekutonga anobvumira kutora kwechisarudzo mukodhi. Izvi zvinoreva kuti unogona kugadzirisa kuti kodhi iite chimwe chinhu kana chimwe zvichienderana nemaitiro.",
+                "Maitiro econditional anosanganisira if, else if, uye else statements. Aya maitiro anobvumira kutora kwechisarudzo zvichienderana nemaitiro.",
+                "Maitiro eloop anoshandiswa kudzokorora chikamu chekodi kakawanda. Semuenzaniso, for loop inodzokorora kodhi block kakawanda, nepo while loop ichidzokorora kusvika condition yaitwa ichokwadi.",
+                "Maitiro eswitch anoshandiswa kuchinja pakati pemaitiro akasiyana zvichienderana nekukosha kwechinhu. Izvi zvinobatsira pakugadzirisa kodhi uye kuita kuti ive nyore kuverenga."
+              ]
+            },
+            {
+              "id": 2,
+              "title": "Mabasa uye Makirasi",
+              "topics": [
+                "Kugadzira Mabasa",
+                "Kushandisa Makirasi",
+                "Kugadzira Makirasi"
+              ],
+              "duration": "maawa 1.5",
+              "completed": true,
+              "description": "Dzidza nezvemabasa nemakirasi muC++, kusanganisira kugadzira mabasa, kushandisa makirasi, uye kugadzira makirasi.",
+              "practiceQuestions": [
+                { "question": "Chii chinonzi function muC++?", "answer": "basa rinodzokorora kodhi" },
+                { "question": "Maitiro ekugadzira class muC++?", "answer": "class ClassName { }; " },
+                { "question": "Chii chinonzi object muC++?", "answer": "chinhu chakagadzirwa kubva mukirasi" }
+              ],
+              "contentParagraphs": [
+                "Mabasa nemakirasi ibasa rekugadzirisa kodhi uye kuita kuti ive nyore kushandisa. Mabasa anobvumira kudzokorora kodhi, nepo makirasi achigadzira mapoka ezvinhu ane maitiro akafanana.",
+                "Kugadzira basa muC++ kunosanganisira kushandisa keyword inonzi 'void' kana 'return_type'. Semuenzaniso, 'void myFunction() { }' inogadzira basa rinonzi myFunction.",
+                "Makirasi anogadzirwa nekushandisa keyword inonzi 'class'. Mukirasi, unogona kugadzira mabasa, zvinhu, uye makirasi akasiyana-siyana.",
+                "Kushandisa makirasi kunosanganisira kugadzira object kubva mukirasi. Semuenzaniso, 'Car myCar;' inogadzira object inonzi myCar kubva mukirasi yeCar."
+              ]
+            },
+            {
+              "id": 3,
+              "title": "Object-Oriented Programming",
+              "topics": [
+                "Nheyo dzeOOP",
+                "Kuvanzika",
+                "Kudzokorora"
+              ],
+              "duration": "maawa 1.5",
+              "completed": true,
+              "description": "Dzidza nheyo dzeObject-Oriented Programming muC++, kusanganisira kuvanzika, kudzokorora, uye inheritance.",
+              "practiceQuestions": [
+                { "question": "Chii chinonzi OOP?", "answer": "Object-Oriented Programming" },
+                { "question": "Ndeipi pfungwa ye encapsulation muOOP?", "answer": "kuvanzika kwemaitiro uye zvinhu mukati meclass" },
+                { "question": "Chii chinonzi inheritance muOOP?", "answer": "kugamuchira maitiro nemaitiro kubva kune imwe class" }
+              ],
+              "contentParagraphs": [
+                "Object-Oriented Programming (OOP) ibudiriro yehurongwa inotarisa pakushandisa zvinhu uye maitiro. OOP inobvumira kugadzirisa kodhi, kudzokorora, uye kuvandudza.",
+                "Pfungwa huru dzeOOP dzinosanganisira encapsulation (kuvanzika), inheritance (kudzokorora), uye polymorphism (kushanduka-shanduka).",
+                "Encapsulation inobvumira kuvanzika kwemaitiro uye zvinhu mukati meclass. Izvi zvinoreva kuti zvinhu hazvigamuchirwi kana kuchinjwa zvakananga kubva kunze kweclass.",
+                "Inheritance inobvumira kugamuchira maitiro nemaitiro kubva kune imwe class. Izvi zvinobatsira pakudzokorora kodhi uye kugadzira mapoka ezvinhu ane maitiro akafanana."
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

@@ -1,6 +1,8 @@
 import { useState, useEffect } from 'react';
 import { Header } from '../../components/Header';
+import { useLanguage } from '../../context/LanguageContext';
 import coursesData from '../../../data/courses.json';
+import coursesDataShona from '../../../data/courses_shona.json';
 import {
   FileTextIcon,
   BrainIcon,
@@ -12,16 +14,18 @@ import {
 } from 'lucide-react';
 import FloatingChatButton from '../../components/FloatingChatButton';
 
-function getBasicMathLessonPlan(): any[] {
-  const mathCourse = (coursesData as any).courses.find((c: any) => c.name === 'Mathematics');
+function getBasicMathLessonPlan(language: string): any[] {
+  const data = language === 'Shona' ? coursesDataShona : coursesData;
+  const mathCourse = data.courses.find((c: any) => c.name === (language === 'Shona' ? 'Masvomhu' : 'Mathematics'));
   if (!mathCourse || !mathCourse.subcourses) return [];
-  const basicMath = mathCourse.subcourses.find((s: any) => s.name === 'Basic Math');
+  const basicMath = mathCourse.subcourses.find((s: any) => s.name === (language === 'Shona' ? 'Masvomhu Ekutanga' : 'Basic Math'));
   if (!basicMath || !basicMath.lessonPlan) return [];
   return basicMath.lessonPlan;
 }
 
 export function BasicMathPage() {
-  const lessonPlan: any[] = getBasicMathLessonPlan();
+  const { language } = useLanguage();
+  const lessonPlan: any[] = getBasicMathLessonPlan(language);
   const [selectedLesson, setSelectedLesson] = useState(0);
   const [practiceIdx, setPracticeIdx] = useState(() => Math.floor(Math.random() * 3));
   const [userAnswer, setUserAnswer] = useState('');

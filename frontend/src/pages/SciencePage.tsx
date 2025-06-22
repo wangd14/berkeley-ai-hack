@@ -1,7 +1,9 @@
 import { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { Header } from '../components/Header';
+import { useLanguage } from '../context/LanguageContext';
 import coursesData from '../../data/courses.json';
+import coursesDataShona from '../../data/courses_shona.json';
 import {
   PlayIcon,
   BrainIcon,
@@ -18,9 +20,10 @@ const iconMap: any = {
   BarChartIcon,
 };
 
-function getCourseSections(courseName: string) {
-  const course = coursesData.courses
-    ? coursesData.courses.find((c: any) => c.name === courseName)
+function getCourseSections(courseName: string, language: string) {
+  const data = language === 'Shona' ? coursesDataShona : coursesData;
+  const course = data.courses
+    ? data.courses.find((c: any) => c.name === (language === 'Shona' ? 'Sainzi' : courseName))
     : null;
   if (!course || !course.subcourses) return [];
   return course.subcourses.map((section: any, idx: number) => ({
@@ -36,7 +39,8 @@ function getCourseSections(courseName: string) {
 }
 
 export function SciencePage() {
-  const courseSections = getCourseSections('Science');
+  const { language } = useLanguage();
+  const courseSections = getCourseSections('Science', language);
   const [selectedSection, setSelectedSection] = useState(0);
   const navigate = useNavigate();
   const currentSection = courseSections[selectedSection] || {};
@@ -62,8 +66,8 @@ export function SciencePage() {
       <Header />
       <div className="max-w-7xl mx-auto px-4 py-8">
         <div className="mb-8">
-          <h1 className="text-3xl font-bold text-gray-900">Science Course</h1>
-          <p className="text-gray-600 mt-1">Explore science fundamentals step by step</p>
+          <h1 className="text-3xl font-bold text-gray-900">{language === 'Shona' ? 'Kosi yeSainzi' : 'Science Course'}</h1>
+          <p className="text-gray-600 mt-1">{language === 'Shona' ? 'Dzidza sainzi nhanho nenhanho' : 'Explore science fundamentals step by step'}</p>
         </div>
         <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
           {/* Course Sections Navigation */}
@@ -112,14 +116,14 @@ export function SciencePage() {
                   className="bg-gradient-to-r from-blue-500 to-purple-600 text-white px-6 py-3 rounded-full font-semibold hover:from-blue-600 hover:to-purple-700 transition-colors flex items-center space-x-2"
                 >
                   <PlayIcon className="w-5 h-5" />
-                  <span>Start Learning</span>
+                  <span>{language === 'Shona' ? 'Tanga Kudzidza' : 'Start Learning'}</span>
                 </button>
               )}
             </div>
             {/* Topics List */}
             <div className="space-y-4 mb-8">
               <h3 className="text-lg font-semibold text-gray-900">
-                Topics Covered
+                {language === 'Shona' ? 'Misoro Yadzidzwa' : 'Topics Covered'}
               </h3>
               <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                 {currentSection.topics && currentSection.topics.map((topic: string, index: number) => (
@@ -138,23 +142,23 @@ export function SciencePage() {
             {/* Learning Resources */}
             <div className="border-t border-gray-200 pt-6">
               <h3 className="text-lg font-semibold text-gray-900 mb-4">
-                Learning Resources
+                {language === 'Shona' ? 'Zviwanikwa zveKudzidza' : 'Learning Resources'}
               </h3>
               <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                 <div className="p-4 bg-blue-50 rounded-xl">
                   <h4 className="font-medium text-blue-900">
-                    Interactive Examples
+                    {language === 'Shona' ? 'Mienzaniso Inodyidzana' : 'Interactive Examples'}
                   </h4>
                   <p className="text-blue-700 text-sm mt-1">
-                    Practice with step-by-step guidance
+                    {language === 'Shona' ? 'Dzidzira nhanho nenhanho' : 'Practice with step-by-step guidance'}
                   </p>
                 </div>
                 <div className="p-4 bg-purple-50 rounded-xl">
                   <h4 className="font-medium text-purple-900">
-                    Video Tutorials
+                    {language === 'Shona' ? 'Mavhidhiyo Ekuraira' : 'Video Tutorials'}
                   </h4>
                   <p className="text-purple-700 text-sm mt-1">
-                    Visual explanations of concepts
+                    {language === 'Shona' ? 'Tsanangudzo dzinoonekwa dzemifungo' : 'Visual explanations of concepts'}
                   </p>
                 </div>
               </div>

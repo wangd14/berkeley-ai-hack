@@ -1,6 +1,8 @@
 import React, { useState } from 'react';
 import { useAuth } from '../context/AuthContext';
 import { useNavigate } from 'react-router-dom';
+import Header from '../components/Header';
+import { useLanguage } from '../context/LanguageContext';
 
 export function Signup() {
   const { setToken } = useAuth();
@@ -10,87 +12,91 @@ export function Signup() {
   const [error, setError] = useState('');
   const [success, setSuccess] = useState(false);
   const navigate = useNavigate();
+  const { language } = useLanguage();
 
   return (
-    <div className="min-h-screen flex items-center justify-center bg-gray-50">
-      <form
-        className="bg-white p-8 rounded shadow-md w-80"
-        onSubmit={async (e) => {
-          e.preventDefault();
-          setError('');
-          setSuccess(false);
-          try {
-            const res = await fetch('/api/signup', {
-              method: 'POST',
-              headers: { 'Content-Type': 'application/json' },
-              body: JSON.stringify({ username, password, name }),
-            });
-            if (res.status === 201) {
-              // Auto-login after signup
-              const loginRes = await fetch('/api/login', {
+    <>
+      <Header />
+      <div className="min-h-screen flex items-center justify-center bg-gray-50">
+        <form
+          className="bg-white p-8 rounded shadow-md w-80"
+          onSubmit={async (e) => {
+            e.preventDefault();
+            setError('');
+            setSuccess(false);
+            try {
+              const res = await fetch('/api/signup', {
                 method: 'POST',
                 headers: { 'Content-Type': 'application/json' },
-                body: JSON.stringify({ username, password }),
+                body: JSON.stringify({ username, password, name }),
               });
-              if (loginRes.ok) {
-                const loginData = await loginRes.json();
-                if (loginData.access_token) {
-                  setToken(loginData.access_token);
-                  if (Boolean(loginData.is_teacher) === true) {
-                    navigate('/teacher-dashboard');
-                  } else {
-                    navigate('/curriculum');
+              if (res.status === 201) {
+                // Auto-login after signup
+                const loginRes = await fetch('/api/login', {
+                  method: 'POST',
+                  headers: { 'Content-Type': 'application/json' },
+                  body: JSON.stringify({ username, password }),
+                });
+                if (loginRes.ok) {
+                  const loginData = await loginRes.json();
+                  if (loginData.access_token) {
+                    setToken(loginData.access_token);
+                    if (Boolean(loginData.is_teacher) === true) {
+                      navigate('/teacher-dashboard');
+                    } else {
+                      navigate('/curriculum');
+                    }
+                    return;
                   }
-                  return;
                 }
+                setSuccess(true);
+                setError(language === 'Shona' ? 'Kunyoresa kwabudirira asi kupinda kwatadza. Ndapota pinda nemaoko.' : 'Signup succeeded but auto-login failed. Please log in manually.');
+              } else {
+                const data = await res.json();
+                setError(data.detail || (language === 'Shona' ? 'Kunyoresa kwatadza' : 'Signup failed'));
               }
-              setSuccess(true);
-              setError('Signup succeeded but auto-login failed. Please log in manually.');
-            } else {
-              const data = await res.json();
-              setError(data.detail || 'Signup failed');
+            } catch (err) {
+              setError(language === 'Shona' ? 'Kunyoresa kwatadza: Dambudziko reInternet' : 'Signup failed: Network error');
             }
-          } catch (err) {
-            setError('Signup failed: Network error');
-          }
-        }}
-      >
-        <h2 className="text-2xl font-bold mb-6">Sign Up</h2>
-        {error && <div className="text-red-500 mb-2">{error}</div>}
-        <input
-          className="w-full mb-4 p-2 border rounded"
-          type="text"
-          placeholder="Name"
-          value={name}
-          onChange={(e) => setName(e.target.value)}
-          required
-        />
-        <input
-          className="w-full mb-4 p-2 border rounded"
-          type="text"
-          placeholder="Username"
-          value={username}
-          onChange={(e) => setUsername(e.target.value)}
-          required
-        />
-        <input
-          className="w-full mb-4 p-2 border rounded"
-          type="password"
-          placeholder="Password"
-          value={password}
-          onChange={(e) => setPassword(e.target.value)}
-          required
-        />
-        <button className="w-full bg-blue-600 text-white py-2 rounded" type="submit">
-          Sign Up
-        </button>
-        <div className="mt-4 text-sm text-center">
-          Already have an account?{' '}
-          <a href="/login" className="text-blue-600">
-            Login
-          </a>
-        </div>
-      </form>
-    </div>
+          }}
+        >
+          <h2 className="text-2xl font-bold mb-6">{language === 'Shona' ? 'Nyoresa' : 'Sign Up'}</h2>
+          {error && <div className="text-red-500 mb-2">{error}</div>}
+          <input
+            className="w-full mb-4 p-2 border rounded"
+            type="text"
+            placeholder={language === 'Shona' ? 'Zita rizere' : 'Name'}
+            value={name}
+            onChange={(e) => setName(e.target.value)}
+            required
+          />
+          <input
+            className="w-full mb-4 p-2 border rounded"
+            type="text"
+            placeholder={language === 'Shona' ? 'Zita remushandisi' : 'Username'}
+            value={username}
+            onChange={(e) => setUsername(e.target.value)}
+            required
+          />
+          <input
+            className="w-full mb-4 p-2 border rounded"
+            type="password"
+            placeholder={language === 'Shona' ? 'Pasiwedhi' : 'Password'}
+            value={password}
+            onChange={(e) => setPassword(e.target.value)}
+            required
+          />
+          <button className="w-full bg-blue-600 text-white py-2 rounded" type="submit">
+            {language === 'Shona' ? 'Nyoresa' : 'Sign Up'}
+          </button>
+          <div className="mt-4 text-sm text-center">
+            {language === 'Shona' ? 'Une account? ' : 'Already have an account? '}
+            <a href="/login" className="text-blue-600">
+              {language === 'Shona' ? 'Pinda' : 'Login'}
+            </a>
+          </div>
+        </form>
+      </div>
+    </>
   );
 }

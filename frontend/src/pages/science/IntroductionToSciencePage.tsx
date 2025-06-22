@@ -1,6 +1,8 @@
 import React, { useState, useEffect } from 'react';
 import { BookOpenIcon, CheckCircleIcon, XCircleIcon } from 'lucide-react';
+import { useLanguage } from '../../context/LanguageContext';
 import coursesData from '../../../data/courses.json';
+import coursesDataShona from '../../../data/courses_shona.json';
 
 interface Course {
   name: string;
@@ -23,18 +25,25 @@ interface PracticeQuestion {
   answer: string;
 }
 
+function getLessonPlan(language: string) {
+  const data = language === 'Shona' ? coursesDataShona : coursesData;
+  const scienceCourse = data.courses.find((c: any) => c.name === (language === 'Shona' ? 'Sainzi' : 'Science'));
+  if (!scienceCourse || !scienceCourse.subcourses) return [];
+  const introScience = scienceCourse.subcourses.find((s: any) => s.name === (language === 'Shona' ? 'Nhanganyaya kuSainzi' : 'Introduction to Science'));
+  if (!introScience || !introScience.lessonPlan) return [];
+  return introScience.lessonPlan;
+}
+
 const IntroductionToSciencePage: React.FC = () => {
+  const { language } = useLanguage();
+  const lessonPlan: any[] = getLessonPlan(language);
+
   const [currentLesson, setCurrentLesson] = useState(0);
   const [currentQuestion, setCurrentQuestion] = useState(0);
   const [userAnswer, setUserAnswer] = useState('');
   const [isCorrect, setIsCorrect] = useState<boolean | null>(null);
   const [showFeedback, setShowFeedback] = useState(false);
   const [completedLessons, setCompletedLessons] = useState<number[]>([0]);
-
-  // Find Introduction to Science course data
-  const scienceCourse = coursesData.courses.find((course: Course) => course.name === 'Science');
-  const introScienceCourse = scienceCourse?.subcourses?.find((sub: any) => sub.name === 'Introduction to Science');
-  const lessonPlan = (introScienceCourse as any)?.lessonPlan || [];
 
   const currentLessonData = lessonPlan[currentLesson];
   const currentQuestionData = currentLessonData?.practiceQuestions?.[currentQuestion];
@@ -81,7 +90,7 @@ const IntroductionToSciencePage: React.FC = () => {
     setShowFeedback(false);
   };
 
-  if (!introScienceCourse) {
+  if (!currentLessonData) {
     return <div className="text-center py-8">Course not found</div>;
   }
 
@@ -94,7 +103,7 @@ const IntroductionToSciencePage: React.FC = () => {
             Introduction to Science
           </h1>
           <p className="text-lg text-gray-600 max-w-2xl mx-auto">
-            {introScienceCourse.description}
+            {currentLessonData.description}
           </p>
         </div>
 
@@ -246,4 +255,4 @@ const IntroductionToSciencePage: React.FC = () => {
   );
 };
 
-export default IntroductionToSciencePage; 
+export default IntroductionToSciencePage;

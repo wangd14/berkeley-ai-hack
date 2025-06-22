@@ -1,6 +1,8 @@
 import React, { useState, useEffect } from 'react';
 import { BookOpenIcon, CheckCircleIcon, XCircleIcon } from 'lucide-react';
+import { useLanguage } from '../../context/LanguageContext';
 import coursesData from '../../../data/courses.json';
+import coursesDataShona from '../../../data/courses_shona.json';
 
 interface Course {
   name: string;
@@ -23,18 +25,25 @@ interface PracticeQuestion {
   answer: string;
 }
 
+function getLessonPlan(language: string) {
+  const data = language === 'Shona' ? coursesDataShona : coursesData;
+  const scienceCourse = data.courses.find((c: any) => c.name === (language === 'Shona' ? 'Sainzi' : 'Science'));
+  if (!scienceCourse || !scienceCourse.subcourses) return [];
+  const physicsCourse = scienceCourse.subcourses.find((s: any) => s.name === (language === 'Shona' ? 'Physics Principles' : 'Physics Principles'));
+  if (!physicsCourse || !physicsCourse.lessonPlan) return [];
+  return physicsCourse.lessonPlan;
+}
+
 const PhysicsPrinciplesPage: React.FC = () => {
+  const { language } = useLanguage();
+  const lessonPlan: any[] = getLessonPlan(language);
+
   const [currentLesson, setCurrentLesson] = useState(0);
   const [currentQuestion, setCurrentQuestion] = useState(0);
   const [userAnswer, setUserAnswer] = useState('');
   const [isCorrect, setIsCorrect] = useState<boolean | null>(null);
   const [showFeedback, setShowFeedback] = useState(false);
   const [completedLessons, setCompletedLessons] = useState<number[]>([0]);
-
-  // Find Physics Principles course data
-  const scienceCourse = coursesData.courses.find((course: Course) => course.name === 'Science');
-  const physicsCourse = scienceCourse?.subcourses?.find((sub: any) => sub.name === 'Physics Principles');
-  const lessonPlan = (physicsCourse as any)?.lessonPlan || [];
 
   const currentLessonData = lessonPlan[currentLesson];
   const currentQuestionData = currentLessonData?.practiceQuestions?.[currentQuestion];
@@ -81,7 +90,7 @@ const PhysicsPrinciplesPage: React.FC = () => {
     setShowFeedback(false);
   };
 
-  if (!physicsCourse) {
+  if (!currentLessonData) {
     return <div className="text-center py-8">Course not found</div>;
   }
 
@@ -94,7 +103,7 @@ const PhysicsPrinciplesPage: React.FC = () => {
             Physics Principles
           </h1>
           <p className="text-lg text-gray-600 max-w-2xl mx-auto">
-            {physicsCourse.description}
+            {currentLessonData.description}
           </p>
         </div>
 
@@ -246,4 +255,4 @@ const PhysicsPrinciplesPage: React.FC = () => {
   );
 };
 
-export default PhysicsPrinciplesPage; 
+export default PhysicsPrinciplesPage;
