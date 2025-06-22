@@ -8,6 +8,7 @@ from passlib.context import CryptContext
 import jwt
 import datetime
 from typing import Optional
+from collections import defaultdict
 
 DATABASE = 'database.db'
 
@@ -107,10 +108,11 @@ def teacher_dashboard():
         "average_score": average_score,
         "active_subjects": active_subjects,
         "need_attention": need_attention,
-        "subject_performance": subject_performance,
-        "weekly_progress": weekly_progress,
-        "assignment_status": assignment_status,
-        "recent_activity": recent_activity,
+        "topic_difficulty": topic_difficulty,
+        "engagement_heatmap": engagement_heatmap,
+        "activityTimeline": activityTimeline,
+        "studentRadar": studentRadar,
+        "profiles": profiles
     })
 
 # In-memory token store (for demo only)

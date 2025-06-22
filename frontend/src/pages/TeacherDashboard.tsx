@@ -53,22 +53,6 @@ export function TeacherDashboard() {
     <div className="w-full min-h-screen bg-gradient-to-br from-blue-50 to-purple-50">
       <Header />
       <div className="max-w-7xl mx-auto px-4 py-8">
-        <div className="flex justify-end mb-4 gap-2">
-          <button
-            onClick={handleLoadMockData}
-            disabled={loadingMock}
-            className="bg-blue-600 text-white px-4 py-2 rounded font-semibold hover:bg-blue-700 transition-colors disabled:opacity-50"
-          >
-            {loadingMock ? "Loading..." : "Load Mock Data"}
-          </button>
-          <button
-            onClick={handleClearDatabase}
-            disabled={clearing}
-            className="bg-red-600 text-white px-4 py-2 rounded font-semibold hover:bg-red-700 transition-colors disabled:opacity-50"
-          >
-            {clearing ? "Clearing..." : "Clear Database"}
-          </button>
-        </div>
         <h1 className="text-3xl font-bold text-gray-900 mb-1">Teacher Dashboard</h1>
         {/* Quick Stats */}
         <div className="grid grid-cols-1 md:grid-cols-4 gap-6 mb-8">
@@ -134,23 +118,18 @@ export function TeacherDashboard() {
           <div className="h-80">
             {engagementHeatmap && engagementHeatmap.length > 0 ? (
               <ResponsiveContainer width="100%" height="100%">
-                <PieChart>
-                  <Pie
-                    data={dashboard.assignment_status}
-                    innerRadius={60}
-                    outerRadius={80}
-                    paddingAngle={5}
-                    dataKey="value"
-                  >
-                    {dashboard.assignment_status.map((_entry: any, index: number) => (
-                      <Cell
-                        key={`cell-${index}`}
-                        fill={COLORS[index % COLORS.length]}
-                      />
-                    ))}
-                  </Pie>
+                {/* You can implement a heatmap or use a suitable chart here */}
+                <BarChart data={engagementHeatmap}>
+                  <CartesianGrid strokeDasharray="3 3" />
+                  <XAxis dataKey="topic" />
+                  <YAxis />
                   <Tooltip />
-                </PieChart>
+                  <Bar dataKey="Mon" fill="#6366F1" />
+                  <Bar dataKey="Tue" fill="#10B981" />
+                  <Bar dataKey="Wed" fill="#F59E42" />
+                  <Bar dataKey="Thu" fill="#EF4444" />
+                  <Bar dataKey="Fri" fill="#A78BFA" />
+                </BarChart>
               </ResponsiveContainer>
             ) : (
               <div className="text-gray-400 text-center pt-20">No engagement data available.</div>
