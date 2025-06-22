@@ -451,7 +451,75 @@
             "Scientific Method",
             "Observation & Experimentation"
           ],
-          "icon": "FunctionSquareIcon"
+          "icon": "FunctionSquareIcon",
+          "lessonPlan": [
+            {
+              "id": 0,
+              "title": "What is Science?",
+              "topics": [
+                "Definition of Science",
+                "Types of Science",
+                "Scientific Thinking"
+              ],
+              "duration": "30 minutes",
+              "completed": true,
+              "description": "Learn about what science is and how it helps us understand the world around us.",
+              "practiceQuestions": [
+                { "question": "What is the main goal of science?", "answer": "to understand the natural world" },
+                { "question": "What type of science studies living things?", "answer": "biology" },
+                { "question": "What type of science studies matter and energy?", "answer": "physics" }
+              ],
+              "contentParagraphs": [
+                "Science is a systematic way of learning about the natural world through observation and experimentation. It helps us understand how things work and why they happen the way they do.",
+                "There are many different types of science, including biology (study of living things), chemistry (study of matter and its changes), and physics (study of energy and forces).",
+                "Scientific thinking involves asking questions, making observations, forming hypotheses, and testing ideas through experiments."
+              ]
+            },
+            {
+              "id": 1,
+              "title": "Scientific Method",
+              "topics": [
+                "Steps of Scientific Method",
+                "Hypothesis Formation",
+                "Testing and Analysis"
+              ],
+              "duration": "45 minutes",
+              "completed": false,
+              "description": "Master the scientific method, the foundation of all scientific inquiry.",
+              "practiceQuestions": [
+                { "question": "What is the first step of the scientific method?", "answer": "ask a question" },
+                { "question": "What is a hypothesis?", "answer": "an educated guess" },
+                { "question": "What do scientists do after testing their hypothesis?", "answer": "analyze results" }
+              ],
+              "contentParagraphs": [
+                "The scientific method is a systematic approach to solving problems and answering questions. It consists of several key steps that scientists follow to ensure their work is reliable and reproducible.",
+                "The first step is to ask a question about something you observe. Then, you research what is already known about the topic and form a hypothesis, which is an educated guess about what might happen.",
+                "Next, you design and conduct experiments to test your hypothesis. Finally, you analyze the results, draw conclusions, and share your findings with others."
+              ]
+            },
+            {
+              "id": 2,
+              "title": "Observation & Experimentation",
+              "topics": [
+                "Making Observations",
+                "Designing Experiments",
+                "Collecting Data"
+              ],
+              "duration": "45 minutes",
+              "completed": false,
+              "description": "Learn how to make careful observations and design effective experiments.",
+              "practiceQuestions": [
+                { "question": "What are the two types of observations?", "answer": "qualitative and quantitative" },
+                { "question": "What is a variable in an experiment?", "answer": "something that can change" },
+                { "question": "Why is it important to control variables in an experiment?", "answer": "to ensure fair testing" }
+              ],
+              "contentParagraphs": [
+                "Observations are the foundation of scientific inquiry. There are two types: qualitative observations (descriptions using words) and quantitative observations (measurements using numbers).",
+                "Experiments are controlled tests designed to answer specific questions. They involve manipulating one variable while keeping others constant to see what effect the change has.",
+                "Data collection is crucial in experiments. Scientists must record their observations accurately and completely, often using tables, graphs, or charts to organize their findings."
+              ]
+            }
+          ]
         },
         {
           "name": "Biology Fundamentals",
@@ -459,7 +527,75 @@
           "duration": "2 hours",
           "completed": false,
           "topics": ["Cells & Organisms", "Ecosystems", "Genetics"],
-          "icon": "GitBranchIcon"
+          "icon": "GitBranchIcon",
+          "lessonPlan": [
+            {
+              "id": 0,
+              "title": "Cells & Organisms",
+              "topics": [
+                "Cell Structure",
+                "Types of Cells",
+                "Cell Functions"
+              ],
+              "duration": "45 minutes",
+              "completed": true,
+              "description": "Learn about the basic building blocks of life and how cells work.",
+              "practiceQuestions": [
+                { "question": "What is the basic unit of life?", "answer": "cell" },
+                { "question": "What organelle is known as the powerhouse of the cell?", "answer": "mitochondria" },
+                { "question": "What type of cell has a nucleus?", "answer": "eukaryotic" }
+              ],
+              "contentParagraphs": [
+                "Cells are the basic units of life. All living organisms are made up of one or more cells, and each cell contains the machinery needed to carry out life processes.",
+                "There are two main types of cells: prokaryotic cells (simple cells without a nucleus, like bacteria) and eukaryotic cells (complex cells with a nucleus, like plant and animal cells).",
+                "Cells contain various organelles, each with specific functions. The nucleus contains genetic material, mitochondria produce energy, and the cell membrane controls what enters and exits the cell."
+              ]
+            },
+            {
+              "id": 1,
+              "title": "Ecosystems",
+              "topics": [
+                "Food Chains",
+                "Habitat and Niche",
+                "Biodiversity"
+              ],
+              "duration": "45 minutes",
+              "completed": false,
+              "description": "Understand how living things interact with each other and their environment.",
+              "practiceQuestions": [
+                { "question": "What is an ecosystem?", "answer": "community of living things and their environment" },
+                { "question": "What do you call an organism that makes its own food?", "answer": "producer" },
+                { "question": "What is biodiversity?", "answer": "variety of life in an ecosystem" }
+              ],
+              "contentParagraphs": [
+                "An ecosystem is a community of living organisms interacting with each other and their physical environment. It includes both biotic (living) and abiotic (non-living) components.",
+                "Food chains show how energy flows through an ecosystem. Producers (like plants) make their own food, consumers eat other organisms, and decomposers break down dead material.",
+                "Biodiversity refers to the variety of life in an ecosystem. High biodiversity makes ecosystems more stable and resilient to changes."
+              ]
+            },
+            {
+              "id": 2,
+              "title": "Genetics",
+              "topics": [
+                "Inheritance",
+                "DNA and Genes",
+                "Genetic Variation"
+              ],
+              "duration": "30 minutes",
+              "completed": false,
+              "description": "Explore how traits are passed from parents to offspring.",
+              "practiceQuestions": [
+                { "question": "What molecule carries genetic information?", "answer": "DNA" },
+                { "question": "What are genes?", "answer": "units of heredity" },
+                { "question": "How many chromosomes do humans have?", "answer": "46" }
+              ],
+              "contentParagraphs": [
+                "Genetics is the study of how traits are passed from parents to offspring. Genes are units of heredity that contain instructions for building and maintaining an organism.",
+                "DNA (deoxyribonucleic acid) is the molecule that carries genetic information. It is organized into structures called chromosomes, which are found in the nucleus of cells.",
+                "Genetic variation occurs when individuals have different versions of genes. This variation is important for evolution and helps populations adapt to changing environments."
+              ]
+            }
+          ]
         },
         {
           "name": "Chemistry Basics",
@@ -471,7 +607,75 @@
             "Periodic Table",
             "Chemical Reactions"
           ],
-          "icon": "CircleEqualIcon"
+          "icon": "CircleEqualIcon",
+          "lessonPlan": [
+            {
+              "id": 0,
+              "title": "Atoms & Molecules",
+              "topics": [
+                "Atomic Structure",
+                "Elements and Compounds",
+                "Chemical Bonding"
+              ],
+              "duration": "45 minutes",
+              "completed": true,
+              "description": "Understand the basic building blocks of matter and how they combine.",
+              "practiceQuestions": [
+                { "question": "What is the smallest unit of an element?", "answer": "atom" },
+                { "question": "What are the three main parts of an atom?", "answer": "protons, neutrons, electrons" },
+                { "question": "What is a molecule?", "answer": "two or more atoms bonded together" }
+              ],
+              "contentParagraphs": [
+                "Atoms are the smallest units of elements that retain the properties of that element. Each atom consists of a nucleus (containing protons and neutrons) surrounded by electrons.",
+                "Elements are pure substances made up of only one type of atom. When different elements combine, they form compounds, which have different properties than the individual elements.",
+                "Chemical bonding occurs when atoms share or transfer electrons. This creates molecules and compounds with unique properties."
+              ]
+            },
+            {
+              "id": 1,
+              "title": "Periodic Table",
+              "topics": [
+                "Element Organization",
+                "Atomic Number",
+                "Element Properties"
+              ],
+              "duration": "45 minutes",
+              "completed": false,
+              "description": "Learn how the periodic table organizes elements and their properties.",
+              "practiceQuestions": [
+                { "question": "How are elements arranged in the periodic table?", "answer": "by atomic number" },
+                { "question": "What does the atomic number represent?", "answer": "number of protons" },
+                { "question": "What are the rows in the periodic table called?", "answer": "periods" }
+              ],
+              "contentParagraphs": [
+                "The periodic table is a systematic arrangement of all known elements. Elements are organized by increasing atomic number (number of protons) and grouped by similar properties.",
+                "Each element has a unique atomic number, which tells us how many protons are in its nucleus. The atomic mass tells us the average mass of the element's atoms.",
+                "Elements in the same column (group) have similar chemical properties. For example, all noble gases are in the same group and are generally unreactive."
+              ]
+            },
+            {
+              "id": 2,
+              "title": "Chemical Reactions",
+              "topics": [
+                "Reactants and Products",
+                "Types of Reactions",
+                "Conservation of Mass"
+              ],
+              "duration": "30 minutes",
+              "completed": false,
+              "description": "Explore how substances change and interact in chemical reactions.",
+              "practiceQuestions": [
+                { "question": "What are the starting materials in a chemical reaction called?", "answer": "reactants" },
+                { "question": "What is the law of conservation of mass?", "answer": "matter cannot be created or destroyed" },
+                { "question": "What type of reaction combines two substances?", "answer": "synthesis" }
+              ],
+              "contentParagraphs": [
+                "Chemical reactions occur when substances interact to form new substances. The starting materials are called reactants, and the new substances formed are called products.",
+                "There are several types of chemical reactions, including synthesis (combining), decomposition (breaking apart), and replacement (swapping parts).",
+                "The law of conservation of mass states that matter cannot be created or destroyed in a chemical reaction. The total mass of reactants equals the total mass of products."
+              ]
+            }
+          ]
         },
         {
           "name": "Physics Principles",
@@ -480,7 +684,75 @@
           "completed": false,
           "locked": true,
           "topics": ["Motion & Forces", "Energy", "Simple Machines"],
-          "icon": "BarChartIcon"
+          "icon": "BarChartIcon",
+          "lessonPlan": [
+            {
+              "id": 0,
+              "title": "Motion & Forces",
+              "topics": [
+                "Types of Motion",
+                "Newton's Laws",
+                "Gravity and Friction"
+              ],
+              "duration": "45 minutes",
+              "completed": true,
+              "description": "Learn about how objects move and the forces that affect them.",
+              "practiceQuestions": [
+                { "question": "What is the rate of change of position called?", "answer": "velocity" },
+                { "question": "What is Newton's first law about?", "answer": "inertia" },
+                { "question": "What force pulls objects toward Earth?", "answer": "gravity" }
+              ],
+              "contentParagraphs": [
+                "Motion is the change in position of an object over time. There are different types of motion, including linear motion (straight line), circular motion, and periodic motion.",
+                "Newton's three laws of motion describe how forces affect the motion of objects. The first law states that objects at rest stay at rest unless acted upon by a force.",
+                "Forces are pushes or pulls that can change the motion of objects. Common forces include gravity (pulling objects toward Earth) and friction (resisting motion between surfaces)."
+              ]
+            },
+            {
+              "id": 1,
+              "title": "Energy",
+              "topics": [
+                "Forms of Energy",
+                "Energy Conservation",
+                "Energy Transformations"
+              ],
+              "duration": "45 minutes",
+              "completed": false,
+              "description": "Explore different forms of energy and how they can be transformed.",
+              "practiceQuestions": [
+                { "question": "What is the energy of motion called?", "answer": "kinetic energy" },
+                { "question": "What is stored energy called?", "answer": "potential energy" },
+                { "question": "Can energy be created or destroyed?", "answer": "no" }
+              ],
+              "contentParagraphs": [
+                "Energy is the ability to do work or cause change. There are many forms of energy, including kinetic energy (energy of motion), potential energy (stored energy), and thermal energy (heat).",
+                "The law of conservation of energy states that energy cannot be created or destroyed, only transformed from one form to another. This is a fundamental principle of physics.",
+                "Energy transformations occur constantly in our world. For example, a battery converts chemical energy to electrical energy, which can then be converted to light energy in a bulb."
+              ]
+            },
+            {
+              "id": 2,
+              "title": "Simple Machines",
+              "topics": [
+                "Types of Simple Machines",
+                "Mechanical Advantage",
+                "Work and Power"
+              ],
+              "duration": "30 minutes",
+              "completed": false,
+              "description": "Understand how simple machines make work easier.",
+              "practiceQuestions": [
+                { "question": "What simple machine is a ramp?", "answer": "inclined plane" },
+                { "question": "What is mechanical advantage?", "answer": "ratio of output force to input force" },
+                { "question": "What simple machine is a wheel with a rope?", "answer": "pulley" }
+              ],
+              "contentParagraphs": [
+                "Simple machines are devices that make work easier by changing the direction or magnitude of a force. The six types are: lever, pulley, wheel and axle, inclined plane, wedge, and screw.",
+                "Mechanical advantage is the ratio of the output force to the input force. It tells us how much a machine multiplies the force we apply.",
+                "Work is done when a force moves an object through a distance. Power is the rate at which work is done, or how quickly energy is transferred."
+              ]
+            }
+          ]
         }
       ]
     },
@@ -501,7 +773,98 @@
             "Summarizing texts and drawing conclusions",
             "Context clues"
           ],
-          "icon": "FunctionSquareIcon"
+          "icon": "FunctionSquareIcon",
+          "lessonPlan": [
+            {
+              "id": 0,
+              "title": "Critical Reading Strategies",
+              "topics": [
+                "Active Reading",
+                "Questioning the Text",
+                "Making Predictions"
+              ],
+              "duration": "1 hour",
+              "completed": true,
+              "description": "Develop strategies for active reading and critical thinking when approaching texts.",
+              "practiceQuestions": [
+                { "question": "What should you do before reading a text to improve comprehension?", "answer": "preview" },
+                { "question": "What type of questions help you engage with the text while reading?", "answer": "why" },
+                { "question": "What reading strategy involves guessing what will happen next?", "answer": "predicting" }
+              ],
+              "contentParagraphs": [
+                "Active reading means engaging with the text rather than just passively scanning words. This involves asking questions, making connections, and thinking about what you're reading.",
+                "Questioning the text helps you stay engaged and understand deeper meanings. Ask yourself 'why' questions about character motivations, author choices, and plot developments.",
+                "Making predictions while reading helps you stay focused and test your understanding. As you read, constantly ask yourself what you think will happen next and why."
+              ]
+            },
+            {
+              "id": 1,
+              "title": "Summarizing and Drawing Conclusions",
+              "topics": [
+                "Main Idea Identification",
+                "Supporting Details",
+                "Inference Making"
+              ],
+              "duration": "1.5 hours",
+              "completed": false,
+              "description": "Learn how to identify main ideas, supporting details, and draw logical conclusions from texts.",
+              "practiceQuestions": [
+                { "question": "What is the difference between main idea and supporting details?", "answer": "main idea is central point, supporting details are evidence" },
+                { "question": "What reading skill involves reading between the lines?", "answer": "inference" },
+                { "question": "What should a good summary include?", "answer": "main points only" }
+              ],
+              "contentParagraphs": [
+                "The main idea is the central point or message that the author wants to convey. Supporting details are the facts, examples, and evidence that back up the main idea.",
+                "Drawing conclusions involves making logical inferences based on the information provided in the text. This means reading between the lines to understand what the author implies.",
+                "A good summary captures the main points of a text without including unnecessary details. It should be concise and focus on the most important information."
+              ]
+            },
+            {
+              "id": 2,
+              "title": "Context Clues and Vocabulary",
+              "topics": [
+                "Types of Context Clues",
+                "Word Parts and Roots",
+                "Dictionary Skills"
+              ],
+              "duration": "1 hour",
+              "completed": false,
+              "description": "Master the use of context clues to understand unfamiliar vocabulary and improve reading comprehension.",
+              "practiceQuestions": [
+                { "question": "What type of context clue provides a definition within the sentence?", "answer": "definition" },
+                { "question": "What word part means 'against' in words like 'anti-war'?", "answer": "anti" },
+                { "question": "What should you look for first when using a dictionary?", "answer": "guide words" }
+              ],
+              "contentParagraphs": [
+                "Context clues are hints within the text that help you understand unfamiliar words. Common types include definition clues, example clues, comparison clues, and contrast clues.",
+                "Understanding word parts like prefixes, suffixes, and roots can help you figure out the meaning of unfamiliar words. For example, 'anti-' means against, and '-ology' means study of.",
+                "Dictionary skills are essential for vocabulary development. Learn to use guide words, pronunciation guides, and multiple definitions to find the correct meaning for your context."
+              ]
+            },
+            {
+              "id": 3,
+              "title": "Text Analysis and Interpretation",
+              "topics": [
+                "Author's Purpose",
+                "Tone and Mood",
+                "Literary Devices"
+              ],
+              "duration": "1.5 hours",
+              "completed": false,
+              "locked": true,
+              "description": "Analyze texts to understand author's purpose, tone, mood, and the use of literary devices.",
+              "practiceQuestions": [
+                { "question": "What are the three main purposes authors write for?", "answer": "inform, persuade, entertain" },
+                { "question": "What literary device compares two things using 'like' or 'as'?", "answer": "simile" },
+                { "question": "What element of writing creates the emotional atmosphere?", "answer": "mood" }
+              ],
+              "contentParagraphs": [
+                "Understanding the author's purpose helps you read more effectively. Authors typically write to inform (provide information), persuade (convince readers), or entertain (amuse readers).",
+                "Tone refers to the author's attitude toward the subject, while mood is the emotional atmosphere created for the reader. Both are conveyed through word choice and writing style.",
+                "Literary devices like similes, metaphors, personification, and imagery add depth and meaning to texts. Recognizing these devices helps you appreciate the author's craft and understand deeper meanings."
+              ]
+            }
+          ]
         },
         {
           "name": "Writing personal narratives",
@@ -509,7 +872,98 @@
           "duration": "2 hours",
           "completed": false,
           "topics": ["How to write a personal narrative?", "How to use descriptive language?", "How to use dialogue?"],
-          "icon": "GitBranchIcon"
+          "icon": "GitBranchIcon",
+          "lessonPlan": [
+            {
+              "id": 0,
+              "title": "Personal Narrative Structure",
+              "topics": [
+                "Choosing a Topic",
+                "Story Arc",
+                "Point of View"
+              ],
+              "duration": "1 hour",
+              "completed": true,
+              "description": "Learn how to structure a personal narrative with a clear beginning, middle, and end.",
+              "practiceQuestions": [
+                { "question": "What should you consider when choosing a personal narrative topic?", "answer": "significance" },
+                { "question": "What are the three main parts of a story arc?", "answer": "beginning, middle, end" },
+                { "question": "What point of view is most common in personal narratives?", "answer": "first person" }
+              ],
+              "contentParagraphs": [
+                "Personal narratives tell true stories from your own life. Choose topics that are meaningful to you and have emotional significance, as these will be easier to write about and more engaging for readers.",
+                "Every good story has a clear structure: a beginning that introduces the situation, a middle that develops the conflict or action, and an end that provides resolution or reflection.",
+                "Personal narratives are typically written in first person point of view, using 'I' and 'me.' This creates an intimate connection between the writer and reader, making the story more personal and engaging."
+              ]
+            },
+            {
+              "id": 1,
+              "title": "Descriptive Language and Sensory Details",
+              "topics": [
+                "Sensory Imagery",
+                "Vivid Verbs",
+                "Specific Nouns"
+              ],
+              "duration": "1.5 hours",
+              "completed": false,
+              "description": "Use descriptive language and sensory details to make your personal narrative come alive.",
+              "practiceQuestions": [
+                { "question": "How many senses should you try to include in descriptive writing?", "answer": "five" },
+                { "question": "What type of words make writing more specific and vivid?", "answer": "concrete" },
+                { "question": "What should you avoid in descriptive writing?", "answer": "vague words" }
+              ],
+              "contentParagraphs": [
+                "Sensory imagery involves using all five senses (sight, sound, smell, taste, touch) to create vivid pictures in the reader's mind. This makes your story more engaging and memorable.",
+                "Vivid verbs are action words that create clear, specific images. Instead of 'walked,' use 'stumbled,' 'sauntered,' or 'marched' to show exactly how someone moved.",
+                "Specific nouns are concrete, particular words that create clear images. Instead of 'car,' use 'red convertible' or 'rusty pickup truck' to give readers a specific picture."
+              ]
+            },
+            {
+              "id": 2,
+              "title": "Dialogue and Characterization",
+              "topics": [
+                "Writing Realistic Dialogue",
+                "Dialogue Tags",
+                "Character Development"
+              ],
+              "duration": "1.5 hours",
+              "completed": false,
+              "description": "Learn how to write effective dialogue and develop characters in your personal narrative.",
+              "practiceQuestions": [
+                { "question": "What punctuation marks are used to enclose dialogue?", "answer": "quotation marks" },
+                { "question": "What should dialogue tags describe?", "answer": "how something is said" },
+                { "question": "What helps readers understand characters in a story?", "answer": "actions and words" }
+              ],
+              "contentParagraphs": [
+                "Dialogue should sound natural and reveal character. People don't always speak in complete sentences, and their word choice reflects their personality, background, and emotions.",
+                "Dialogue tags (like 'he said,' 'she whispered') should be varied and descriptive. They can show how something is said and add emotion to the conversation.",
+                "Character development happens through showing rather than telling. Let readers learn about characters through their actions, words, thoughts, and how others react to them."
+              ]
+            },
+            {
+              "id": 3,
+              "title": "Reflection and Meaning",
+              "topics": [
+                "Finding the Lesson",
+                "Reflection Techniques",
+                "Universal Themes"
+              ],
+              "duration": "1 hour",
+              "completed": false,
+              "locked": true,
+              "description": "Add depth to your personal narrative by including reflection and universal meaning.",
+              "practiceQuestions": [
+                { "question": "What should a personal narrative teach or reveal?", "answer": "lesson or insight" },
+                { "question": "What makes a story meaningful to other people?", "answer": "universal themes" },
+                { "question": "When should reflection typically appear in a personal narrative?", "answer": "end" }
+              ],
+              "contentParagraphs": [
+                "Personal narratives are more than just stories—they should reveal something about life, human nature, or the writer. Think about what you learned or how you changed from the experience.",
+                "Reflection helps readers understand why the story matters. It can appear throughout the story or at the end, but it should help readers see the deeper meaning.",
+                "Universal themes are ideas that many people can relate to, such as friendship, courage, loss, or growth. Including these themes makes your personal story meaningful to a wider audience."
+              ]
+            }
+          ]
         },
         {
           "name": "Writing satire",
@@ -521,7 +975,98 @@
             "Laugh",
             "Love"
           ],
-          "icon": "CircleEqualIcon"
+          "icon": "CircleEqualIcon",
+          "lessonPlan": [
+            {
+              "id": 0,
+              "title": "Understanding Satire",
+              "topics": [
+                "Definition and Purpose",
+                "Types of Satire",
+                "Targets and Goals"
+              ],
+              "duration": "1 hour",
+              "completed": true,
+              "description": "Learn what satire is, its different forms, and how it uses humor to critique society.",
+              "practiceQuestions": [
+                { "question": "What is the main purpose of satire?", "answer": "criticize" },
+                { "question": "What type of satire uses gentle humor and wit?", "answer": "horatian" },
+                { "question": "What should satire ultimately try to achieve?", "answer": "change" }
+              ],
+              "contentParagraphs": [
+                "Satire is a literary form that uses humor, irony, exaggeration, or ridicule to expose and criticize people's stupidity or vices, particularly in the context of contemporary politics and other topical issues.",
+                "There are two main types of satire: Horatian satire uses gentle, sympathetic humor to point out human folly, while Juvenalian satire is more bitter and angry, using harsh ridicule to attack vice and error.",
+                "Satire targets human weaknesses, social problems, or political issues. The goal is not just to make people laugh, but to make them think and potentially inspire change or improvement."
+              ]
+            },
+            {
+              "id": 1,
+              "title": "Satirical Techniques",
+              "topics": [
+                "Exaggeration and Hyperbole",
+                "Irony and Sarcasm",
+                "Parody and Pastiche"
+              ],
+              "duration": "1.5 hours",
+              "completed": false,
+              "description": "Master the key techniques used in satirical writing to create effective humor and criticism.",
+              "practiceQuestions": [
+                { "question": "What technique involves making something seem much bigger or worse than it is?", "answer": "exaggeration" },
+                { "question": "What type of irony involves saying the opposite of what you mean?", "answer": "verbal" },
+                { "question": "What technique imitates a specific style or work for comic effect?", "answer": "parody" }
+              ],
+              "contentParagraphs": [
+                "Exaggeration and hyperbole are powerful satirical tools. By making something seem much bigger, worse, or more ridiculous than it actually is, you can highlight its absurdity or problematic nature.",
+                "Irony involves saying one thing while meaning another. Verbal irony is saying the opposite of what you mean, while situational irony occurs when the outcome is the opposite of what was expected.",
+                "Parody imitates a specific style, work, or genre for comic effect, while pastiche combines elements from different sources. Both techniques can be used to comment on or criticize the original works or styles."
+              ]
+            },
+            {
+              "id": 2,
+              "title": "Creating Satirical Characters",
+              "topics": [
+                "Character Types",
+                "Stereotypes and Archetypes",
+                "Character Development"
+              ],
+              "duration": "1.5 hours",
+              "completed": false,
+              "description": "Develop memorable satirical characters that represent and critique real-world types and behaviors.",
+              "practiceQuestions": [
+                { "question": "What type of character represents a particular group or idea?", "answer": "archetype" },
+                { "question": "What should satirical characters exaggerate?", "answer": "flaws" },
+                { "question": "How should satirical characters be developed?", "answer": "consistently" }
+              ],
+              "contentParagraphs": [
+                "Satirical characters often represent types rather than individuals. They embody particular flaws, vices, or social problems that the satirist wants to criticize or expose.",
+                "Stereotypes and archetypes are useful tools in satire because they represent recognizable patterns of behavior. However, effective satire goes beyond simple stereotypes to create more complex, believable characters.",
+                "Even satirical characters need consistent development. Their exaggerated traits should be consistent throughout the story, and they should have enough depth to be believable while still serving the satirical purpose."
+              ]
+            },
+            {
+              "id": 3,
+              "title": "Writing Effective Satire",
+              "topics": [
+                "Finding Your Target",
+                "Balancing Humor and Criticism",
+                "Ethical Considerations"
+              ],
+              "duration": "1 hour",
+              "completed": false,
+              "locked": true,
+              "description": "Learn how to write effective satire that is both funny and meaningful, while considering ethical implications.",
+              "practiceQuestions": [
+                { "question": "What should you research before writing satire about a topic?", "answer": "facts" },
+                { "question": "What should satire avoid being?", "answer": "mean-spirited" },
+                { "question": "What makes satire more effective than direct criticism?", "answer": "humor" }
+              ],
+              "contentParagraphs": [
+                "Effective satire requires careful research and understanding of your target. Whether criticizing a person, institution, or social problem, you need to know the facts to create accurate and meaningful satire.",
+                "The best satire balances humor with criticism. It should make people laugh while also making them think. Avoid being mean-spirited or personal—focus on ideas, behaviors, and systems rather than individuals.",
+                "Satire has ethical responsibilities. It should aim to improve society rather than just tear things down. Consider the potential impact of your work and whether it contributes to constructive dialogue."
+              ]
+            }
+          ]
         },
         {
           "name": "Writing analysis essays",
@@ -530,7 +1075,98 @@
           "completed": false,
           "locked": true,
           "topics": ["How to understand the text and draw conclusions?", "How to use evidence to support your arguments?", "How to use a thesis statement?"],
-          "icon": "BarChartIcon"
+          "icon": "BarChartIcon",
+          "lessonPlan": [
+            {
+              "id": 0,
+              "title": "Text Analysis Fundamentals",
+              "topics": [
+                "Close Reading",
+                "Identifying Key Elements",
+                "Understanding Context"
+              ],
+              "duration": "1.5 hours",
+              "completed": true,
+              "description": "Learn the fundamentals of analyzing texts, including close reading techniques and identifying key literary elements.",
+              "practiceQuestions": [
+                { "question": "What reading technique involves examining every detail of a text?", "answer": "close reading" },
+                { "question": "What are the main elements to analyze in a literary text?", "answer": "plot, character, setting, theme" },
+                { "question": "What should you consider about the time period when analyzing a text?", "answer": "historical context" }
+              ],
+              "contentParagraphs": [
+                "Close reading is the foundation of text analysis. It involves carefully examining every word, phrase, and detail in a text to understand its meaning and significance. This means reading slowly and multiple times.",
+                "When analyzing a text, focus on key literary elements: plot (what happens), character (who is involved), setting (where and when), and theme (what the text is really about). These elements work together to create meaning.",
+                "Understanding the historical, cultural, and biographical context of a text is crucial for analysis. Consider when and where the text was written, the author's background, and the social conditions of the time."
+              ]
+            },
+            {
+              "id": 1,
+              "title": "Developing a Thesis Statement",
+              "topics": [
+                "What Makes a Good Thesis",
+                "Argument vs. Summary",
+                "Specificity and Clarity"
+              ],
+              "duration": "1 hour",
+              "completed": false,
+              "description": "Learn how to develop a strong, arguable thesis statement that guides your analysis essay.",
+              "practiceQuestions": [
+                { "question": "What should a thesis statement be?", "answer": "arguable" },
+                { "question": "What should you avoid in a thesis statement?", "answer": "summary" },
+                { "question": "What makes a thesis statement specific?", "answer": "concrete details" }
+              ],
+              "contentParagraphs": [
+                "A good thesis statement makes an arguable claim about the text. It should be something that reasonable people could disagree about, not just a summary of what happens in the text.",
+                "Avoid thesis statements that simply summarize the plot or state obvious facts. Instead, make a claim about what the text means, how it works, or what it reveals about a particular theme or issue.",
+                "Specific thesis statements include concrete details from the text and clearly indicate what you will argue. Vague statements like 'This text is good' don't provide enough direction for your essay."
+              ]
+            },
+            {
+              "id": 2,
+              "title": "Using Evidence Effectively",
+              "topics": [
+                "Finding Supporting Evidence",
+                "Quoting and Paraphrasing",
+                "Analyzing Evidence"
+              ],
+              "duration": "1.5 hours",
+              "completed": false,
+              "description": "Learn how to find, present, and analyze evidence from the text to support your thesis statement.",
+              "practiceQuestions": [
+                { "question": "What should you do after presenting a quote from the text?", "answer": "analyze it" },
+                { "question": "What is the difference between quoting and paraphrasing?", "answer": "quoting uses exact words, paraphrasing restates" },
+                { "question": "What should evidence always relate to?", "answer": "thesis" }
+              ],
+              "contentParagraphs": [
+                "Evidence from the text should directly support your thesis statement. Look for specific quotes, examples, and details that prove your argument. Don't just find evidence that's interesting—find evidence that's relevant.",
+                "When using quotes, always explain how they support your argument. Don't assume the connection is obvious. After presenting a quote, analyze what it means and how it relates to your thesis.",
+                "Paraphrasing can be as effective as quoting, especially for longer passages. When you paraphrase, you restate the author's ideas in your own words, which can help you better understand and explain the text."
+              ]
+            },
+            {
+              "id": 3,
+              "title": "Essay Structure and Organization",
+              "topics": [
+                "Introduction and Conclusion",
+                "Body Paragraph Structure",
+                "Logical Flow"
+              ],
+              "duration": "1 hour",
+              "completed": false,
+              "locked": true,
+              "description": "Learn how to structure your analysis essay with clear organization and logical flow.",
+              "practiceQuestions": [
+                { "question": "What should an introduction include?", "answer": "thesis and context" },
+                { "question": "What is the structure of a good body paragraph?", "answer": "topic sentence, evidence, analysis" },
+                { "question": "What should a conclusion do?", "answer": "restate thesis and broader significance" }
+              ],
+              "contentParagraphs": [
+                "The introduction should provide context about the text and author, then present your thesis statement. It should give readers enough background to understand your analysis without giving away all your arguments.",
+                "Each body paragraph should focus on one main point that supports your thesis. Use the structure: topic sentence (main point), evidence (quotes/examples), and analysis (explanation of how evidence supports your point).",
+                "The conclusion should restate your thesis in different words and explain the broader significance of your analysis. What does your argument reveal about the text, the author, or the human condition?"
+              ]
+            }
+          ]
         }
       ]
     },
@@ -547,37 +1183,207 @@
           "duration": "4 hours",
           "completed": true,
           "topics": [
-            "Integers and Rational Numbers",
-            "For loops and while loops",
-            "Strings and characters", 
-            "Arraylists and vectors",
-            "Functions and classes",
-            "Pointers and references",
-            "Inheritance and polymorphism",
-            "Exception handling and debugging",
-            "File handling and input/output",
-            "STL and algorithms",
-            "Object-oriented programming"
+            "Variables and Data Types",
+            "Control Structures",
+            "Functions and Classes",
+            "Object-Oriented Programming"
           ],
-          "icon": "FunctionSquareIcon"
+          "icon": "FunctionSquareIcon",
+          "lessonPlan": [
+            {
+              "id": 0,
+              "title": "Variables and Data Types",
+              "topics": [
+                "Basic Data Types",
+                "Variable Declaration",
+                "Constants"
+              ],
+              "duration": "1 hour",
+              "completed": true,
+              "description": "Learn about C++ data types, variable declaration, and how to work with constants.",
+              "practiceQuestions": [
+                { "question": "What data type would you use to store a whole number in C++?", "answer": "int" },
+                { "question": "How do you declare a variable named 'age' with value 25?", "answer": "int age = 25;" },
+                { "question": "What keyword is used to declare a constant in C++?", "answer": "const" }
+              ],
+              "contentParagraphs": [
+                "C++ is a strongly-typed language, meaning every variable must have a specific data type. The most common data types include int for whole numbers, double for decimal numbers, char for single characters, and string for text.",
+                "Variable declaration in C++ follows the pattern: data_type variable_name = value;. For example, 'int age = 25;' declares an integer variable named age with the value 25.",
+                "Constants are values that cannot be changed after they are declared. Use the 'const' keyword to declare constants, like 'const int MAX_SIZE = 100;'."
+              ]
+            },
+            {
+              "id": 1,
+              "title": "Control Structures",
+              "topics": [
+                "If Statements",
+                "Loops",
+                "Switch Statements"
+              ],
+              "duration": "1.5 hours",
+              "completed": false,
+              "description": "Master conditional statements and loops to control program flow.",
+              "practiceQuestions": [
+                { "question": "What keyword is used for conditional statements in C++?", "answer": "if" },
+                { "question": "How do you write a for loop that runs 5 times?", "answer": "for(int i = 0; i < 5; i++)" },
+                { "question": "What loop type is best when you don't know how many iterations you need?", "answer": "while" }
+              ],
+              "contentParagraphs": [
+                "Control structures allow you to make decisions and repeat code in your programs. The if statement is the most basic conditional structure, allowing you to execute code only when certain conditions are met.",
+                "Loops are used to repeat code multiple times. The for loop is ideal when you know the number of iterations, while the while loop is better when the number of iterations is unknown.",
+                "Switch statements provide an alternative to multiple if-else statements when comparing a variable against multiple possible values."
+              ]
+            },
+            {
+              "id": 2,
+              "title": "Functions and Classes",
+              "topics": [
+                "Function Declaration",
+                "Parameters and Return Values",
+                "Class Definition"
+              ],
+              "duration": "2 hours",
+              "completed": false,
+              "description": "Learn how to create reusable functions and define classes for object-oriented programming.",
+              "practiceQuestions": [
+                { "question": "What keyword is used to define a function in C++?", "answer": "void" },
+                { "question": "How do you call a function named 'calculate' with parameters 5 and 3?", "answer": "calculate(5, 3)" },
+                { "question": "What keyword is used to define a class in C++?", "answer": "class" }
+              ],
+              "contentParagraphs": [
+                "Functions are blocks of code that perform specific tasks and can be reused throughout your program. They help organize code and make it more maintainable.",
+                "Functions can accept parameters (inputs) and return values (outputs). Parameters allow you to pass data into functions, while return values allow functions to send data back.",
+                "Classes are the foundation of object-oriented programming in C++. They allow you to create custom data types that combine data (member variables) and functions (member functions) that work with that data."
+              ]
+            },
+            {
+              "id": 3,
+              "title": "Object-Oriented Programming",
+              "topics": [
+                "Encapsulation",
+                "Inheritance",
+                "Polymorphism"
+              ],
+              "duration": "2.5 hours",
+              "completed": false,
+              "locked": true,
+              "description": "Explore the core principles of object-oriented programming in C++.",
+              "practiceQuestions": [
+                { "question": "What OOP principle hides data and methods within a class?", "answer": "encapsulation" },
+                { "question": "What keyword allows a class to inherit from another class?", "answer": "public" },
+                { "question": "What OOP principle allows different classes to respond differently to the same method call?", "answer": "polymorphism" }
+              ],
+              "contentParagraphs": [
+                "Object-oriented programming (OOP) is a programming paradigm that organizes code into objects that contain data and code. The three main principles are encapsulation, inheritance, and polymorphism.",
+                "Encapsulation is the bundling of data and methods that operate on that data within a single unit (class). It helps protect data from outside interference and misuse.",
+                "Inheritance allows a class to inherit properties and methods from another class, promoting code reuse. Polymorphism allows objects of different classes to respond to the same method call in different ways."
+              ]
+            }
+          ]
         },
         {
           "name": "Introduction to Python",
           "description": "Discover basic of Python programming language.",
           "duration": "4 hours",
           "completed": false,
-          "topics": [ "Integers and Rational Numbers",
-          "For loops and while loops",
-          "Strings and characters", 
-          "Arraylists and vectors",
-          "Functions and classes",
-          "Pointers and references",
-          "Inheritance and polymorphism",
-          "Exception handling and debugging",
-          "File handling and input/output",
-          "STL and algorithms",
-          "Object-oriented programming"],
-          "icon": "GitBranchIcon"
+          "topics": [
+            "Python Basics",
+            "Data Structures",
+            "Functions and Modules",
+            "Object-Oriented Programming"
+          ],
+          "icon": "GitBranchIcon",
+          "lessonPlan": [
+            {
+              "id": 0,
+              "title": "Python Basics",
+              "topics": [
+                "Variables and Data Types",
+                "Print Statements",
+                "Basic Operations"
+              ],
+              "duration": "1 hour",
+              "completed": true,
+              "description": "Learn the fundamentals of Python programming including variables, data types, and basic operations.",
+              "practiceQuestions": [
+                { "question": "How do you create a variable named 'name' with value 'John' in Python?", "answer": "name = 'John'" },
+                { "question": "What function is used to output text in Python?", "answer": "print" },
+                { "question": "What data type is '3.14' in Python?", "answer": "float" }
+              ],
+              "contentParagraphs": [
+                "Python is a high-level, interpreted programming language known for its simplicity and readability. Unlike some other languages, Python doesn't require explicit variable type declarations.",
+                "Variables in Python are created by simply assigning a value to a name. Python automatically determines the data type based on the value you assign.",
+                "The print() function is one of the most commonly used functions in Python. It outputs text to the console and is essential for displaying information to users."
+              ]
+            },
+            {
+              "id": 1,
+              "title": "Data Structures",
+              "topics": [
+                "Lists",
+                "Dictionaries",
+                "Tuples and Sets"
+              ],
+              "duration": "1.5 hours",
+              "completed": false,
+              "description": "Explore Python's built-in data structures for organizing and storing data.",
+              "practiceQuestions": [
+                { "question": "How do you create an empty list in Python?", "answer": "[]" },
+                { "question": "What data structure uses key-value pairs in Python?", "answer": "dictionary" },
+                { "question": "How do you add an item to a list named 'my_list'?", "answer": "my_list.append(item)" }
+              ],
+              "contentParagraphs": [
+                "Lists are one of Python's most versatile data structures. They can store multiple items of different types and are mutable, meaning you can change their contents after creation.",
+                "Dictionaries store data as key-value pairs, making them perfect for storing related information. They are unordered and mutable, allowing you to add, remove, or modify entries.",
+                "Tuples are similar to lists but are immutable, meaning they cannot be changed after creation. Sets are unordered collections of unique elements, useful for removing duplicates."
+              ]
+            },
+            {
+              "id": 2,
+              "title": "Functions and Modules",
+              "topics": [
+                "Function Definition",
+                "Parameters and Arguments",
+                "Importing Modules"
+              ],
+              "duration": "2 hours",
+              "completed": false,
+              "description": "Learn how to create reusable functions and work with Python modules.",
+              "practiceQuestions": [
+                { "question": "What keyword is used to define a function in Python?", "answer": "def" },
+                { "question": "How do you import the math module in Python?", "answer": "import math" },
+                { "question": "What is the return value of a function that doesn't have a return statement?", "answer": "None" }
+              ],
+              "contentParagraphs": [
+                "Functions in Python are defined using the 'def' keyword followed by the function name and parameters. They allow you to organize code into reusable blocks.",
+                "Functions can accept parameters (inputs) and return values (outputs). Parameters allow you to pass data into functions, while return values allow functions to send data back.",
+                "Modules are Python files containing functions, classes, and variables that can be imported and used in other programs. They help organize code and promote reusability."
+              ]
+            },
+            {
+              "id": 3,
+              "title": "Object-Oriented Programming",
+              "topics": [
+                "Classes and Objects",
+                "Methods and Attributes",
+                "Inheritance"
+              ],
+              "duration": "2.5 hours",
+              "completed": false,
+              "locked": true,
+              "description": "Explore object-oriented programming concepts in Python.",
+              "practiceQuestions": [
+                { "question": "What keyword is used to define a class in Python?", "answer": "class" },
+                { "question": "What is the special method called when creating a new object?", "answer": "__init__" },
+                { "question": "What keyword is used for inheritance in Python?", "answer": "class" }
+              ],
+              "contentParagraphs": [
+                "Classes in Python are blueprints for creating objects. They define the structure and behavior that objects of that class will have.",
+                "Methods are functions defined within a class that operate on the class's data. The __init__ method is a special constructor method that is called when creating a new object.",
+                "Inheritance allows a class to inherit attributes and methods from another class, promoting code reuse and creating hierarchical relationships between classes."
+              ]
+            }
+          ]
         },
         {
           "name": "Introduction to Computer Architecture",
