@@ -114,7 +114,11 @@ export function MathematicsPage() {
                 <button
                   onClick={() => {
                     if (currentSection.title && currentSection.title.toLowerCase().includes('algebra')) {
-                      navigate('/mathematics/algebra');
+                      if (currentSection.title.toLowerCase().includes('pre-algebra')) {
+                        navigate('/mathematics/pre-algebra');
+                      } else {
+                        navigate('/mathematics/algebra');
+                      }
                     } else {
                       setIsLearningMode(true);
                     }
