@@ -16,6 +16,96 @@
             "Introduction to Numbers",
             "Basic Operations",
             "Factors and Multiples"
+          ],
+          "lessonPlan": [
+            {
+              "id": 0,
+              "title": "Introduction to Numbers",
+              "topics": [
+                "Whole Numbers",
+                "Place Value",
+                "Number Line"
+              ],
+              "duration": "1 hour",
+              "completed": true,
+              "description": "Learn about whole numbers, place value, and how to use the number line.",
+              "practiceQuestions": [
+                { "question": "What is the place value of 5 in 352?", "answer": "50" },
+                { "question": "Which number comes after 19?", "answer": "20" },
+                { "question": "Is 0 a whole number? (yes or no)", "answer": "yes" }
+              ],
+              "contentParagraphs": [
+                "Whole numbers are numbers without fractions or decimals, starting from 0 and increasing by 1 each time (0, 1, 2, 3, ...).",
+                "Place value tells us the value of each digit in a number based on its position. For example, in 352, the 5 is in the tens place, so it represents 50.",
+                "The number line is a visual way to show numbers in order. It helps you understand counting, comparing, and the concept of greater and less than."
+              ]
+            },
+            {
+              "id": 1,
+              "title": "Basic Operations",
+              "topics": [
+                "Addition & Subtraction",
+                "Multiplication",
+                "Division"
+              ],
+              "duration": "1.5 hours",
+              "completed": false,
+              "description": "Master the four basic operations: addition, subtraction, multiplication, and division.",
+              "practiceQuestions": [
+                { "question": "What is 7 + 6?", "answer": "13" },
+                { "question": "Subtract: 15 - 9", "answer": "6" },
+                { "question": "Multiply: 4 × 3", "answer": "12" }
+              ],
+              "contentParagraphs": [
+                "Addition means putting numbers together to find the total. Subtraction means taking away from a number.",
+                "Multiplication is repeated addition. For example, 4 × 3 means 4 added three times (4 + 4 + 4 = 12).",
+                "Division is splitting a number into equal parts. For example, 12 ÷ 3 means splitting 12 into 3 equal groups of 4."
+              ]
+            },
+            {
+              "id": 2,
+              "title": "Factors and Multiples",
+              "topics": [
+                "Finding Factors",
+                "Multiples",
+                "Prime Numbers"
+              ],
+              "duration": "1 hour",
+              "completed": false,
+              "description": "Understand how to find factors, multiples, and identify prime numbers.",
+              "practiceQuestions": [
+                { "question": "What are the factors of 12? (comma separated)", "answer": "1,2,3,4,6,12" },
+                { "question": "Is 7 a prime number? (yes or no)", "answer": "yes" },
+                { "question": "What is the first multiple of 5 after 10?", "answer": "15" }
+              ],
+              "contentParagraphs": [
+                "A factor is a number that divides another number exactly. For example, 3 is a factor of 12 because 12 ÷ 3 = 4.",
+                "A multiple is the result of multiplying a number by an integer. For example, multiples of 5 are 5, 10, 15, 20, ...",
+                "Prime numbers are numbers greater than 1 that have only two factors: 1 and themselves."
+              ]
+            },
+            {
+              "id": 3,
+              "title": "Fractions & Decimals",
+              "topics": [
+                "Understanding Fractions",
+                "Equivalent Fractions",
+                "Decimals"
+              ],
+              "duration": "1.5 hours",
+              "completed": false,
+              "description": "Learn about fractions, equivalent fractions, and how decimals relate to fractions.",
+              "practiceQuestions": [
+                { "question": "What is 1/2 as a decimal?", "answer": "0.5" },
+                { "question": "Are 2/4 and 1/2 equivalent? (yes or no)", "answer": "yes" },
+                { "question": "What is 0.75 as a fraction?", "answer": "3/4" }
+              ],
+              "contentParagraphs": [
+                "A fraction represents a part of a whole. The top number is the numerator, and the bottom is the denominator.",
+                "Equivalent fractions are different fractions that represent the same value, like 1/2 and 2/4.",
+                "Decimals are another way to show parts of a whole, using a decimal point. For example, 0.5 is the same as 1/2."
+              ]
+            }
           ]
         },
         {
@@ -27,6 +117,96 @@
             "Integers and Rational Numbers",
             "Exponents and Radicals",
             "Algebraic Expressions"
+          ],
+          "lessonPlan": [
+            {
+              "id": 0,
+              "title": "Integers and Rational Numbers",
+              "topics": [
+                "Understanding Integers",
+                "Comparing and Ordering",
+                "Rational Numbers"
+              ],
+              "duration": "1.5 hours",
+              "completed": true,
+              "description": "Learn about integers, rational numbers, and how to compare and order them.",
+              "practiceQuestions": [
+                { "question": "What is the opposite of -7?", "answer": "7" },
+                { "question": "Is 3/4 a rational number? (yes or no)", "answer": "yes" },
+                { "question": "Which is greater: -2 or 1?", "answer": "1" }
+              ],
+              "contentParagraphs": [
+                "Integers are whole numbers and their opposites, including zero. They can be positive, negative, or zero. Understanding how to work with integers is a key skill in pre-algebra.",
+                "Rational numbers are numbers that can be written as a fraction of two integers. This includes integers, fractions, and terminating or repeating decimals.",
+                "Comparing and ordering integers and rational numbers helps you understand their relationships and how they fit on the number line."
+              ]
+            },
+            {
+              "id": 1,
+              "title": "Exponents and Radicals",
+              "topics": [
+                "Understanding Exponents",
+                "Square Roots",
+                "Simplifying Radicals"
+              ],
+              "duration": "2 hours",
+              "completed": false,
+              "description": "Explore the basics of exponents and radicals, including how to simplify them.",
+              "practiceQuestions": [
+                { "question": "What is 2^3?", "answer": "8" },
+                { "question": "What is the square root of 49?", "answer": "7" },
+                { "question": "Simplify: √16", "answer": "4" }
+              ],
+              "contentParagraphs": [
+                "Exponents are a way to represent repeated multiplication. For example, 2^3 means 2 × 2 × 2 = 8.",
+                "Radicals, such as square roots, are the opposite of exponents. The square root of a number is a value that, when multiplied by itself, gives the original number.",
+                "Simplifying radicals means finding the simplest form of a root, such as reducing √16 to 4."
+              ]
+            },
+            {
+              "id": 2,
+              "title": "Algebraic Expressions",
+              "topics": [
+                "Variables and Terms",
+                "Evaluating Expressions",
+                "Combining Like Terms"
+              ],
+              "duration": "2 hours",
+              "completed": false,
+              "description": "Learn how to work with algebraic expressions, including evaluating and simplifying them.",
+              "practiceQuestions": [
+                { "question": "Evaluate: 3x when x = 2", "answer": "6" },
+                { "question": "Combine like terms: 2a + 3a", "answer": "5a" },
+                { "question": "What is the variable in the expression 5y + 2?", "answer": "y" }
+              ],
+              "contentParagraphs": [
+                "Algebraic expressions are combinations of variables, numbers, and operations. Variables are symbols that represent unknown values.",
+                "Evaluating expressions means substituting values for variables and performing the operations. Combining like terms involves adding or subtracting terms that have the same variable part."
+              ]
+            },
+            {
+              "id": 3,
+              "title": "Equations and Inequalities",
+              "topics": [
+                "Simple Equations",
+                "Solving Inequalities",
+                "Applications"
+              ],
+              "duration": "2.5 hours",
+              "completed": false,
+              "locked": true,
+              "description": "Understand how to solve simple equations and inequalities, and apply them to real-world problems.",
+              "practiceQuestions": [
+                { "question": "Solve for x: x + 5 = 9", "answer": "4" },
+                { "question": "Is x = 3 a solution to the inequality x > 2? (yes or no)", "answer": "yes" },
+                { "question": "What is the solution to 2x = 10?", "answer": "5" }
+              ],
+              "contentParagraphs": [
+                "Equations are statements that two expressions are equal. Solving equations means finding the value of the variable that makes the equation true.",
+                "Inequalities show that one expression is greater or less than another. Solving inequalities means finding all values that make the inequality true.",
+                "These concepts are used in real-world applications, such as budgeting, measuring, and comparing quantities."
+              ]
+            }
           ]
         },
         {

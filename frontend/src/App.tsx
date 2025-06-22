@@ -6,6 +6,8 @@ import { TeacherDashboard } from './pages/TeacherDashboard';
 import { EnglishArtsPage } from './pages/EnglishArtsPage';
 import { TechnologyPage } from './pages/TechnologyPage';
 import { AlgebraPage } from './pages/maths/AlgebraPage';
+import { PreAlgebraPage } from './pages/maths/PreAlgebraPage';
+import { BasicMathPage } from './pages/maths/BasicMathPage';
 
 export function App() {
   return (
@@ -17,6 +19,8 @@ export function App() {
       <Route path="/science" element={<SciencePage />} />
       <Route path="/english-arts" element={<EnglishArtsPage />} />
       <Route path="/technology" element={<TechnologyPage />} />
+      <Route path="/mathematics/pre-algebra" element={<PreAlgebraPage />} />
+      <Route path="/mathematics/basic-math" element={<BasicMathPage />} />
     </Routes>
   );
 }
