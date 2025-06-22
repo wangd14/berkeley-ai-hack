@@ -347,11 +347,78 @@
           "name": "Geometry",
           "description": "Explore shapes, sizes, and the properties of space.",
           "image": "https://images.unsplash.com/photo-1506748686214-e9df14d4d9d0?w=400&h=300&fit=crop",
-          "lessons": 15,
+          "lessons": 4,
           "topics": [
-            "Basic Geometric Shapes",
-            "Theorems and Proofs",
-            "Coordinate Geometry"
+            "Points, Lines, and Planes",
+            "Angles and Their Types",
+            "Triangles and Their Properties",
+            "Quadrilaterals and Polygons"
+          ],
+          "lessonPlan": [
+            {
+              "id": 0,
+              "title": "Points, Lines, and Planes",
+              "topics": ["Definition of Points, Lines, and Planes", "Collinear and Coplanar"],
+              "duration": "1 hour",
+              "completed": false,
+              "description": "Understand the basic building blocks of geometry: points, lines, and planes.",
+              "practiceQuestions": [
+                { "question": "What is a point in geometry?", "answer": "An exact location in space with no size." },
+                { "question": "What do you call a flat surface that extends infinitely in all directions?", "answer": "A plane." },
+                { "question": "Are two points always collinear? (yes or no)", "answer": "yes" }
+              ],
+              "contentParagraphs": [
+                "A point is an exact location in space. It has no size, only position. A line is a straight path that extends infinitely in both directions. It is made up of an infinite number of points. A plane is a flat surface that extends infinitely in all directions. Any three non-collinear points define a plane."
+              ]
+            },
+            {
+              "id": 1,
+              "title": "Angles and Their Types",
+              "topics": ["Acute, Right, Obtuse, and Straight Angles", "Measuring Angles"],
+              "duration": "1 hour",
+              "completed": false,
+              "description": "Learn about different types of angles and how to measure them.",
+              "practiceQuestions": [
+                { "question": "What is the measure of a right angle?", "answer": "90 degrees" },
+                { "question": "Is a 120 degree angle obtuse? (yes or no)", "answer": "yes" },
+                { "question": "What tool is used to measure angles?", "answer": "Protractor" }
+              ],
+              "contentParagraphs": [
+                "Angles are formed by two rays with a common endpoint called the vertex. Acute angles are less than 90 degrees, right angles are exactly 90 degrees, obtuse angles are between 90 and 180 degrees, and straight angles are exactly 180 degrees. A protractor is used to measure the size of an angle in degrees."
+              ]
+            },
+            {
+              "id": 2,
+              "title": "Triangles and Their Properties",
+              "topics": ["Types of Triangles", "Triangle Inequality Theorem"],
+              "duration": "1.5 hours",
+              "completed": false,
+              "description": "Explore different types of triangles and their properties.",
+              "practiceQuestions": [
+                { "question": "What are the three types of triangles based on sides?", "answer": "Equilateral, Isosceles, Scalene" },
+                { "question": "What is the sum of the interior angles of a triangle?", "answer": "180 degrees" },
+                { "question": "Can a triangle have two right angles? (yes or no)", "answer": "no" }
+              ],
+              "contentParagraphs": [
+                "Triangles are polygons with three sides and three angles. Based on sides, triangles can be equilateral (all sides equal), isosceles (two sides equal), or scalene (all sides different). The sum of the interior angles of any triangle is always 180 degrees. The triangle inequality theorem states that the sum of any two sides must be greater than the third side."
+              ]
+            },
+            {
+              "id": 3,
+              "title": "Quadrilaterals and Polygons",
+              "topics": ["Types of Quadrilaterals", "Properties of Polygons"],
+              "duration": "1 hour",
+              "completed": false,
+              "description": "Learn about quadrilaterals and other polygons.",
+              "practiceQuestions": [
+                { "question": "How many sides does a quadrilateral have?", "answer": "4" },
+                { "question": "Name a quadrilateral with all sides equal and all angles right.", "answer": "Square" },
+                { "question": "What is a polygon with 6 sides called?", "answer": "Hexagon" }
+              ],
+              "contentParagraphs": [
+                "Quadrilaterals are polygons with four sides. Examples include squares, rectangles, parallelograms, and trapezoids. A polygon is a closed figure with straight sides. The number of sides determines the type of polygon (pentagon, hexagon, etc.). Regular polygons have all sides and angles equal."
+              ]
+            }
           ]
         },
         {

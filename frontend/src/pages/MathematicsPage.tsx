@@ -121,6 +121,8 @@ export function MathematicsPage() {
                       }
                     } else if (currentSection.title && currentSection.title.toLowerCase().includes('basic math')) {
                       navigate('/mathematics/basic-math');
+                    } else if (currentSection.title && currentSection.title.toLowerCase().includes('geometry')) {
+                      navigate('/mathematics/geometry');
                     } else {
                       setIsLearningMode(true);
                     }
