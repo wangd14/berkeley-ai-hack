@@ -158,32 +158,6 @@ export function TeacherDashboard() {
             )}
           </div>
         </div>
-        {/* Per-Student Progress (Radar): show each student's progress from courses_stats */}
-        <div className="bg-white rounded-2xl shadow-lg p-6 mb-8">
-          <h2 className="text-xl font-bold text-gray-900 mb-4">Per-Student Progress (Radar)</h2>
-          <div className="h-96 overflow-x-auto">
-            {dashboard.studentRadar && dashboard.studentRadar.length > 0 ? (
-              <div className="flex space-x-8">
-                {dashboard.studentRadar.map((radarData: any, idx: number) => (
-                  <div key={idx} className="min-w-[350px]">
-                    <div className="text-center font-semibold mb-2">{radarData.name}</div>
-                    <ResponsiveContainer width={350} height={350}>
-                      <RadarChart data={radarData.data}>
-                        <PolarGrid />
-                        <PolarAngleAxis dataKey="topic" />
-                        <PolarRadiusAxis angle={30} domain={[0, 100]} />
-                        <Radar name={radarData.name} dataKey="correctness" stroke="#6366F1" fill="#6366F1" fillOpacity={0.6} />
-                        <Tooltip />
-                      </RadarChart>
-                    </ResponsiveContainer>
-                  </div>
-                ))}
-              </div>
-            ) : (
-              <div className="text-gray-400 text-center pt-20">No radar data available.</div>
-            )}
-          </div>
-        </div>
         {/* Student Profile Cards: exclude teacher */}
         <div className="mb-8">
           <h2 className="text-xl font-bold text-gray-900 mb-4">Student Profiles</h2>
