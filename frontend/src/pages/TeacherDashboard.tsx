@@ -25,10 +25,12 @@ import {
   Pie,
   Cell,
 } from 'recharts'
+import { useLanguage } from '../context/LanguageContext';
 
 export function TeacherDashboard() {
   const [dashboard, setDashboard] = useState<any>(null);
   const COLORS = ['#10B981', '#6366F1', '#EF4444'];
+  const { language } = useLanguage();
   useEffect(() => {
     fetch('/api/teacher-dashboard')
       .then(res => res.json())
@@ -53,14 +55,14 @@ export function TeacherDashboard() {
     <div className="w-full min-h-screen bg-gradient-to-br from-blue-50 to-purple-50">
       <Header />
       <div className="max-w-7xl mx-auto px-4 py-8">
-        <h1 className="text-3xl font-bold text-gray-900 mb-1">Teacher Dashboard</h1>
+        <h1 className="text-3xl font-bold text-gray-900 mb-1">{language === 'Shona' ? 'Dhesibhodhi yeMudzidzisi' : 'Teacher Dashboard'}</h1>
         {/* Quick Stats */}
         <div className="grid grid-cols-1 md:grid-cols-4 gap-6 mb-8">
           <div className="bg-white rounded-xl p-6 shadow-sm border border-gray-100">
             <div className="flex items-center justify-between">
               <div>
                 <div className="text-3xl font-bold text-blue-600">{dashboard.total_students}</div>
-                <div className="text-gray-600 mt-1">Total Students</div>
+                <div className="text-gray-600 mt-1">{language === 'Shona' ? 'Vadzidzi Vese' : 'Total Students'}</div>
               </div>
               <UsersIcon className="w-8 h-8 text-blue-500 opacity-75" />
             </div>
@@ -69,7 +71,7 @@ export function TeacherDashboard() {
             <div className="flex items-center justify-between">
               <div>
                 <div className="text-3xl font-bold text-green-600">{dashboard.average_score}%</div>
-                <div className="text-gray-600 mt-1">Average Score</div>
+                <div className="text-gray-600 mt-1">{language === 'Shona' ? 'Avhareji Yezvibodzwa' : 'Average Score'}</div>
               </div>
               <TrendingUpIcon className="w-8 h-8 text-green-500 opacity-75" />
             </div>
@@ -78,7 +80,7 @@ export function TeacherDashboard() {
             <div className="flex items-center justify-between">
               <div>
                 <div className="text-3xl font-bold text-purple-600">{dashboard.active_subjects}</div>
-                <div className="text-gray-600 mt-1">Active Subjects</div>
+                <div className="text-gray-600 mt-1">{language === 'Shona' ? 'Zvidzidzo Zviri Kushanda' : 'Active Subjects'}</div>
               </div>
               <BrainIcon className="w-8 h-8 text-purple-500 opacity-75" />
             </div>
@@ -87,7 +89,7 @@ export function TeacherDashboard() {
             <div className="flex items-center justify-between">
               <div>
                 <div className="text-3xl font-bold text-red-600">{dashboard.need_attention}</div>
-                <div className="text-gray-600 mt-1">Need Attention</div>
+                <div className="text-gray-600 mt-1">{language === 'Shona' ? 'Vanoda Rubatsiro' : 'Need Attention'}</div>
               </div>
               <AlertCircleIcon className="w-8 h-8 text-red-500 opacity-75" />
             </div>
@@ -95,7 +97,7 @@ export function TeacherDashboard() {
         </div>
         {/* Topic Difficulty Bar Chart */}
         <div className="bg-white rounded-2xl shadow-lg p-6 mb-8">
-          <h2 className="text-xl font-bold text-gray-900 mb-4">Topic Difficulty</h2>
+          <h2 className="text-xl font-bold text-gray-900 mb-4">{language === 'Shona' ? 'Kuoma kweMisoro' : 'Topic Difficulty'}</h2>
           <div className="h-80">
             {topicDifficulty && topicDifficulty.length > 0 ? (
               <ResponsiveContainer width="100%" height="100%">
@@ -114,7 +116,7 @@ export function TeacherDashboard() {
         </div>
         {/* Engagement Heatmap */}
         <div className="bg-white rounded-2xl shadow-lg p-6 mb-8">
-          <h2 className="text-xl font-bold text-gray-900 mb-4">Engagement Heatmap</h2>
+          <h2 className="text-xl font-bold text-gray-900 mb-4">{language === 'Shona' ? 'Mepu Yekubatana' : 'Engagement Heatmap'}</h2>
           <div className="h-80">
             {engagementHeatmap && engagementHeatmap.length > 0 ? (
               <ResponsiveContainer width="100%" height="100%">
@@ -138,7 +140,7 @@ export function TeacherDashboard() {
         </div>
         {/* Activity Timeline: show a list of recent activity from courses_stats */}
         <div className="bg-white rounded-2xl shadow-lg p-6 mb-8">
-          <h2 className="text-xl font-bold text-gray-900 mb-4">Activity Timeline</h2>
+          <h2 className="text-xl font-bold text-gray-900 mb-4">{language === 'Shona' ? 'Nguva Yezviitiko' : 'Activity Timeline'}</h2>
           <div className="h-64 overflow-y-auto">
             {dashboard.activityTimeline && dashboard.activityTimeline.length > 0 ? (
               <ul className="divide-y divide-gray-200">
@@ -160,7 +162,7 @@ export function TeacherDashboard() {
         </div>
         {/* Student Profile Cards: exclude teacher */}
         <div className="mb-8">
-          <h2 className="text-xl font-bold text-gray-900 mb-4">Student Profiles</h2>
+          <h2 className="text-xl font-bold text-gray-900 mb-4">{language === 'Shona' ? 'Maprofile eVadzidzi' : 'Student Profiles'}</h2>
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
             {studentProfiles && studentProfiles.length > 0 ? (
               studentProfiles.filter((profile: any) => profile.name !== 'Teacher').map((profile: any, idx: number) => (
