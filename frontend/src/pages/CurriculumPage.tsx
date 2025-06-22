@@ -35,11 +35,18 @@ export function CurriculumPage() {
         {/* Quick Stats */}
         <div className="grid grid-cols-1 md:grid-cols-4 gap-6 mb-8">
           <div className="bg-white rounded-xl p-6 shadow-sm border border-gray-100">
-            <div className="text-3xl font-bold text-blue-600">6</div>
+            <div className="text-3xl font-bold text-blue-600">{coursesData.courses.length}</div>
             <div className="text-gray-600 mt-1">Core Subjects</div>
           </div>
           <div className="bg-white rounded-xl p-6 shadow-sm border border-gray-100">
-            <div className="text-3xl font-bold text-green-600">223</div>
+            <div className="text-3xl font-bold text-green-600">{
+              coursesData.courses.reduce((total: number, course: any) => {
+                if (Array.isArray(course.subcourses)) {
+                  return total + course.subcourses.length;
+                }
+                return total;
+              }, 0)
+            }</div>
             <div className="text-gray-600 mt-1">Total Lessons</div>
           </div>
           <div className="bg-white rounded-xl p-6 shadow-sm border border-gray-100">
