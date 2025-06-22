@@ -5,6 +5,7 @@ import {
   TrendingUpIcon,
   AlertCircleIcon,
   BrainIcon,
+  ClockIcon,
 } from 'lucide-react'
 import {
   BarChart,
