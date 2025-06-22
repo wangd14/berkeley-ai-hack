@@ -9,6 +9,7 @@ import { AlgebraPage } from './pages/maths/AlgebraPage';
 import { PreAlgebraPage } from './pages/maths/PreAlgebraPage';
 import { BasicMathPage } from './pages/maths/BasicMathPage';
 import { LanguageProvider } from './context/LanguageContext';
+import {GeometryPage} from './pages/maths/GeometryPage';
 
 export function App() {
   return (
@@ -23,6 +24,7 @@ export function App() {
         <Route path="/technology" element={<TechnologyPage />} />
         <Route path="/mathematics/pre-algebra" element={<PreAlgebraPage />} />
         <Route path="/mathematics/basic-math" element={<BasicMathPage />} />
+        <Route path="/mathematics/geometry" element={<GeometryPage />} />
       </Routes>
     </LanguageProvider>
   );
