@@ -27,6 +27,96 @@
             "Integers and Rational Numbers",
             "Exponents and Radicals",
             "Algebraic Expressions"
+          ],
+          "lessonPlan": [
+            {
+              "id": 0,
+              "title": "Integers and Rational Numbers",
+              "topics": [
+                "Understanding Integers",
+                "Comparing and Ordering",
+                "Rational Numbers"
+              ],
+              "duration": "1.5 hours",
+              "completed": true,
+              "description": "Learn about integers, rational numbers, and how to compare and order them.",
+              "practiceQuestions": [
+                { "question": "What is the opposite of -7?", "answer": "7" },
+                { "question": "Is 3/4 a rational number? (yes or no)", "answer": "yes" },
+                { "question": "Which is greater: -2 or 1?", "answer": "1" }
+              ],
+              "contentParagraphs": [
+                "Integers are whole numbers and their opposites, including zero. They can be positive, negative, or zero. Understanding how to work with integers is a key skill in pre-algebra.",
+                "Rational numbers are numbers that can be written as a fraction of two integers. This includes integers, fractions, and terminating or repeating decimals.",
+                "Comparing and ordering integers and rational numbers helps you understand their relationships and how they fit on the number line."
+              ]
+            },
+            {
+              "id": 1,
+              "title": "Exponents and Radicals",
+              "topics": [
+                "Understanding Exponents",
+                "Square Roots",
+                "Simplifying Radicals"
+              ],
+              "duration": "2 hours",
+              "completed": false,
+              "description": "Explore the basics of exponents and radicals, including how to simplify them.",
+              "practiceQuestions": [
+                { "question": "What is 2^3?", "answer": "8" },
+                { "question": "What is the square root of 49?", "answer": "7" },
+                { "question": "Simplify: √16", "answer": "4" }
+              ],
+              "contentParagraphs": [
+                "Exponents are a way to represent repeated multiplication. For example, 2^3 means 2 × 2 × 2 = 8.",
+                "Radicals, such as square roots, are the opposite of exponents. The square root of a number is a value that, when multiplied by itself, gives the original number.",
+                "Simplifying radicals means finding the simplest form of a root, such as reducing √16 to 4."
+              ]
+            },
+            {
+              "id": 2,
+              "title": "Algebraic Expressions",
+              "topics": [
+                "Variables and Terms",
+                "Evaluating Expressions",
+                "Combining Like Terms"
+              ],
+              "duration": "2 hours",
+              "completed": false,
+              "description": "Learn how to work with algebraic expressions, including evaluating and simplifying them.",
+              "practiceQuestions": [
+                { "question": "Evaluate: 3x when x = 2", "answer": "6" },
+                { "question": "Combine like terms: 2a + 3a", "answer": "5a" },
+                { "question": "What is the variable in the expression 5y + 2?", "answer": "y" }
+              ],
+              "contentParagraphs": [
+                "Algebraic expressions are combinations of variables, numbers, and operations. Variables are symbols that represent unknown values.",
+                "Evaluating expressions means substituting values for variables and performing the operations. Combining like terms involves adding or subtracting terms that have the same variable part."
+              ]
+            },
+            {
+              "id": 3,
+              "title": "Equations and Inequalities",
+              "topics": [
+                "Simple Equations",
+                "Solving Inequalities",
+                "Applications"
+              ],
+              "duration": "2.5 hours",
+              "completed": false,
+              "locked": true,
+              "description": "Understand how to solve simple equations and inequalities, and apply them to real-world problems.",
+              "practiceQuestions": [
+                { "question": "Solve for x: x + 5 = 9", "answer": "4" },
+                { "question": "Is x = 3 a solution to the inequality x > 2? (yes or no)", "answer": "yes" },
+                { "question": "What is the solution to 2x = 10?", "answer": "5" }
+              ],
+              "contentParagraphs": [
+                "Equations are statements that two expressions are equal. Solving equations means finding the value of the variable that makes the equation true.",
+                "Inequalities show that one expression is greater or less than another. Solving inequalities means finding all values that make the inequality true.",
+                "These concepts are used in real-world applications, such as budgeting, measuring, and comparing quantities."
+              ]
+            }
           ]
         },
         {
