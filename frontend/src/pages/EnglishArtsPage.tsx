@@ -1,4 +1,5 @@
 import { useState } from 'react';
+import { useNavigate } from 'react-router-dom';
 import { Header } from '../components/Header';
 import coursesData from '../../data/courses.json';
 import {
@@ -35,30 +36,31 @@ function getCourseSections(courseName: string) {
 }
 
 export function EnglishArtsPage() {
+  const navigate = useNavigate();
   const courseSections = getCourseSections('English Language Arts');
   const [selectedSection, setSelectedSection] = useState(0);
-  const [isLearningMode, setIsLearningMode] = useState(false);
   const currentSection = courseSections[selectedSection] || {};
-  if (isLearningMode) {
-    // Placeholder for learning mode
-    return (
-      <div className="w-full min-h-screen bg-gradient-to-br from-blue-50 to-purple-50 flex flex-col items-center justify-center">
-        <button onClick={() => setIsLearningMode(false)} className="mb-4 px-4 py-2 bg-blue-500 text-white rounded">Back</button>
-        <div className="bg-white p-8 rounded shadow max-w-xl w-full">
-          <h2 className="text-2xl font-bold mb-2">{currentSection.title}</h2>
-          <p className="mb-4">{currentSection.description}</p>
-          <div className="space-y-2">
-            {currentSection.topics && currentSection.topics.map((topic: string, i: number) => (
-              <div key={i} className="flex items-center space-x-2">
-                <BrainIcon className="w-5 h-5 text-blue-500" />
-                <span>{topic}</span>
-              </div>
-            ))}
-          </div>
-        </div>
-      </div>
-    );
-  }
+
+  const handleStartLearning = () => {
+    const sectionName = currentSection.title;
+    switch (sectionName) {
+      case 'Reading Comprehension':
+        navigate('/english/reading-comprehension');
+        break;
+      case 'Writing personal narratives':
+        navigate('/english/personal-narratives');
+        break;
+      case 'Writing satire':
+        navigate('/english/satire');
+        break;
+      case 'Writing analysis essays':
+        navigate('/english/analysis-essays');
+        break;
+      default:
+        break;
+    }
+  };
+
   return (
     <div className="w-full min-h-screen bg-gradient-to-br from-blue-50 to-purple-50">
       <Header />
@@ -110,7 +112,7 @@ export function EnglishArtsPage() {
               </div>
               {!currentSection.locked && (
                 <button
-                  onClick={() => setIsLearningMode(true)}
+                  onClick={handleStartLearning}
                   className="bg-gradient-to-r from-blue-500 to-purple-600 text-white px-6 py-3 rounded-full font-semibold hover:from-blue-600 hover:to-purple-700 transition-colors flex items-center space-x-2"
                 >
                   <PlayIcon className="w-5 h-5" />
