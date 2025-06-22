@@ -21,10 +21,15 @@ import {
   PolarAngleAxis,
   PolarRadiusAxis,
   Radar,
+  PieChart,
+  Pie,
+  Cell,
 } from 'recharts'
 
 export function TeacherDashboard() {
   const [dashboard, setDashboard] = useState<any>(null);
+  const COLORS = ['#10B981', '#6366F1', '#EF4444'];
+  
   useEffect(() => {
     fetch('/api/teacher-dashboard')
       .then(res => res.json())
@@ -138,7 +143,7 @@ export function TeacherDashboard() {
                   <Bar dataKey="Wed" stackId="a" fill="#F59E42" />
                   <Bar dataKey="Thu" stackId="a" fill="#EF4444" />
                   <Bar dataKey="Fri" stackId="a" fill="#A855F7" />
-                </BarChart>
+                </PieChart>
               </ResponsiveContainer>
             ) : (
               <div className="text-gray-400 text-center pt-20">No engagement data available.</div>
