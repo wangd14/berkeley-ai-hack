@@ -8,19 +8,24 @@ import { TechnologyPage } from './pages/TechnologyPage';
 import { AlgebraPage } from './pages/maths/AlgebraPage';
 import { PreAlgebraPage } from './pages/maths/PreAlgebraPage';
 import { BasicMathPage } from './pages/maths/BasicMathPage';
+import { LanguageProvider } from './context/LanguageContext';
 
 export function App() {
   return (
-    <Routes>
-      <Route path="/" element={<CurriculumPage />} />
-      <Route path="/mathematics" element={<MathematicsPage />} />
-      <Route path="/mathematics/algebra" element={<AlgebraPage />} />
-      <Route path="/teacher-dashboard" element={<TeacherDashboard />} />
-      <Route path="/science" element={<SciencePage />} />
-      <Route path="/english-arts" element={<EnglishArtsPage />} />
-      <Route path="/technology" element={<TechnologyPage />} />
-      <Route path="/mathematics/pre-algebra" element={<PreAlgebraPage />} />
-      <Route path="/mathematics/basic-math" element={<BasicMathPage />} />
-    </Routes>
+    <LanguageProvider>
+      <Routes>
+        <Route path="/" element={<CurriculumPage />} />
+        <Route path="/mathematics" element={<MathematicsPage />} />
+        <Route path="/mathematics/algebra" element={<AlgebraPage />} />
+        <Route path="/teacher-dashboard" element={<TeacherDashboard />} />
+        <Route path="/science" element={<SciencePage />} />
+        <Route path="/english-arts" element={<EnglishArtsPage />} />
+        <Route path="/technology" element={<TechnologyPage />} />
+        <Route path="/mathematics/pre-algebra" element={<PreAlgebraPage />} />
+        <Route path="/mathematics/basic-math" element={<BasicMathPage />} />
+      </Routes>
+    </LanguageProvider>
   );
 }
+
+export default App;
