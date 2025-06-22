@@ -34,11 +34,11 @@ export function CurriculumPage() {
           </div>
           <div className="bg-white rounded-xl p-6 shadow-sm border border-gray-100">
             <div className="text-3xl font-bold text-purple-600">24/7</div>
-            <div className="text-gray-600 mt-1">AI Support</div>
+            <div className="text-gray-600 mt-1">Offline AI Tutor</div>
           </div>
           <div className="bg-white rounded-xl p-6 shadow-sm border border-gray-100">
-            <div className="text-3xl font-bold text-orange-600">Fun</div>
-            <div className="text-gray-600 mt-1">Learning Style</div>
+            <div className="text-3xl font-bold text-orange-600">Step by Step</div>
+            <div className="text-gray-600 mt-1">Questions and Hints</div>
           </div>
         </div>
         {/* Subject Cards */}
