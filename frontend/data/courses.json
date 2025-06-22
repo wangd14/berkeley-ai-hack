@@ -34,7 +34,134 @@
           "description": "Learn the fundamentals of algebra including variables, equations, and functions.",
           "image": "https://images.unsplash.com/photo-1581091870620-2f8b1c5d3e4f?w=400&h=300&fit=crop",
           "lessons": 15,
-          "topics": ["Linear Equations", "Inequalities", "Polynomials"]
+          "topics": ["Linear Equations", "Inequalities", "Polynomials"],
+          "lessonPlan": [
+            {
+              "id": 0,
+              "title": "Introduction to Algebra",
+              "topics": [
+                "Variables & Constants",
+                "Mathematical Expressions",
+                "Order of Operations"
+              ],
+              "duration": "2 hours",
+              "completed": true,
+              "description": "Learn the fundamental building blocks of algebra and how to work with mathematical expressions.",
+              "practiceQuestions": [
+                {
+                  "question": "Which of the following is a variable in the expression 3x + 5?",
+                  "answer": "x"
+                },
+                {
+                  "question": "What is the value of the constant in the expression 7y - 4?",
+                  "answer": "-4"
+                },
+                {
+                  "question": "Simplify the expression: 2 + 3 * 4.",
+                  "answer": "14"
+                }
+              ],
+              "contentParagraphs": [
+                "Algebra is the study of mathematical symbols and the rules for manipulating these symbols. In this section, you will learn about variables, constants, and how to form and simplify mathematical expressions. Variables are symbols (often letters) that represent unknown values. Constants are fixed values that do not change.",
+                "Mathematical expressions combine variables, constants, and operations (like addition and multiplication) to represent relationships. Understanding how to read and write these expressions is the foundation of algebra.",
+                "The order of operations (PEMDAS) is crucial for solving problems correctly. The order of operations (Parentheses, Exponents, Multiplication/Division, Addition/Subtraction) tells you the correct sequence to solve expressions, ensuring everyone gets the same answer."
+              ]
+            },
+            {
+              "id": 1,
+              "title": "Linear Equations",
+              "topics": [
+                "Solving Simple Equations",
+                "Word Problems",
+                "Graphing Lines"
+              ],
+              "duration": "3 hours",
+              "completed": true,
+              "description": "Master the art of solving linear equations and representing them graphically.",
+              "practiceQuestions": [
+                {
+                  "question": "Solve for x: 2x + 3 = 7.",
+                  "answer": "2"
+                },
+                {
+                  "question": "What is the slope of the line y = 4x + 1?",
+                  "answer": "4"
+                },
+                {
+                  "question": "If y = 2x and x = 5, what is y?",
+                  "answer": "10"
+                }
+              ],
+              "contentParagraphs": [
+                "Linear equations are equations between two variables that produce a straight line when graphed. You will learn to solve simple equations, tackle word problems, and graph lines on the coordinate plane.",
+                "A linear equation is an equation of the form ax + b = c, where x is the variable. Solving these equations means finding the value of x that makes the equation true.",
+                "Word problems help you translate real-life situations into equations. Graphing lines shows how solutions relate visually, and helps you understand slope and intercepts."
+              ]
+            },
+            {
+              "id": 2,
+              "title": "Polynomials",
+              "topics": [
+                "Adding & Subtracting",
+                "Multiplication",
+                "Factoring"
+              ],
+              "duration": "4 hours",
+              "completed": false,
+              "description": "Explore polynomial operations and techniques for factoring complex expressions.",
+              "practiceQuestions": [
+                {
+                  "question": "Add: (2x + 3) + (x - 5)",
+                  "answer": "3x - 2"
+                },
+                {
+                  "question": "Multiply: (x)(x + 2)",
+                  "answer": "x^2 + 2x"
+                },
+                {
+                  "question": "Factor: x^2 - 9",
+                  "answer": "(x + 3)(x - 3)"
+                }
+              ],
+              "contentParagraphs": [
+                "Polynomials are expressions consisting of variables and coefficients, combined using addition, subtraction, and multiplication. This section covers adding, subtracting, multiplying, and factoring polynomials, which are foundational for higher-level math.",
+                "Adding and subtracting polynomials involves combining like terms. Multiplying polynomials uses the distributive property and can involve special products like the square of a binomial.",
+                "Factoring is the process of writing a polynomial as a product of simpler polynomials, which is useful for solving equations and simplifying expressions."
+              ]
+            },
+            {
+              "id": 3,
+              "title": "Quadratic Equations",
+              "topics": [
+                "Standard Form",
+                "Solving Methods",
+                "Applications"
+              ],
+              "duration": "5 hours",
+              "completed": false,
+              "locked": true,
+              "description": "Dive deep into quadratic equations and their real-world applications.",
+              "practiceQuestions": [
+                {
+                  "question": "Solve: x^2 - 4 = 0",
+                  "answer": "x = 2 or x = -2"
+                },
+                {
+                  "question": "What is the vertex of y = (x - 1)^2 + 3?",
+                  "answer": "(1, 3)"
+                },
+                {
+                  "question": "Which method can be used to solve any quadratic equation?",
+                  "answer": "Quadratic formula"
+                }
+              ],
+              "contentParagraphs": [
+                "Quadratic equations are second-degree equations that can be solved by various methods. You will explore their standard form, different solving techniques, and real-world applications.",
+                "A quadratic equation has the form ax^2 + bx + c = 0. You can solve quadratics by factoring, completing the square, or using the quadratic formula. The graph of a quadratic is a parabola.",
+                "Quadratic equations appear in many real-world problems, such as projectile motion and area optimization. Understanding their properties helps you model and solve complex scenarios."
+              ]
+            }
+          ]
         },
         {
           "name": "Geometry",
