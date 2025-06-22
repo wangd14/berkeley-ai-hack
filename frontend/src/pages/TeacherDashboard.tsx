@@ -54,7 +54,6 @@ export function TeacherDashboard() {
       <Header />
       <div className="max-w-7xl mx-auto px-4 py-8">
         <h1 className="text-3xl font-bold text-gray-900 mb-1">Teacher Dashboard</h1>
-        <p className="text-gray-600 mb-8">Class 7A Overview and Analytics</p>
         {/* Quick Stats */}
         <div className="grid grid-cols-1 md:grid-cols-4 gap-6 mb-8">
           <div className="bg-white rounded-xl p-6 shadow-sm border border-gray-100">
@@ -119,23 +118,18 @@ export function TeacherDashboard() {
           <div className="h-80">
             {engagementHeatmap && engagementHeatmap.length > 0 ? (
               <ResponsiveContainer width="100%" height="100%">
-                <PieChart>
-                  <Pie
-                    data={dashboard.assignment_status}
-                    innerRadius={60}
-                    outerRadius={80}
-                    paddingAngle={5}
-                    dataKey="value"
-                  >
-                    {dashboard.assignment_status.map((_entry: any, index: number) => (
-                      <Cell
-                        key={`cell-${index}`}
-                        fill={COLORS[index % COLORS.length]}
-                      />
-                    ))}
-                  </Pie>
+                {/* You can implement a heatmap or use a suitable chart here */}
+                <BarChart data={engagementHeatmap}>
+                  <CartesianGrid strokeDasharray="3 3" />
+                  <XAxis dataKey="topic" />
+                  <YAxis />
                   <Tooltip />
-                </PieChart>
+                  <Bar dataKey="Mon" fill="#6366F1" />
+                  <Bar dataKey="Tue" fill="#10B981" />
+                  <Bar dataKey="Wed" fill="#F59E42" />
+                  <Bar dataKey="Thu" fill="#EF4444" />
+                  <Bar dataKey="Fri" fill="#A78BFA" />
+                </BarChart>
               </ResponsiveContainer>
             ) : (
               <div className="text-gray-400 text-center pt-20">No engagement data available.</div>

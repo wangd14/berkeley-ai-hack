@@ -1,8 +1,15 @@
+import React, { useEffect } from 'react';
+import { Routes, Route, Navigate, useLocation, useNavigate } from 'react-router-dom';
+import { AuthProvider, useAuth } from './context/AuthContext';
+import { jwtDecode } from 'jwt-decode';
+
+import { HomePage } from './pages/HomePage';
 import { CurriculumPage } from './pages/CurriculumPage';
+import { TeacherDashboard } from './pages/TeacherDashboard';
+import { Login } from './pages/Login';
+import { Signup } from './pages/Signup';
 import { MathematicsPage } from './pages/MathematicsPage';
 import { SciencePage } from './pages/SciencePage';
-import { Routes, Route } from 'react-router-dom';
-import { TeacherDashboard } from './pages/TeacherDashboard';
 import { EnglishArtsPage } from './pages/EnglishArtsPage';
 import { TechnologyPage } from './pages/TechnologyPage';
 import { AlgebraPage } from './pages/maths/AlgebraPage';
@@ -22,10 +29,34 @@ import { SatirePage } from './pages/english/SatirePage';
 import { AnalysisEssaysPage } from './pages/english/AnalysisEssaysPage';
 
 export function App() {
+  const { token, isAuthenticated } = useAuth();
+  const location = useLocation();
+  const navigate = useNavigate();
+
+  useEffect(() => {
+    if (isAuthenticated && (location.pathname === '/' || location.pathname === '/login' || location.pathname === '/signup')) {
+      let isTeacher = false;
+      if (token) {
+        try {
+          const decoded: any = jwtDecode(token);
+          isTeacher = !!decoded.is_teacher;
+        } catch {}
+      }
+      if (isTeacher) {
+        navigate('/teacher-dashboard', { replace: true });
+      } else {
+        navigate('/curriculum', { replace: true });
+      }
+    }
+  }, [isAuthenticated, location.pathname, token, navigate]);
+
   return (
     <LanguageProvider>
       <Routes>
-        <Route path="/" element={<CurriculumPage />} />
+        <Route path="/" element={<HomePage />} />
+        <Route path="/login" element={<Login />} />
+        <Route path="/signup" element={<Signup />} />
+        <Route path="/curriculum" element={<CurriculumPage />} />
         <Route path="/mathematics" element={<MathematicsPage />} />
         <Route path="/mathematics/algebra" element={<AlgebraPage />} />
         <Route path="/teacher-dashboard" element={<TeacherDashboard />} />

@@ -2,7 +2,9 @@
 CREATE TABLE IF NOT EXISTS user (
     id INTEGER PRIMARY KEY AUTOINCREMENT,
     name TEXT NOT NULL,
-    email TEXT UNIQUE NOT NULL,
+    username TEXT UNIQUE NOT NULL,
+    password TEXT NOT NULL,
+    is_teacher INTEGER DEFAULT 0, -- 0 for student, 1 for teacher
     created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
 );
 
