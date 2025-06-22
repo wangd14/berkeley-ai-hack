@@ -66,7 +66,7 @@ export function CurriculumPage() {
                 <img src={subject.image} alt={subject.name} className="w-full h-48 object-cover" />
                 <div className="absolute top-4 right-4 bg-white bg-opacity-90 px-3 py-1 rounded-full">
                   <span className="text-sm font-semibold text-gray-700">
-                    {subject.lessons} lessons
+                    {Array.isArray(subject.subcourses) ? subject.subcourses.length : 0} lessons
                   </span>
                 </div>
               </div>
