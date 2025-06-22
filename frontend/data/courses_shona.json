@@ -109,21 +109,100 @@
           ]
         },
         {
-          "name": "Masvomhu Epamusoro",
-          "description": "Kudzidza kwepamusoro kwekuverenga, algebra, uye geometry.",
+          "name": "Pre-Algebra",
+          "description": "Gadzirira algebra nezvidzidzo zvemashoko akakosha uye hunyanzvi.",
           "image": "https://images.unsplash.com/photo-1581091870620-2f8b1c5d3e4f?w=400&h=300&fit=crop",
-          "lessons": 15,
+          "lessons": 10,
           "topics": [
-            "Algebra",
-            "Geometry",
-            "Trigonometry"
+            "Nhamba Dzose uye Nhamba Dzinonzwisisika",
+            "Masimba uye Midzi",
+            "Zviratidzo zveAlgebra"
           ],
           "lessonPlan": [
             {
               "id": 0,
-              "title": "Algebra",
+              "title": "Nhamba Dzose uye Nhamba Dzinonzwisisika",
               "topics": [
-                "Maitiro eAlgebra",
+                "Nhamba Dzose",
+                "Nhamba Dzinonzwisisika",
+                "Kusiyanisa pakati peNhamba Dzose neDzinonzwisisika"
+              ],
+              "duration": "awa 1",
+              "completed": true,
+              "description": "Dzidza nezve nhamba dzose, nhamba dzinonzwisisika, uye kusiyanisa pakati pavo.",
+              "practiceQuestions": [
+                { "question": "Ndeipi nhamba inotevera 7 mu sequence ye nhamba dzose?", "answer": "8" },
+                { "question": "Ko -3 inonzi nhamba yose here? (hongu kana kwete)", "answer": "kwete" },
+                { "question": "Ndeipi nhamba inotevera mu sequence ye nhamba dzinonzwisisika: 1, 4, 9, ...?", "answer": "16" }
+              ],
+              "contentParagraphs": [
+                "Nhamba dzose idzo dzisina zvikamu kana madimikira, kutanga pa 0 uye kuwedzera ne 1 nguva dzese (0, 1, 2, 3, ...).",
+                "Nhamba dzinonzwisisika idzo dzine hukama ne 0, dzakadai se -1, 1, -2, 2, ...",
+                "Kusiyanisa pakati pe nhamba dzose ne dzinonzwisisika kunobatsira pakunzwisisa maitiro akasiyana enhamba."
+              ]
+            },
+            {
+              "id": 1,
+              "title": "Masimba uye Midzi",
+              "topics": [
+                "Masimba",
+                "Midzi",
+                "Kusiyanisa pakati peMasimba neMidzi"
+              ],
+              "duration": "maawa 1.5",
+              "completed": false,
+              "description": "Dzidza nezve masimba, midzi, uye kusiyanisa pakati pavo.",
+              "practiceQuestions": [
+                { "question": "Chii chinonzi simba mu algebra?", "answer": "kuwedzera, kubvisa, kuwanda, kana kupatsanura" },
+                { "question": "Chii chinonzi mudzi mu algebra?", "answer": "nhamba inoratidza kuti chii chakakura kana chidiki" },
+                { "question": "Ko 2^3 inoreva chii?", "answer": "2 kuwedzerwa kune 3 (2 × 2 × 2 = 8)" }
+              ],
+              "contentParagraphs": [
+                "Masimba anoratidza kuwedzera, kubvisa, kuwanda, kana kupatsanura. Semuenzaniso, 2 + 3 inoratidza kuwedzera 2 uye 3.",
+                "Midzi inoratidza kuti chii chakakura kana chidiki. Semuenzaniso, √9 inoratidza mudzi we 9, uyo uri 3.",
+                "Kusiyanisa pakati pe masimba ne midzi kunobatsira pakunzwisisa maitiro akasiyana e algebra."
+              ]
+            },
+            {
+              "id": 2,
+              "title": "Zviratidzo zveAlgebra",
+              "topics": [
+                "Zviratidzo Zvekushandisa",
+                "Zviratidzo Zvekupatsanura",
+                "Zviratidzo Zvekudzokorora"
+              ],
+              "duration": "awa 1",
+              "completed": false,
+              "description": "Dzidza nezvezviratidzo zvekushandisa, zvekupatsanura, uye zvekudzokorora mu algebra.",
+              "practiceQuestions": [
+                { "question": "Chii chinonzi zviratidzo mu algebra?", "answer": "mifananidzo inoratidza maitiro akasiyana" },
+                { "question": "Ko + ne - zvinomiririra chii?", "answer": "kuwedzera uye kubvisa" },
+                { "question": "Chii chinonzi zviratidzo zvekudzokorora?", "answer": "mifananidzo inoratidza kuti chii chakaitika kare" }
+              ],
+              "contentParagraphs": [
+                "Zviratidzo mu algebra zvinomiririra maitiro akasiyana, senge kuwedzera (+), kubvisa (-), kuwanda (*), uye kupatsanura (/).",
+                "Zviratidzo zvekudzokorora zvinoratidza kuti chii chakaitika kare. Semuenzaniso, x^2 zvinoratidza kuti x yakawedzerwa pachayo.",
+                "Kudzidza nezvezviratidzo mu algebra kunobatsira pakunzwisisa maitiro akasiyana e algebra."
+              ]
+            }
+          ]
+        },
+        {
+          "name": "Algebra",
+          "description": "Dzidza nheyo dze algebra kusanganisira zvinoshandiswa, zvakaenzana, uye mabasa.",
+          "image": "https://images.unsplash.com/photo-1581091870620-2f8b1c5d3e4f?w=400&h=300&fit=crop",
+          "lessons": 15,
+          "topics": [
+            "Maitiro eAlgebra",
+            "Kugadzirisa Zvikanganiso",
+            "Maitiro eQuadratic"
+          ],
+          "lessonPlan": [
+            {
+              "id": 0,
+              "title": "Maitiro eAlgebra",
+              "topics": [
+                "Kuwedzera & Kubvisa",
                 "Kugadzirisa Zvikanganiso",
                 "Maitiro eQuadratic"
               ],
@@ -144,17 +223,74 @@
             },
             {
               "id": 1,
-              "title": "Geometry",
+              "title": "Kugadzirisa Zvikanganiso",
               "topics": [
-                "Maitiro eGeometry",
-                "Kuyera uye Kuenzanisa",
-                "Maitiro ePythagorean"
+                "Kutsvaga Zvikanganiso",
+                "Kugadzirisa Zvikanganiso",
+                "Kudzokorora Maitiro"
+              ],
+              "duration": "maawa 2",
+              "completed": false,
+              "description": "Dzidza maitiro ekutsvaga uye kugadzirisa zvikanganiso mumaitiro ealgebra.",
+              "practiceQuestions": [
+                { "question": "Chii chinonzi error mu algebra?", "answer": "kukanganisa mukugadzirisa kana kuverenga" },
+                { "question": "Maitiro ekugadzirisa 2x + 3 = 7?", "answer": "x = 2" },
+                { "question": "Chii chinonzi extraneous solution?", "answer": "mhinduro isingashande mumaitiro akagadziriswa" }
+              ],
+              "contentParagraphs": [
+                "Kugadzirisa zvikanganiso ibasa rekutsvaga uye kugadzirisa zvikanganiso mumaitiro ealgebra. Izvi zvinogona kusanganisira kugadzirisa x kana imwe variable.",
+                "Zvikanganiso zvinowanzoitika pakugadzirisa algebra, senge kukanganisa pakuwedzera, kubvisa, kana kugadzirisa. Kudzokorora maitiro kunobatsira kuona uye kugadzirisa zvikanganiso izvi.",
+                "Extraneous solutions ndidzo mhinduro dzinowanikwa pakugadzirisa asi dzisiri dzechokwadi. Izvi zvinogona kuitika kana paine kukanganisa pakugadzirisa."
+              ]
+            },
+            {
+              "id": 2,
+              "title": "Maitiro eQuadratic",
+              "topics": [
+                "Kugadzirisa Maitiro eQuadratic",
+                "Kushandisa Quadratic Formula",
+                "Kudzokorora uye Kuvandudza"
+              ],
+              "duration": "maawa 2",
+              "completed": false,
+              "description": "Dzidza maitiro ekugadzirisa maitiro eqadratic uye kushandisa quadratic formula.",
+              "practiceQuestions": [
+                { "question": "Chii chinonzi quadratic equation?", "answer": "equation ine x^2 term" },
+                { "question": "Maitiro ekugadzirisa x^2 - 5x + 6 = 0?", "answer": "x = 2 kana 3" },
+                { "question": "Chii chinonzi quadratic formula?", "answer": "x = (-b ± √(b^2-4ac)) / 2a" }
+              ],
+              "contentParagraphs": [
+                "Maitiro eQuadratic anoshandiswa pakugadzirisa maitiro eqadratic, ayo ane chimiro che ax^2 + bx + c = 0. Nzira dzakajairika dzekugadzirisa dzinosanganisira factoring, kuwedzera kwekushandisa, uye kushandisa fomula yequadratic.",
+                "Kushandisa quadratic formula kunosanganisira kutsvaga a, b, uye c mu equation, uyezve kushandisa fomula x = (-b ± √(b^2-4ac)) / 2a kuti uwane x.",
+                "Kudzokorora uye kuvandudza maitiro eQuadratic kunobatsira kunzwisisa uye kugadzirisa matambudziko ane chekuita nemaitiro eqadratic."
+              ]
+            }
+          ]
+        },
+        {
+          "name": "Geometry",
+          "description": "Ongorora mafomu, hukuru, uye zvivako zvenzvimbo.",
+          "image": "https://images.unsplash.com/photo-1506748686214-e9df14d4d9d0?w=400&h=300&fit=crop",
+          "lessons": 4,
+          "topics": [
+            "Maitiro eGeometry",
+            "Kuyera uye Kuenzanisa",
+            "Maitiro ePythagorean"
+          ],
+          "lessonPlan": [
+            {
+              "id": 0,
+              "title": "Maitiro eGeometry",
+              "topics": [
+                "Kutarisa Mafomu",
+                "Kuyera Urefu neUpamhi",
+                "Kuenzanisa Zvikamu"
               ],
               "duration": "awa 2",
               "completed": false,
-              "description": "Dzidza nezve geometry, kusanganisira maitiro egeometry, kuyera uye kuenzanisa, uye maitiro ePythagorean.",
+              "description": "Dzidza nezve maitiro egeometry, kusanganisira kutarisa mafomu, kuyera urefu neupamhi, uye kuenzanisa zvikamu.",
               "practiceQuestions": [
-                { "question": "Chii chinonzi hypotenuse mu triangle ine mativi 3, 4, uye 5?", "answer": "5" },
+                { "question": "Chii chinonzi perimeter?", "answer": "kuwandisa kwemativi ese echiitiko" },
                 { "question": "Kuyera kwechikamu chepamusoro chechikero chechikero chakaenzana ne 10cm, uye chichiri 2cm, chichava nehurefu hwakadii?", "answer": "8cm" },
                 { "question": "Kana angle imwe ye triangle iri 90 degrees uye imwe iri 45 degrees, angle yechitatu ichave yakadii?", "answer": "45 degrees" }
               ],
@@ -166,26 +302,128 @@
               ]
             },
             {
-              "id": 2,
-              "title": "Trigonometry",
+              "id": 1,
+              "title": "Kuyera uye Kuenzanisa",
               "topics": [
-                "Maitiro eTrigonometry",
-                "Sine, Cosine, uye Tangent",
-                "Trigonometric Ratios"
+                "Kuyera Urefu neUpamhi",
+                "Kuyera Kureba",
+                "Kuenzanisa Zvikamu"
               ],
               "duration": "awa 2",
               "completed": false,
-              "description": "Dzidza nezve trigonometry, kusanganisira maitiro etrigonometry, sine, cosine, uye tangent, uye trigonometric ratios.",
+              "description": "Dzidza maitiro ekuyera uye kuenzanisa zvinhu, kusanganisira kuyera urefu, upamhi, uye kureba.",
               "practiceQuestions": [
-                { "question": "Chii chinonzi sine theta kana theta iri 30 degrees?", "answer": "0.5" },
-                { "question": "Chii chinonzi cosine theta kana theta iri 60 degrees?", "answer": "0.5" },
-                { "question": "Chii chinonzi tangent theta kana theta iri 45 degrees?", "answer": "1" }
+                { "question": "Chii chinonzi area?", "answer": "nhamba yemasendimita akakodzera mukati mechimiro" },
+                { "question": "Kuyera kwechikamu chepamusoro chechikero chechikero chakaenzana ne 10cm, uye chichiri 2cm, chichava nehurefu hwakadii?", "answer": "8cm" },
+                { "question": "Kana angle imwe ye triangle iri 90 degrees uye imwe iri 45 degrees, angle yechitatu ichave yakadii?", "answer": "45 degrees" }
               ],
               "contentParagraphs": [
-                "Trigonometry ibazi remasvomhu rinobata nezvikamu uye maitiro emazinga ezvikamu. Inosanganisira kuongorora, kuyera, uye kugadzira maumbirwo akasiyana-siyana.",
-                "Maitiro eTrigonometry anosanganisira kutarisa, kuyera, kuenzanisa, uye kugadzira. Aya ndiwo maitiro akakosha ekuongorora uye kugadzira maumbirwo akasiyana-siyana.",
-                "Sine, Cosine, uye Tangent ndiwo maitiro matatu akakosha eTrigonometry. Aya maitiro anobatsira pakuyera uye kuenzanisa maumbirwo akasiyana-siyana.",
-                "Trigonometric Ratios ibasa rekuyera uye kuenzanisa maumbirwo akasiyana-siyana. Izvi zvinogona kubatsira pakuyera uye kuenzanisa maumbirwo akasiyana-siyana."
+                "Kuyera uye Kuenzanisa ibasa rekuyera uye kuenzanisa saizi, chimiro, uye nzvimbo yezvinhu. Izvi zvinogona kusanganisira kuyera urefu, upamhi, uye kureba.",
+                "Maitiro ekuyera anosanganisira kushandisa chiyero, ruler, kana tape measure. Aya ndiwo maitiro akakosha ekuwana saizi yezvinhu.",
+                "Kuenzanisa kunosanganisira kutarisa hukama pakati pezvinhu zviviri kana kupfuura. Izvi zvinogona kusanganisira kuenzanisa hukuru, urefu, kana chimiro."
+              ]
+            },
+            {
+              "id": 2,
+              "title": "Maitiro ePythagorean",
+              "topics": [
+                "Mutemo waPythagoras",
+                "Kushandisa Pythagorean Theorem",
+                "Kutsvaga Hypotenuse"
+              ],
+              "duration": "awa 2",
+              "completed": false,
+              "description": "Dzidza nezvemaitiro ePythagorean, kusanganisira mutemo waPythagoras uye kushandisa Pythagorean theorem.",
+              "practiceQuestions": [
+                { "question": "Chii chinonzi mutemo waPythagoras?", "answer": "a^2 + b^2 = c^2" },
+                { "question": "Tsvaga hypotenuse kana a = 3 uye b = 4.", "answer": "5" },
+                { "question": "Ko 5, 12, 13 setriangle ine right angle here? (hongu kana kwete)", "answer": "hongu" }
+              ],
+              "contentParagraphs": [
+                "Maitiro ePythagorean anoshandiswa pakutsvaga hukama pakati pemativi echiitiko. Mutemo waPythagoras unoti a^2 + b^2 = c^2, uko a uye b ndiwo mativi madiki, uye c ndiro hypotenuse.",
+                "Kushandisa Pythagorean Theorem kunosanganisira kutsvaga hypotenuse kana mativi madiki echiitiko. Semuenzaniso, kana a = 3 uye b = 4, hypotenuse c inova 5.",
+                "Maitiro ePythagorean anobatsira pakugadzirisa matambudziko ane chekuita nemativi, angles, uye maumbirwo echiitiko."
+              ]
+            }
+          ]
+        },
+        {
+          "name": "Statistics",
+          "description": "Nzwisisa ongororo yedata, mukana, uye pfungwa dze statistics.",
+          "image": "https://images.unsplash.com/photo-1581091870620-2f8b1c5d3e4f?w=400&h=300&fit=crop",
+          "lessons": 15,
+          "topics": [
+            "Kuunganidza uye Kuongorora Dhata",
+            "Dzidziso yeMukana",
+            "Kufungidzira kweStatistics"
+          ],
+          "lessonPlan": [
+            {
+              "id": 0,
+              "title": "Kuunganidza uye Kuongorora Dhata",
+              "topics": [
+                "Nzira dzekuunganidza dhata",
+                "Kushandisa matafura nemagrafu",
+                "Kuongorora dhata"
+              ],
+              "duration": "awa 2",
+              "completed": false,
+              "description": "Dzidza maitiro ekutora, kuunganidza, uye kuongorora dhata.",
+              "practiceQuestions": [
+                { "question": "Ndeipi nzira yekutanga yekuunganidza dhata?", "answer": "kuita ongororo" },
+                { "question": "Chii chinonzi sample muongororo?", "answer": "chikamu chidiki chevanhu kana zvinhu" },
+                { "question": "Ko 100% muongororo inorevei?", "answer": "vanhu vese kana zvinhu zvese" }
+              ],
+              "contentParagraphs": [
+                "Kuunganidza dhata ibasa rekutora uye kuunganidza ruzivo kubva kumasosi akasiyana-siyana.",
+                "Nzira dzekuunganidza dhata dzinosanganisira ongororo, kubvunzurudza, uye kuongorora zvinhu.",
+                "Kushandisa matafura nemagrafu kunobatsira kuratidza dhata zviri nyore kunzwisisa.",
+                "Kuongorora dhata kunosanganisira kutarisa uye kuongorora ruzivo rwakatorwa kuti uwane pfungwa kana mhedziso."
+              ]
+            },
+            {
+              "id": 1,
+              "title": "Dzidziso yeMukana",
+              "topics": [
+                "Chii chinonzi mukana?",
+                "Kushandisa mikana",
+                "Kufanotaura nemikana"
+              ],
+              "duration": "maawa 2",
+              "completed": false,
+              "description": "Dzidza nezvemikana, kushandisa mikana, uye kufanotaura nemikana.",
+              "practiceQuestions": [
+                { "question": "Chii chinonzi mukana mu statistics?", "answer": "chiyero chekuti chiitiko chichaitika" },
+                { "question": "Ko 1/2 mukana unorevei?", "answer": "50% kana 0.5" },
+                { "question": "Chii chinonzi complementary events?", "answer": "zviitiko zvinopesana, senge kutamba kana usatambe" }
+              ],
+              "contentParagraphs": [
+                "Mukana mu statistics inoratidza chiyero chekuti chiitiko chichaitika. Inowanzoratidzirwa sepercentage kana fraction.",
+                "Kushandisa mikana kunosanganisira kuverenga uye kushandisa mikana yezviitiko zvakasiyana.",
+                "Kufanotaura nemikana kunobatsira pakugadzira fungidziro dzemaitiro ezviitiko mune ramangwana."
+              ]
+            },
+            {
+              "id": 2,
+              "title": "Kufungidzira kweStatistics",
+              "topics": [
+                "Kufungidzira kweMean",
+                "Kufungidzira kweMedian",
+                "Kufungidzira kweMode"
+              ],
+              "duration": "maawa 2",
+              "completed": false,
+              "description": "Dzidza maitiro ekufungidzira mean, median, uye mode.",
+              "practiceQuestions": [
+                { "question": "Chii chinonzi mean?", "answer": "avhareji, kana huwandu hwakajairika" },
+                { "question": "Chii chinonzi median?", "answer": "nhamba iri pakati mu ordered set" },
+                { "question": "Chii chinonzi mode?", "answer": "nhamba inowanikwa kazhinji mu data set" }
+              ],
+              "contentParagraphs": [
+                "Kufungidzira kweStatistics kunosanganisira kuverenga uye kufanotaura huwandu hwemaitiro akasiyana-siyana.",
+                "Mean, kana avhareji, inowanikwa nekupinza huwandu hwese hwe data uye nekuparadzanisa nenhamba yedata points.",
+                "Median inowanikwa nekutarisa nhamba iri pakati mu ordered set. Kana paine data points akawanda, median inova avhareji yenhamba mbiri dzepakati.",
+                "Mode inoratidza nhamba inowanikwa kazhinji mu data set. Data set inogona kuva nemodes akawanda kana isina mode."
               ]
             }
           ]
@@ -493,7 +731,7 @@
                 "Mitemo yeNewton inotsanangura maitiro ezvinhu kana simba rinoshanda pazvinenge zvichikonzera kuchinja.",
                 "Mutemo wekutanga unoti chinhu chicharamba chichifamba kana chisina kusundidzirwa. Izvi zvinoreva kuti zvinhu hazvichinji kufamba kana kumira pasina chikonzero.",
                 "Inertia ndiyo chikonzero nei zvinhu zvichiramba zviri munzira imwechete kana zvichifamba. Izvi zvinoratidza kuti zvinhu zvinoda simba kuti zvichinje kufamba kwazvo.",
-                "Simba reGravity rinokwevera zvinhu pasi, richikonzera kuti zvinhu zvese zvipinze pasi pevhu kana pane chimwe chinhu."
+                "Simba reGravity rinokwevera zvinhu pasi, richikonzera kuti zvinhu zvese zvipinze pasipevhu kana pane chimwe chinhu."
               ]
             },
             {
