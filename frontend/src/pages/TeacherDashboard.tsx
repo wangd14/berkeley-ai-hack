@@ -24,15 +24,12 @@ import {
   PieChart,
   Pie,
   Cell,
-  RadarChart,
-  PolarGrid,
-  PolarAngleAxis,
-  PolarRadiusAxis,
-  Radar,
 } from 'recharts'
 
 export function TeacherDashboard() {
   const [dashboard, setDashboard] = useState<any>(null);
+  const COLORS = ['#10B981', '#6366F1', '#EF4444'];
+  
   useEffect(() => {
     fetch('/api/teacher-dashboard')
       .then(res => res.json())
@@ -133,17 +130,28 @@ export function TeacherDashboard() {
           <div className="h-80">
             {engagementHeatmap && engagementHeatmap.length > 0 ? (
               <ResponsiveContainer width="100%" height="100%">
-                <BarChart data={engagementHeatmap}>
-                  <CartesianGrid strokeDasharray="3 3" />
-                  <XAxis dataKey="topic" />
-                  <YAxis />
+                <PieChart>
+                  <Pie
+                    data={dashboard.assignment_status}
+                    innerRadius={60}
+                    outerRadius={80}
+                    paddingAngle={5}
+                    dataKey="value"
+                  >
+                    {dashboard.assignment_status.map((_entry: any, index: number) => (
+                      <Cell
+                        key={`cell-${index}`}
+                        fill={COLORS[index % COLORS.length]}
+                      />
+                    ))}
+                  </Pie>
                   <Tooltip />
                   <Bar dataKey="Mon" stackId="a" fill="#6366F1" />
                   <Bar dataKey="Tue" stackId="a" fill="#10B981" />
                   <Bar dataKey="Wed" stackId="a" fill="#F59E42" />
                   <Bar dataKey="Thu" stackId="a" fill="#EF4444" />
                   <Bar dataKey="Fri" stackId="a" fill="#A855F7" />
-                </BarChart>
+                </PieChart>
               </ResponsiveContainer>
             ) : (
               <div className="text-gray-400 text-center pt-20">No engagement data available.</div>
