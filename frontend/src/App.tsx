@@ -53,7 +53,10 @@ export function App() {
   return (
     <LanguageProvider>
       <Routes>
-        <Route path="/" element={<CurriculumPage />} />
+        <Route path="/" element={<HomePage />} />
+        <Route path="/login" element={<Login />} />
+        <Route path="/signup" element={<Signup />} />
+        <Route path="/curriculum" element={<CurriculumPage />} />
         <Route path="/mathematics" element={<MathematicsPage />} />
         <Route path="/mathematics/algebra" element={<AlgebraPage />} />
         <Route path="/teacher-dashboard" element={<TeacherDashboard />} />
