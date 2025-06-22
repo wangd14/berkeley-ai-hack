@@ -45,9 +45,9 @@ export function TeacherDashboard() {
   // Use only real data from the API, no mock data
   const topicDifficulty = dashboard.topic_difficulty;
   const engagementHeatmap = dashboard.engagement_heatmap;
-  const activityTimeline = dashboard.activity_timeline;
-  const studentRadar = dashboard.student_radar;
-  const studentProfiles = dashboard.student_profiles;
+  const activityTimeline = dashboard.activityTimeline;
+  const studentRadar = dashboard.studentRadar;
+  const studentProfiles = dashboard.profiles;
 
   return (
     <div className="w-full min-h-screen bg-gradient-to-br from-blue-50 to-purple-50">
@@ -136,51 +136,60 @@ export function TeacherDashboard() {
             )}
           </div>
         </div>
-        {/* Activity Timeline */}
+        {/* Activity Timeline: show a list of recent activity from courses_stats */}
         <div className="bg-white rounded-2xl shadow-lg p-6 mb-8">
           <h2 className="text-xl font-bold text-gray-900 mb-4">Activity Timeline</h2>
-          <div className="h-64">
-            {activityTimeline && activityTimeline.length > 0 ? (
-              <ResponsiveContainer width="100%" height="100%">
-                <LineChart data={activityTimeline}>
-                  <CartesianGrid strokeDasharray="3 3" />
-                  <XAxis dataKey="day" />
-                  <YAxis />
-                  <Tooltip />
-                  <Line type="monotone" dataKey="interactions" stroke="#6366F1" strokeWidth={2} />
-                </LineChart>
-              </ResponsiveContainer>
+          <div className="h-64 overflow-y-auto">
+            {dashboard.activityTimeline && dashboard.activityTimeline.length > 0 ? (
+              <ul className="divide-y divide-gray-200">
+                {dashboard.activityTimeline.map((activity: any, idx: number) => (
+                  <li key={idx} className="py-2 flex flex-col md:flex-row md:items-center md:justify-between">
+                    <div>
+                      <span className="font-semibold text-blue-700">{activity.student_name}</span> completed a question in
+                      <span className="font-semibold text-purple-700"> {activity.course} / {activity.subcourse}</span> -
+                      <span className="text-gray-700"> {activity.topic}</span>
+                    </div>
+                    <div className="text-gray-400 text-xs md:ml-4">{activity.timestamp}</div>
+                  </li>
+                ))}
+              </ul>
             ) : (
               <div className="text-gray-400 text-center pt-20">No activity timeline data available.</div>
             )}
           </div>
         </div>
-        {/* Per-Student Progress Radar Chart */}
+        {/* Per-Student Progress (Radar): show each student's progress from courses_stats */}
         <div className="bg-white rounded-2xl shadow-lg p-6 mb-8">
           <h2 className="text-xl font-bold text-gray-900 mb-4">Per-Student Progress (Radar)</h2>
-          <div className="h-96">
-            {studentRadar && studentRadar.length > 0 ? (
-              <ResponsiveContainer width="100%" height="100%">
-                <RadarChart data={studentRadar}>
-                  <PolarGrid />
-                  <PolarAngleAxis dataKey="subject" />
-                  <PolarRadiusAxis angle={30} domain={[0, 100]} />
-                  <Radar name="Student" dataKey="Student" stroke="#6366F1" fill="#6366F1" fillOpacity={0.6} />
-                  <Radar name="ClassAvg" dataKey="ClassAvg" stroke="#10B981" fill="#10B981" fillOpacity={0.3} />
-                  <Tooltip />
-                </RadarChart>
-              </ResponsiveContainer>
+          <div className="h-96 overflow-x-auto">
+            {dashboard.studentRadar && dashboard.studentRadar.length > 0 ? (
+              <div className="flex space-x-8">
+                {dashboard.studentRadar.map((radarData: any, idx: number) => (
+                  <div key={idx} className="min-w-[350px]">
+                    <div className="text-center font-semibold mb-2">{radarData.name}</div>
+                    <ResponsiveContainer width={350} height={350}>
+                      <RadarChart data={radarData.data}>
+                        <PolarGrid />
+                        <PolarAngleAxis dataKey="topic" />
+                        <PolarRadiusAxis angle={30} domain={[0, 100]} />
+                        <Radar name={radarData.name} dataKey="correctness" stroke="#6366F1" fill="#6366F1" fillOpacity={0.6} />
+                        <Tooltip />
+                      </RadarChart>
+                    </ResponsiveContainer>
+                  </div>
+                ))}
+              </div>
             ) : (
               <div className="text-gray-400 text-center pt-20">No radar data available.</div>
             )}
           </div>
         </div>
-        {/* Student Profile Cards */}
+        {/* Student Profile Cards: exclude teacher */}
         <div className="mb-8">
           <h2 className="text-xl font-bold text-gray-900 mb-4">Student Profiles</h2>
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
             {studentProfiles && studentProfiles.length > 0 ? (
-              studentProfiles.map((profile: any, idx: number) => (
+              studentProfiles.filter((profile: any) => profile.name !== 'Teacher').map((profile: any, idx: number) => (
                 <div key={idx} className={`bg-white rounded-xl p-6 shadow-sm border border-gray-100 ${profile.atRisk ? 'border-red-400' : ''}`}>
                   <div className="flex items-center justify-between mb-2">
                     <div className="text-lg font-semibold text-blue-700">{profile.name}</div>

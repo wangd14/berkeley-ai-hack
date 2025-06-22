@@ -31,6 +31,9 @@ export function Login() {
                 const data = await res.json();
                 if (data.access_token) {
                   setToken(data.access_token);
+                  if (data.student_id) {
+                    localStorage.setItem('student_id', String(data.student_id));
+                  }
                   if (Boolean(data.is_teacher) === true) {
                     navigate('/teacher-dashboard');
                   } else {

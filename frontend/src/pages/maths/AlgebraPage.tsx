@@ -15,7 +15,7 @@ import {
 } from 'lucide-react';
 import FloatingChatButton from '../../components/FloatingChatButton';
 
-function getLessonPlan(language: string) {
+function getAlgebraLessonPlan(language: string): any[] {
   const data = language === 'Shona' ? coursesDataShona : coursesData;
   const mathCourse = data.courses.find((c: any) => c.name === (language === 'Shona' ? 'Masvomhu' : 'Mathematics'));
   if (!mathCourse || !mathCourse.subcourses) return [];
@@ -24,9 +24,13 @@ function getLessonPlan(language: string) {
   return algebra.lessonPlan;
 }
 
+function getAlgebraSubcourseName(language: string) {
+  return language === 'Shona' ? 'Algebra' : 'Algebra';
+}
+
 export function AlgebraPage() {
   const { language } = useLanguage();
-  const lessonPlan: any[] = getLessonPlan(language);
+  const lessonPlan: any[] = getAlgebraLessonPlan(language);
   const [selectedLesson, setSelectedLesson] = useState(0);
   const [practiceIdx, setPracticeIdx] = useState(() => Math.floor(Math.random() * 3));
   const [userAnswer, setUserAnswer] = useState('');
@@ -46,16 +50,32 @@ export function AlgebraPage() {
     setSubmitted(false);
   }, [selectedLesson]);
 
-  function handleSubmit(e: React.FormEvent) {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     setSubmitted(true);
-    if (
-      userAnswer.trim().toLowerCase() === String(currentPractice.answer).trim().toLowerCase()
-    ) {
+    const correct = userAnswer.trim().toLowerCase() === String(currentPractice.answer).trim().toLowerCase();
+    if (correct) {
       setIsCorrect(true);
       setAnsweredSet(prev => new Set(prev).add(practiceIdx));
     } else {
       setIsCorrect(false);
+    }
+    // Always send to backend, regardless of correctness
+    try {
+      const student_id = localStorage.getItem('student_id');
+      await fetch('/api/course-stats/complete-question', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({
+          student_id,
+          course: language === 'Shona' ? 'Masvomhu' : 'Mathematics',
+          subcourse: getAlgebraSubcourseName(language),
+          topic: currentLesson.title,
+          correct // true or false
+        })
+      });
+    } catch (err) {
+      // Optionally handle error
     }
   }
 

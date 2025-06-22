@@ -23,6 +23,10 @@ function getGeometryLessonPlan(language: string): any[] {
   return geometry.lessonPlan;
 }
 
+function getGeometrySubcourseName(language: string) {
+  return language === 'Shona' ? 'Geometry' : 'Geometry';
+}
+
 export function GeometryPage() {
   const { language } = useLanguage();
   const lessonPlan: any[] = getGeometryLessonPlan(language);
@@ -47,13 +51,27 @@ export function GeometryPage() {
   function handleSubmit(e: React.FormEvent) {
     e.preventDefault();
     setSubmitted(true);
-    if (
-      userAnswer.trim().toLowerCase() === String(currentPractice.answer).trim().toLowerCase()
-    ) {
+    const correct = userAnswer.trim().toLowerCase() === String(currentPractice.answer).trim().toLowerCase();
+    if (correct) {
       setIsCorrect(true);
       setAnsweredSet(prev => new Set(prev).add(practiceIdx));
     } else {
       setIsCorrect(false);
+    }
+    // Always send to backend, regardless of correctness
+    const student_id = localStorage.getItem('student_id');
+    if (student_id) {
+      fetch('/api/course-stats/complete-question', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({
+          student_id,
+          course: language === 'Shona' ? 'Masvomhu' : 'Mathematics',
+          subcourse: getGeometrySubcourseName(language),
+          topic: currentLesson.title,
+          correct // true or false
+        })
+      });
     }
   }
 

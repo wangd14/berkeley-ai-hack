@@ -54,22 +54,23 @@ def index():
 def teacher_dashboard():
     db = get_db()
     # Total students
-    total_students = db.execute("SELECT COUNT(*) FROM user").fetchone()[0]
+    total_students = db.execute("SELECT COUNT(*) FROM user").fetchone()[0] - 1
     # Average score (across all interactions with correctness)
-    avg_score_row = db.execute("SELECT AVG(CASE WHEN response_correctness = 'correct' THEN 1 ELSE 0 END)*100 FROM student_interactions").fetchone()
-    average_score = int(avg_score_row[0]) if avg_score_row and avg_score_row[0] is not None else 0
+    total_correct = db.execute("SELECT SUM(correct_answers) FROM courses_stats").fetchone()[0] or 0
+    total_questions = db.execute("SELECT SUM(total_questions) FROM courses_stats").fetchone()[0] or 0
+    average_score = int((total_correct / total_questions) * 100) if total_questions > 0 else 0
     # Active subjects (distinct lesson_id)
     active_subjects = db.execute("SELECT COUNT(DISTINCT lesson_id) FROM student_interactions").fetchone()[0]
     # Need attention: students with <60% correctness
-    need_attention = db.execute("SELECT COUNT(DISTINCT student_id) FROM (SELECT student_id, AVG(CASE WHEN response_correctness = 'correct' THEN 1 ELSE 0 END) as avg_corr FROM student_interactions GROUP BY student_id HAVING avg_corr < 0.6)").fetchone()[0]
+    need_attention = db.execute("SELECT COUNT(DISTINCT student_id) FROM (SELECT student_id, SUM(correct_answers)*1.0/SUM(total_questions) as avg_corr FROM courses_stats GROUP BY student_id HAVING avg_corr < 0.6)").fetchone()[0]
 
     # Topic Difficulty: correctness rate per topic
     topic_difficulty = [
-        {"topic": row[0], "correctness": int(row[1]*100) if row[1] is not None else 0}
-        for row in db.execute("SELECT topic_id, AVG(CASE WHEN response_correctness = 'correct' THEN 1 ELSE 0 END) FROM student_interactions GROUP BY topic_id").fetchall()
+        {"topic": row[0], "correctness": int((row[1] / row[2]) * 100) if row[2] > 0 else 0}
+        for row in db.execute("SELECT topic, SUM(correct_answers), SUM(total_questions) FROM courses_stats GROUP BY topic").fetchall()
     ]
-
-    # Engagement Heatmap: interactions per topic per day
+    
+    # Engagement Heatmap: interactions per topic per day (still from student_interactions)
     heatmap_query = db.execute("SELECT topic_id, strftime('%w', timestamp) as day, COUNT(*) FROM student_interactions GROUP BY topic_id, day")
     heatmap_data = defaultdict(lambda: {"Mon":0,"Tue":0,"Wed":0,"Thu":0,"Fri":0})
     day_map = {"1":"Mon","2":"Tue","3":"Wed","4":"Thu","5":"Fri"}
@@ -78,25 +79,36 @@ def teacher_dashboard():
             heatmap_data[topic][day_map[day]] = count
     engagement_heatmap = [{"topic": topic, **days} for topic, days in heatmap_data.items()]
 
-    # Activity Timeline: interactions per day
-    timeline_query = db.execute("SELECT strftime('%w', timestamp) as day, COUNT(*) FROM student_interactions GROUP BY day")
-    timeline_map = {"1":"Mon","2":"Tue","3":"Wed","4":"Thu","5":"Fri"}
+    # Activity Timeline: recent activity from courses_stats (most recent completions)
     activityTimeline = []
-    for day, count in timeline_query.fetchall():
-        if day in timeline_map:
-            activityTimeline.append({"day": timeline_map[day], "interactions": count})
+    activity_query = db.execute('''
+        SELECT u.name, c.course, c.subcourse, c.topic, c.timestamp
+        FROM courses_stats c
+        JOIN user u ON c.student_id = u.id
+        ORDER BY c.timestamp DESC
+        LIMIT 30
+    ''')
+    for row in activity_query.fetchall():
+        activityTimeline.append({
+            "student_name": row[0],
+            "course": row[1],
+            "subcourse": row[2],
+            "topic": row[3],
+            "timestamp": row[4]
+        })
 
-    # Per-Student Progress (Radar): mastery per subject for a sample student and class avg
-    radar_query = db.execute("SELECT topic_id, AVG(CASE WHEN response_correctness = 'correct' THEN 1 ELSE 0 END) as avg_corr FROM student_interactions GROUP BY topic_id")
+    # Per-Student Progress (Radar): mastery per topic for each student from courses_stats
+    radar_query = db.execute("SELECT topic, SUM(correct_answers)*1.0/SUM(total_questions) as mastery FROM courses_stats GROUP BY topic")
     studentRadar = []
     for row in radar_query.fetchall():
         studentRadar.append({"subject": row[0], "Student": int(row[1]*100) if row[1] is not None else 0, "ClassAvg": int(row[1]*100) if row[1] is not None else 0})
 
-    # Student Profiles: mastery, recent activity, at-risk
+    # Student Profiles: mastery, recent activity, at-risk (still from student_interactions)
     profiles = []
-    student_rows = db.execute("SELECT id, name FROM user").fetchall()
+    # Exclude teacher (is_teacher=1)
+    student_rows = db.execute("SELECT id, name FROM user WHERE is_teacher=0").fetchall()
     for student_id, name in student_rows:
-        mastery_row = db.execute("SELECT AVG(CASE WHEN response_correctness = 'correct' THEN 1 ELSE 0 END) FROM student_interactions WHERE student_id = ?", (student_id,)).fetchone()
+        mastery_row = db.execute("SELECT SUM(correct_answers)*1.0/SUM(total_questions) FROM courses_stats WHERE student_id = ?", (student_id,)).fetchone()
         mastery = int(mastery_row[0]*100) if mastery_row and mastery_row[0] is not None else 0
         recent_row = db.execute("SELECT question_type, timestamp FROM student_interactions WHERE student_id = ? ORDER BY timestamp DESC LIMIT 1", (student_id,)).fetchone()
         recent = recent_row[0] if recent_row else "-"
@@ -141,14 +153,14 @@ def signup():
         conn.close()
         return jsonify({"detail": "Username already exists"}), 400
     hashed = pwd_context.hash(password)
-    print(password, hashed)
     cursor.execute(
         "INSERT INTO user (username, password, is_teacher, name) VALUES (?, ?, ?, ?)",
         (username, hashed, is_teacher, name)
     )
+    user_id = cursor.lastrowid
     conn.commit()
     conn.close()
-    return jsonify({"message": "User created", "is_teacher": False}), 201
+    return jsonify({"message": "User created", "is_teacher": False, "student_id": user_id}), 201
 
 def get_user(username):
     conn = sqlite3.connect("database.db")
@@ -195,17 +207,70 @@ def login():
     # Always fetch fresh user info from DB
     conn = sqlite3.connect("database.db")
     cursor = conn.cursor()
-    cursor.execute("SELECT username, is_teacher FROM user WHERE username=?", (username,))
+    cursor.execute("SELECT id, username, is_teacher FROM user WHERE username=?", (username,))
     row = cursor.fetchone()
     conn.close()
     if not row:
         return jsonify({"detail": "User not found after login"}), 400
-    user_info = {"username": row[0], "is_teacher": bool(row[1] == 1 or row[1] == True)}
+    user_info = {"id": row[0], "username": row[1], "is_teacher": bool(row[2] == 1 or row[2] == True)}
     access_token_expires = datetime.timedelta(minutes=ACCESS_TOKEN_EXPIRE_MINUTES)
     access_token = create_access_token(
         {"sub": user_info["username"], "is_teacher": user_info["is_teacher"]}, expires_delta=access_token_expires
     )
-    return jsonify({"access_token": access_token, "token_type": "bearer", "is_teacher": user_info["is_teacher"]})
+    return jsonify({"access_token": access_token, "token_type": "bearer", "is_teacher": user_info["is_teacher"], "student_id": user_info["id"]})
+
+@app.route('/api/course-stats/complete-question', methods=['POST'])
+def complete_question():
+    data = request.get_json() or request.form
+    student_id = data.get('student_id')
+    course = data.get('course')
+    subcourse = data.get('subcourse')
+    topic = data.get('topic')
+    correct = data.get('correct')
+    if not student_id or not course or not subcourse or not topic or correct is None:
+        return jsonify({'error': 'Missing required fields'}), 400
+    db = get_db()
+    row = db.execute(
+        'SELECT * FROM courses_stats WHERE student_id = ? AND course = ? AND subcourse = ? AND topic = ?',
+        (student_id, course, subcourse, topic)
+    ).fetchone()
+    if row:
+        db.execute(
+            '''UPDATE courses_stats SET 
+                completed_questions = completed_questions + 1,
+                total_questions = total_questions + 1,
+                correct_answers = correct_answers + ?,
+                incorrect_answers = incorrect_answers + ?,
+                timestamp = CURRENT_TIMESTAMP
+            WHERE student_id = ? AND course = ? AND subcourse = ? AND topic = ?''',
+            (1 if correct else 0, 0 if correct else 1, student_id, course, subcourse, topic)
+        )
+    else:
+        db.execute(
+            '''INSERT INTO courses_stats (student_id, course, subcourse, topic, completed_questions, total_questions, correct_answers, incorrect_answers, timestamp) VALUES (?, ?, ?, ?, 1, 1, ?, ?, CURRENT_TIMESTAMP)''',
+            (student_id, course, subcourse, topic, 1 if correct else 0, 0 if correct else 1)
+        )
+    db.commit()
+    return jsonify({'success': True})
+
+@app.route('/api/course-stats', methods=['GET'])
+def get_course_stats():
+    student_id = request.args.get('student_id')
+    course = request.args.get('course')
+    topic = request.args.get('topic')
+    if not student_id or not course or not topic:
+        return jsonify({'error': 'Missing required query params'}), 400
+    db = get_db()
+    row = db.execute(
+        'SELECT * FROM courses_stats WHERE student_id = ? AND course = ? AND topic = ?',
+        (student_id, course, topic)
+    ).fetchone()
+    if row:
+        columns = [desc[0] for desc in db.execute('PRAGMA table_info(courses_stats)')]
+        result = dict(zip(columns, row))
+        return jsonify(result)
+    else:
+        return jsonify({})
 
 if not os.path.exists(DATABASE):
     init_db()

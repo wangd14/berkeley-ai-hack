@@ -23,6 +23,20 @@ function getBasicMathLessonPlan(language: string): any[] {
   return basicMath.lessonPlan;
 }
 
+function getBasicMathSubcourseName(language: string) {
+  return language === 'Shona' ? 'Masvomhu Ekutanga' : 'Basic Math';
+}
+
+function getStudentId() {
+  // Try to get student_id from localStorage or another reliable source
+  let id = localStorage.getItem('student_id');
+  if (!id) {
+    // fallback: try sessionStorage or prompt (customize as needed)
+    id = sessionStorage.getItem('student_id');
+  }
+  return id;
+}
+
 export function BasicMathPage() {
   const { language } = useLanguage();
   const lessonPlan: any[] = getBasicMathLessonPlan(language);
@@ -47,13 +61,27 @@ export function BasicMathPage() {
   function handleSubmit(e: React.FormEvent) {
     e.preventDefault();
     setSubmitted(true);
-    if (
-      userAnswer.trim().toLowerCase() === String(currentPractice.answer).trim().toLowerCase()
-    ) {
+    const correct = userAnswer.trim().toLowerCase() === String(currentPractice.answer).trim().toLowerCase();
+    if (correct) {
       setIsCorrect(true);
       setAnsweredSet(prev => new Set(prev).add(practiceIdx));
     } else {
       setIsCorrect(false);
+    }
+    // Always send to backend, regardless of correctness
+    const student_id = getStudentId();
+    if (student_id) {
+      fetch('/api/course-stats/complete-question', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({
+          student_id,
+          course: language === 'Shona' ? 'Masvomhu' : 'Mathematics',
+          subcourse: getBasicMathSubcourseName(language),
+          topic: currentLesson.title,
+          correct // true or false
+        })
+      });
     }
   }
 

@@ -28,6 +28,21 @@ CREATE TABLE IF NOT EXISTS student_interactions (
     FOREIGN KEY(student_id) REFERENCES user(id)
 );
 
+-- Student-AI interaction log for detailed analytics
+CREATE TABLE IF NOT EXISTS courses_stats (
+    stats_id INTEGER PRIMARY KEY AUTOINCREMENT,
+    student_id INTEGER NOT NULL,
+    course TEXT NOT NULL,
+    subcourse TEXT NOT NULL,
+    topic TEXT NOT NULL,
+    completed_questions INTEGER DEFAULT 0,
+    total_questions INTEGER DEFAULT 0,
+    correct_answers INTEGER DEFAULT 0,
+    incorrect_answers INTEGER DEFAULT 0,
+    timestamp DATETIME DEFAULT CURRENT_TIMESTAMP,
+    FOREIGN KEY(student_id) REFERENCES user(id)
+);
+
 -- Indexes for analytics performance
 CREATE INDEX IF NOT EXISTS idx_student_interactions_student_id ON student_interactions(student_id);
 CREATE INDEX IF NOT EXISTS idx_student_interactions_lesson_id ON student_interactions(lesson_id);
