@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useState, useEffect} from 'react';
 import { Header } from '../../components/Header';
 import coursesData from '../../../data/courses.json';
 import {
@@ -8,6 +8,8 @@ import {
   PenToolIcon,
   PlayCircleIcon,
   ClipboardListIcon,
+  XCircleIcon,
+  CheckCircleIcon,
 } from 'lucide-react';
 
 function getAlgebraLessonPlan(): any[] {
@@ -22,10 +24,51 @@ export function AlgebraPage() {
   const lessonPlan: any[] = getAlgebraLessonPlan();
   const [selectedLesson, setSelectedLesson] = useState(0);
   const [practiceIdx, setPracticeIdx] = useState(() => Math.floor(Math.random() * 3));
+  const [userAnswer, setUserAnswer] = useState('');
+  const [isCorrect, setIsCorrect] = useState<null | boolean>(null);
+  const [submitted, setSubmitted] = useState(false);
+  const [answeredSet, setAnsweredSet] = useState<Set<number>>(new Set());
   const currentLesson: any = lessonPlan[selectedLesson] || {};
-  // Pick a random question for the current lesson
   const practiceQuestions: any[] = currentLesson.practiceQuestions || [];
   const currentPractice = practiceQuestions[practiceIdx] || practiceQuestions[0] || {};
+
+  // Reset answeredSet when lesson changes
+  useEffect(() => {
+    setAnsweredSet(new Set());
+    setPracticeIdx(Math.floor(Math.random() * (practiceQuestions.length || 1)));
+    setUserAnswer('');
+    setIsCorrect(null);
+    setSubmitted(false);
+  }, [selectedLesson]);
+
+  function handleSubmit(e: React.FormEvent) {
+    e.preventDefault();
+    setSubmitted(true);
+    if (
+      userAnswer.trim().toLowerCase() === String(currentPractice.answer).trim().toLowerCase()
+    ) {
+      setIsCorrect(true);
+      setAnsweredSet(prev => new Set(prev).add(practiceIdx));
+    } else {
+      setIsCorrect(false);
+    }
+  }
+
+  function handleNext() {
+    setIsCorrect(null);
+    setSubmitted(false);
+    setUserAnswer('');
+    // Find an unanswered question
+    const unanswered = practiceQuestions
+      .map((_, idx) => idx)
+      .filter(idx => !answeredSet.has(idx));
+    if (unanswered.length > 0) {
+      const nextIdx = unanswered[Math.floor(Math.random() * unanswered.length)];
+      setPracticeIdx(nextIdx);
+    }
+  }
+
+  const allAnswered = practiceQuestions.length > 0 && answeredSet.size === practiceQuestions.length;
 
   return (
     <div className="w-full min-h-screen bg-gradient-to-br from-blue-50 to-purple-50">
@@ -122,27 +165,63 @@ export function AlgebraPage() {
                 </div>
               </div>
               <div className="space-y-6">
-                <div className="bg-gray-50 rounded-xl p-6">
-                  <div className="flex items-start space-x-4">
-                    <div className="bg-purple-100 p-2 rounded-lg">
-                      <PenToolIcon className="w-5 h-5 text-purple-600" />
-                    </div>
-                    <div className="flex-1">
-                      <h3 className="font-medium text-gray-900">Practice</h3>
-                      <p className="text-gray-600 mt-2">{currentPractice.question}</p>
-                      <div className="mt-4">
-                        <input
-                          type="text"
-                          placeholder="Enter your answer"
-                          className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
-                        />
-                      </div>
-                      <button className="mt-4 text-white bg-blue-600 px-4 py-2 rounded-lg hover:bg-blue-700 transition-colors" onClick={() => setPracticeIdx(Math.floor(Math.random() * (practiceQuestions.length || 1)))}>
-                        Next Question
-                      </button>
-                    </div>
+                {allAnswered ? (
+                  <div className="bg-green-50 rounded-xl p-6 flex items-center justify-center text-green-700 font-semibold text-lg">
+                    <span>🎉 You answered all questions!</span>
                   </div>
-                </div>
+                ) : (
+                  <div className="bg-gray-50 rounded-xl p-6">
+                    <form onSubmit={handleSubmit}>
+                      <div className="flex items-start space-x-4">
+                        <div className="bg-purple-100 p-2 rounded-lg">
+                          <PenToolIcon className={`w-5 h-5 ${isCorrect === true ? 'text-green-600' : isCorrect === false ? 'text-red-600' : 'text-purple-600'}`} />
+                        </div>
+                        <div className="flex-1">
+                          <div className="flex items-center justify-between mt-2 mb-2">
+                            <p className="text-gray-600">{currentPractice.question}</p>
+                            <div className="flex items-center">
+                              {isCorrect === false && submitted && (
+                                <>
+                                  <XCircleIcon className="w-5 h-5 text-red-600 mr-1" />
+                                  <span className="text-red-600">Incorrect, try again!</span>
+                                </>
+                              )}
+                              {isCorrect === true && submitted && (
+                                <>
+                                  <CheckCircleIcon className="w-5 h-5 text-green-600 mr-1" />
+                                  <span className="text-green-600">Correct!</span>
+                                </>
+                              )}
+                            </div>
+                          </div>
+                          <div className="mt-4">
+                            <input
+                              type="text"
+                              value={userAnswer}
+                              onChange={e => setUserAnswer(e.target.value)}
+                              placeholder="Enter your answer"
+                              className={`w-full px-4 py-2 border rounded-lg focus:outline-none focus:ring-2 ${isCorrect === true ? 'border-green-500 focus:ring-green-500' : isCorrect === false ? '' : 'border-gray-300 focus:ring-blue-500'}`}
+                              disabled={isCorrect === true}
+                            />
+                          </div>
+                          <div className="mt-4 flex items-center space-x-2">
+                            {isCorrect === true ? (
+                              <button type="button" className="text-white bg-green-600 px-4 py-2 rounded-lg hover:bg-green-700 transition-colors" onClick={handleNext}>
+                                Next Question
+                              </button>
+                            ) : (
+                              <>
+                                <button type="submit" className={`text-white px-4 py-2 rounded-lg transition-colors bg-blue-600 hover:bg-blue-700`}>
+                                  Check Answer
+                                </button>
+                              </>
+                            )}
+                          </div>
+                        </div>
+                      </div>
+                    </form>
+                  </div>
+                )}
               </div>
             </div>
           </div>
