@@ -9,6 +9,7 @@ import {
   GitBranchIcon,
   CircleEqualIcon,
 } from 'lucide-react';
+import { useNavigate } from 'react-router-dom';
 
 const iconMap: any = {
   FunctionSquareIcon,
@@ -35,6 +36,7 @@ function getCourseSections(courseName: string) {
 }
 
 export function MathematicsPage() {
+  const navigate = useNavigate();
   const courseSections = getCourseSections('Mathematics');
   const [selectedSection, setSelectedSection] = useState(0);
   const [isLearningMode, setIsLearningMode] = useState(false);
@@ -110,7 +112,13 @@ export function MathematicsPage() {
               </div>
               {!currentSection.locked && (
                 <button
-                  onClick={() => setIsLearningMode(true)}
+                  onClick={() => {
+                    if (currentSection.title && currentSection.title.toLowerCase().includes('algebra')) {
+                      navigate('/mathematics/algebra');
+                    } else {
+                      setIsLearningMode(true);
+                    }
+                  }}
                   className="bg-gradient-to-r from-blue-500 to-purple-600 text-white px-6 py-3 rounded-full font-semibold hover:from-blue-600 hover:to-purple-700 transition-colors flex items-center space-x-2"
                 >
                   <PlayIcon className="w-5 h-5" />

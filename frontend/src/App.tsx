@@ -5,12 +5,14 @@ import { Routes, Route } from 'react-router-dom';
 import { TeacherDashboard } from './pages/TeacherDashboard';
 import { EnglishArtsPage } from './pages/EnglishArtsPage';
 import { TechnologyPage } from './pages/TechnologyPage';
+import { AlgebraPage } from './pages/maths/AlgebraPage';
 
 export function App() {
   return (
     <Routes>
       <Route path="/" element={<CurriculumPage />} />
       <Route path="/mathematics" element={<MathematicsPage />} />
+      <Route path="/mathematics/algebra" element={<AlgebraPage />} />
       <Route path="/teacher-dashboard" element={<TeacherDashboard />} />
       <Route path="/science" element={<SciencePage />} />
       <Route path="/english-arts" element={<EnglishArtsPage />} />
