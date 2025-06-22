@@ -12,25 +12,8 @@ export function CurriculumPage() {
       <Header />
       {/* AI Tutor Introduction */}
       <div className="max-w-7xl mx-auto px-4 py-8">
-        <div className="bg-gradient-to-r from-purple-500 to-blue-600 rounded-2xl p-6 text-white mb-8">
-          <div className="flex items-center justify-between">
-            <div className="flex items-center space-x-4">
-              <div className="bg-white bg-opacity-20 p-3 rounded-full">
-                <BrainIcon className="w-8 h-8" />
-              </div>
-              <div>
-                <h2 className="text-2xl font-bold">Meet Your AI Tutor!</h2>
-                <p className="text-blue-100 mt-1">
-                  I'm here to help you succeed in every subject. Ask me
-                  anything!
-                </p>
-              </div>
-            </div>
-            <button onClick={() => setActiveChat(!activeChat)} className="bg-white text-purple-600 px-6 py-3 rounded-full font-semibold hover:bg-gray-100 transition-colors flex items-center space-x-2">
-              <MessageCircleIcon className="w-5 h-5" />
-              <span>Chat Now</span>
-            </button>
-          </div>
+        <div className="bg-gradient-to-r from-purple-500 to-blue-600 rounded-2xl p-6 text-white mb-8 text-3xl">
+          Welcome to your Learning Hub
         </div>
         {/* Quick Stats */}
         <div className="grid grid-cols-1 md:grid-cols-4 gap-6 mb-8">
