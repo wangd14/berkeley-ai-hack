@@ -31,9 +31,57 @@ export function TeacherDashboard() {
   const COLORS = ['#10B981', '#6366F1', '#EF4444'];
   
   useEffect(() => {
-    fetch('/api/teacher-dashboard')
-      .then(res => res.json())
-      .then(data => {setDashboard(data); console.log(data);});
+    // Mock data instead of API call
+    const mockDashboardData = {
+      total_students: 28,
+      average_score: 83,
+      active_subjects: 5,
+      need_attention: 3,
+      topic_difficulty: [
+        { topic: 'Algebra', correctness: 75 },
+        { topic: 'Geometry', correctness: 82 },
+        { topic: 'Biology', correctness: 68 },
+        { topic: 'Chemistry', correctness: 71 },
+        { topic: 'English', correctness: 89 },
+      ],
+      assignment_status: [
+        { name: 'Completed', value: 68 },
+        { name: 'In Progress', value: 22 },
+        { name: 'Not Started', value: 10 },
+      ],
+      engagement_heatmap: [
+        { day: 'Mon', interactions: 45 },
+        { day: 'Tue', interactions: 52 },
+        { day: 'Wed', interactions: 49 },
+        { day: 'Thu', interactions: 63 },
+        { day: 'Fri', interactions: 58 },
+      ],
+      activity_timeline: [
+        { day: 'Mon', interactions: 45 },
+        { day: 'Tue', interactions: 52 },
+        { day: 'Wed', interactions: 49 },
+        { day: 'Thu', interactions: 63 },
+        { day: 'Fri', interactions: 58 },
+      ],
+      student_radar: [
+        { subject: 'Math', Student: 75, ClassAvg: 82 },
+        { subject: 'Science', Student: 68, ClassAvg: 75 },
+        { subject: 'English', Student: 89, ClassAvg: 88 },
+        { subject: 'History', Student: 79, ClassAvg: 79 },
+        { subject: 'Art', Student: 91, ClassAvg: 91 },
+      ],
+      student_profiles: [
+        { name: 'Emma Thompson', mastery: 92, recent: 'Math Quiz', atRisk: false },
+        { name: 'James Wilson', mastery: 78, recent: 'Science Module', atRisk: false },
+        { name: 'Sophia Chen', mastery: 85, recent: 'English Essay', atRisk: false },
+        { name: 'Lucas Garcia', mastery: 65, recent: 'Practice Problems', atRisk: true },
+      ],
+    };
+    
+    // Simulate API delay
+    setTimeout(() => {
+      setDashboard(mockDashboardData);
+    }, 500);
   }, []);
 
   if (!dashboard) {
@@ -122,6 +170,25 @@ export function TeacherDashboard() {
           <div className="h-80">
             {engagementHeatmap && engagementHeatmap.length > 0 ? (
               <ResponsiveContainer width="100%" height="100%">
+                <BarChart data={engagementHeatmap}>
+                  <CartesianGrid strokeDasharray="3 3" />
+                  <XAxis dataKey="day" />
+                  <YAxis />
+                  <Tooltip />
+                  <Bar dataKey="interactions" fill="#6366F1" radius={[4, 4, 0, 0]} />
+                </BarChart>
+              </ResponsiveContainer>
+            ) : (
+              <div className="text-gray-400 text-center pt-20">No engagement data available.</div>
+            )}
+          </div>
+        </div>
+        {/* Assignment Status */}
+        <div className="bg-white rounded-2xl shadow-lg p-6 mb-8">
+          <h2 className="text-xl font-bold text-gray-900 mb-4">Assignment Status</h2>
+          <div className="h-80">
+            {dashboard.assignment_status && dashboard.assignment_status.length > 0 ? (
+              <ResponsiveContainer width="100%" height="100%">
                 <PieChart>
                   <Pie
                     data={dashboard.assignment_status}
@@ -138,16 +205,24 @@ export function TeacherDashboard() {
                     ))}
                   </Pie>
                   <Tooltip />
-                  <Bar dataKey="Mon" stackId="a" fill="#6366F1" />
-                  <Bar dataKey="Tue" stackId="a" fill="#10B981" />
-                  <Bar dataKey="Wed" stackId="a" fill="#F59E42" />
-                  <Bar dataKey="Thu" stackId="a" fill="#EF4444" />
-                  <Bar dataKey="Fri" stackId="a" fill="#A855F7" />
                 </PieChart>
               </ResponsiveContainer>
             ) : (
-              <div className="text-gray-400 text-center pt-20">No engagement data available.</div>
+              <div className="text-gray-400 text-center pt-20">No assignment status data available.</div>
             )}
+          </div>
+          <div className="flex justify-center space-x-4 mt-4">
+            {dashboard.assignment_status && dashboard.assignment_status.map((status: any, index: number) => (
+              <div key={status.name} className="flex items-center">
+                <div
+                  className="w-3 h-3 rounded-full mr-2"
+                  style={{ backgroundColor: COLORS[index] }}
+                ></div>
+                <span className="text-sm text-gray-600">
+                  {status.name} ({status.value}%)
+                </span>
+              </div>
+            ))}
           </div>
         </div>
         {/* Activity Timeline */}
