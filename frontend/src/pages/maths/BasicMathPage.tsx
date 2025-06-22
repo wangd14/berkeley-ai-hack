@@ -10,6 +10,7 @@ import {
   XCircleIcon,
   CheckCircleIcon,
 } from 'lucide-react';
+import FloatingChatButton from '../../components/FloatingChatButton';
 
 function getBasicMathLessonPlan(): any[] {
   const mathCourse = (coursesData as any).courses.find((c: any) => c.name === 'Mathematics');
@@ -70,6 +71,7 @@ export function BasicMathPage() {
   return (
     <div className="w-full min-h-screen bg-gradient-to-br from-blue-50 to-purple-50">
       <Header title="Basic Math" />
+      <FloatingChatButton />
       <main className="max-w-7xl mx-auto px-4 py-8">
         <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
           {/* Lesson Navigation */}
