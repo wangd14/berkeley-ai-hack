@@ -3,6 +3,8 @@ import { MathematicsPage } from './pages/MathematicsPage';
 import { SciencePage } from './pages/SciencePage';
 import { Routes, Route } from 'react-router-dom';
 import { TeacherDashboard } from './pages/TeacherDashboard';
+import { EnglishArtsPage } from './pages/EnglishArtsPage';
+import { TechnologyPage } from './pages/TechnologyPage';
 
 export function App() {
   return (
@@ -11,6 +13,8 @@ export function App() {
       <Route path="/mathematics" element={<MathematicsPage />} />
       <Route path="/teacher-dashboard" element={<TeacherDashboard />} />
       <Route path="/science" element={<SciencePage />} />
+      <Route path="/english-arts" element={<EnglishArtsPage />} />
+      <Route path="/technology" element={<TechnologyPage />} />
     </Routes>
   );
 }

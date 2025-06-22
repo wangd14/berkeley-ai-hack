@@ -2,8 +2,6 @@ import { useState } from 'react';
 import { Header } from '../components/Header';
 import coursesData from '../../data/courses.json';
 import {
-  CheckCircleIcon,
-  LockIcon,
   PlayIcon,
   BrainIcon,
   BarChartIcon,

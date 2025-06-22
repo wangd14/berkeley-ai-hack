@@ -115,14 +115,112 @@
       "description": "Reading, Writing, and Literature Analysis",
       "image": "https://images.unsplash.com/photo-1481627834876-b7833e8f5570?w=400&h=300&fit=crop",
       "lessons": 52,
-      "aiTip": "I'll help you become a confident writer and reader!"
+      "aiTip": "I'll help you become a confident writer and reader!",
+      "subcourses": [
+        {
+          "name": "Reading Comprehension",
+          "description": "Learn the reading various texts and answering reading comprehension questions.",
+          "duration": "30 minutes",
+          "completed": true,
+          "topics": [
+            "How to think critically?",
+            "Summarizing texts and drawing conclusions",
+            "Context clues"
+          ],
+          "icon": "FunctionSquareIcon"
+        },
+        {
+          "name": "Writing personal narratives",
+          "description": "Explore writing personal narratives.",
+          "duration": "2 hours",
+          "completed": false,
+          "topics": ["How to write a personal narrative?", "How to use descriptive language?", "How to use dialogue?"],
+          "icon": "GitBranchIcon"
+        },
+        {
+          "name": "Writing satire",
+          "description": "Learn how to write satire to make people laugh.",
+          "duration": "2 hours",
+          "completed": false,
+          "topics": [
+            "Live",
+            "Laugh",
+            "Love"
+          ],
+          "icon": "CircleEqualIcon"
+        },
+        {
+          "name": "Writing analysis essays",
+          "description": "Learn how to analyze a text and write an essay about it.",
+          "duration": "2.5 hours",
+          "completed": false,
+          "locked": true,
+          "topics": ["How to understand the text and draw conclusions?", "How to use evidence to support your arguments?", "How to use a thesis statement?"],
+          "icon": "BarChartIcon"
+        }
+      ]
     },
     {
       "name": "Technology",
       "description": "Digital Literacy and Coding Basics",
       "image": "https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?w=400&h=300&fit=crop",
       "lessons": 25,
-      "aiTip": "Code your way to the future with fun projects!"
+      "aiTip": "Code your way to the future with fun projects!",
+      "subcourses": [
+        {
+          "name": "Introduction to C++",
+          "description": "Discover basics of C++ programming language.",
+          "duration": "4 hours",
+          "completed": true,
+          "topics": [
+            "Integers and Rational Numbers",
+            "For loops and while loops",
+            "Strings and characters", 
+            "Arraylists and vectors",
+            "Functions and classes",
+            "Pointers and references",
+            "Inheritance and polymorphism",
+            "Exception handling and debugging",
+            "File handling and input/output",
+            "STL and algorithms",
+            "Object-oriented programming"
+          ],
+          "icon": "FunctionSquareIcon"
+        },
+        {
+          "name": "Introduction to Python",
+          "description": "Discover basic of Python programming language.",
+          "duration": "4 hours",
+          "completed": false,
+          "topics": [ "Integers and Rational Numbers",
+          "For loops and while loops",
+          "Strings and characters", 
+          "Arraylists and vectors",
+          "Functions and classes",
+          "Pointers and references",
+          "Inheritance and polymorphism",
+          "Exception handling and debugging",
+          "File handling and input/output",
+          "STL and algorithms",
+          "Object-oriented programming"],
+          "icon": "GitBranchIcon"
+        },
+        {
+          "name": "Introduction to Computer Architecture",
+          "description": "Learn about the basics of computer architecture.",
+          "duration": "4 hours",
+          "completed": false,
+          "topics": [
+            "Hardware components",
+            "Binary Systems",
+            "Memory and storage",
+            "Input and output devices",
+            "Processor and control unit",
+            "Instruction set architecture"
+          ],
+          "icon": "CircleEqualIcon"
+        }
+      ]
     }
   ]
 }
