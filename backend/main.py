@@ -1,12 +1,24 @@
 import os
-from flask import Flask, send_from_directory, g, jsonify
+from flask import Flask, send_from_directory, g, jsonify, request
+from flask_cors import CORS
 import sqlite3
-from collections import defaultdict
-from datetime import datetime
+import hashlib
+import secrets
+from passlib.context import CryptContext
+import jwt
+import datetime
+from typing import Optional
 
 DATABASE = 'database.db'
 
 app = Flask(__name__, static_folder="dist", static_url_path="/")
+CORS(app)
+
+SECRET_KEY = "your_secret_key_here"
+ALGORITHM = "HS256"
+ACCESS_TOKEN_EXPIRE_MINUTES = 60
+
+pwd_context = CryptContext(schemes=["bcrypt"], deprecated="auto")
 
 def get_db():
     db = getattr(g, '_database', None)
@@ -95,20 +107,129 @@ def teacher_dashboard():
         "average_score": average_score,
         "active_subjects": active_subjects,
         "need_attention": need_attention,
-        "topic_difficulty": topic_difficulty,
-        "engagement_heatmap": engagement_heatmap,
-        "activity_timeline": activityTimeline,
-        "student_radar": studentRadar,
-        "student_profiles": profiles,
+        "subject_performance": subject_performance,
+        "weekly_progress": weekly_progress,
+        "assignment_status": assignment_status,
+        "recent_activity": recent_activity,
     })
 
-@app.errorhandler(404)
-def not_found(e):
-    # Serve index.html for any non-API, non-static route
-    path = getattr(e, 'description', '')
-    if not str(path).startswith('/api') and not str(path).startswith('/static') and not str(path).startswith('/assets'):
-        return app.send_static_file('index.html')
-    return '404 Not Found', 404
+# In-memory token store (for demo only)
+token_store = {}
+
+def hash_password(password):
+    return hashlib.sha256(password.encode('utf-8')).hexdigest()
+
+def verify_password(password, hashed):
+    return hash_password(password) == hashed
+
+@app.route('/api/signup', methods=['POST'])
+def signup():
+    data = request.form or request.json
+    username = data.get("username")
+    password = data.get("password")
+    name = data.get("name", "Student")
+    is_teacher = 0  # Force all signups to be students
+    if not username or not password:
+        return jsonify({"detail": "Username and password required"}), 400
+    # Check if username already exists
+    conn = sqlite3.connect("database.db")
+    cursor = conn.cursor()
+    cursor.execute("SELECT id FROM user WHERE username = ?", (username,))
+    if cursor.fetchone():
+        conn.close()
+        return jsonify({"detail": "Username already exists"}), 400
+    hashed = pwd_context.hash(password)
+    print(password, hashed)
+    cursor.execute(
+        "INSERT INTO user (username, password, is_teacher, name) VALUES (?, ?, ?, ?)",
+        (username, hashed, is_teacher, name)
+    )
+    conn.commit()
+    conn.close()
+    return jsonify({"message": "User created", "is_teacher": False}), 201
+
+def get_user(username):
+    conn = sqlite3.connect("database.db")
+    cursor = conn.cursor()
+    cursor.execute("SELECT username, password, is_teacher FROM user WHERE username=?", (username,))
+    row = cursor.fetchone()
+    conn.close()
+    if row:
+        return {"username": row[0], "password": row[1], "is_teacher": bool(row[2])}
+    return None
+
+def verify_password(plain_password, hashed_password):
+    return pwd_context.verify(plain_password, hashed_password)
+
+def authenticate_user(username, password):
+    user = get_user(username)
+    if not user:
+        return False
+    if not verify_password(password, user["password"]):
+        return False
+    return user
+
+def create_access_token(data, expires_delta=None):
+    to_encode = data.copy()
+    if expires_delta:
+        expire = datetime.datetime.utcnow() + expires_delta
+    else:
+        expire = datetime.datetime.utcnow() + datetime.timedelta(minutes=15)
+    to_encode.update({"exp": expire})
+    # Print for debug
+    print("JWT payload:", to_encode)
+    encoded_jwt = jwt.encode(to_encode, SECRET_KEY, algorithm=ALGORITHM)
+    print("JWT token:", encoded_jwt)
+    return encoded_jwt
+
+@app.route("/api/login", methods=["POST"])
+def login():
+    data = request.form or request.json
+    username = data.get("username")
+    password = data.get("password")
+    user = authenticate_user(username, password)
+    if not user:
+        return jsonify({"detail": "Incorrect username or password"}), 400
+    # Always fetch fresh user info from DB
+    conn = sqlite3.connect("database.db")
+    cursor = conn.cursor()
+    cursor.execute("SELECT username, is_teacher FROM user WHERE username=?", (username,))
+    row = cursor.fetchone()
+    conn.close()
+    if not row:
+        return jsonify({"detail": "User not found after login"}), 400
+    user_info = {"username": row[0], "is_teacher": bool(row[1] == 1 or row[1] == True)}
+    access_token_expires = datetime.timedelta(minutes=ACCESS_TOKEN_EXPIRE_MINUTES)
+    access_token = create_access_token(
+        {"sub": user_info["username"], "is_teacher": user_info["is_teacher"]}, expires_delta=access_token_expires
+    )
+    return jsonify({"access_token": access_token, "token_type": "bearer", "is_teacher": user_info["is_teacher"]})
 
 if not os.path.exists(DATABASE):
     init_db()
+
+# Ensure default teacher account exists with hashed password
+import os
+
+def create_teacher_account():
+    conn = sqlite3.connect("database.db")
+    cursor = conn.cursor()
+    teacher_username = "teacher"
+    teacher_password = "teacherpassword"  # Change as needed
+    teacher_is_teacher = 1
+    teacher_name = "Teacher"
+    # Check if teacher exists
+    cursor.execute("SELECT id FROM user WHERE username = ?", (teacher_username,))
+    if not cursor.fetchone():
+        hashed = pwd_context.hash(teacher_password)
+        cursor.execute(
+            "INSERT INTO user (username, password, is_teacher, name) VALUES (?, ?, ?, ?)",
+            (teacher_username, hashed, teacher_is_teacher, teacher_name)
+        )
+        conn.commit()
+    conn.close()
+
+create_teacher_account()
+
+if __name__ == "__main__":
+    app.run(debug=True)
