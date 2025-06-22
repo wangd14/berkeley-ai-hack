@@ -59,8 +59,8 @@ def teacher_dashboard():
     total_correct = db.execute("SELECT SUM(correct_answers) FROM courses_stats").fetchone()[0] or 0
     total_questions = db.execute("SELECT SUM(total_questions) FROM courses_stats").fetchone()[0] or 0
     average_score = int((total_correct / total_questions) * 100) if total_questions > 0 else 0
-    # Active subjects (distinct lesson_id)
-    active_subjects = db.execute("SELECT COUNT(DISTINCT lesson_id) FROM student_interactions").fetchone()[0]
+    # Active subjects (distinct course in courses_stats with activity)
+    active_subjects = db.execute("SELECT COUNT(DISTINCT course) FROM courses_stats WHERE total_questions > 0").fetchone()[0]
     # Need attention: students with <60% correctness
     need_attention = db.execute("SELECT COUNT(DISTINCT student_id) FROM (SELECT student_id, SUM(correct_answers)*1.0/SUM(total_questions) as avg_corr FROM courses_stats GROUP BY student_id HAVING avg_corr < 0.6)").fetchone()[0]
 
