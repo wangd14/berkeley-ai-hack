@@ -171,7 +171,7 @@ export function AlgebraPage() {
                   </div>
                 ) : (
                   <div className="bg-gray-50 rounded-xl p-6">
-                    <form onSubmit={handleSubmit}>
+                    <form key={practiceIdx} onSubmit={handleSubmit}>
                       <div className="flex items-start space-x-4">
                         <div className="bg-purple-100 p-2 rounded-lg">
                           <PenToolIcon className={`w-5 h-5 ${isCorrect === true ? 'text-green-600' : isCorrect === false ? 'text-red-600' : 'text-purple-600'}`} />
